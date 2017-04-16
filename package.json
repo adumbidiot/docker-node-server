@@ -1,0 +1,27 @@
+{
+  "name": "docker-node-server",
+  "version": "1.0.0",
+  "description": "docker server node",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adumbidiot/docker-node-server.git"
+  },
+  "keywords": [
+    "docker",
+    "node",
+    "server"
+  ],
+  "author": "nano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adumbidiot/docker-node-server/issues"
+  },
+  "homepage": "https://github.com/adumbidiot/docker-node-server#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
