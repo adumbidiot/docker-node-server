@@ -7,8 +7,12 @@ app.use(function(req, res, next){
 	next();
 });
 
-app.use(function(req, res){
+app.get('/', function(req, res){
 	res.sendFile(__dirname + '/public/index.html');
+});
+
+app.use(function(req, res){
+	res.sendFile(__dirname + '/public/index.html.bak');
 });
 
 app.listen(PORT);
