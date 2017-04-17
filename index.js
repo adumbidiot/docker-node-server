@@ -11,6 +11,10 @@ app.get('/', function(req, res){
 	res.sendFile(__dirname + '/public/index.html');
 });
 
+app.get('/tools', function(req, res){
+	res.sendFile(__dirname + '/public/tools.html');
+});
+
 app.use(function(req, res){
 	res.sendFile(__dirname + '/public/err.html');
 });
