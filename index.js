@@ -12,7 +12,7 @@ app.get('/', function(req, res){
 });
 
 app.use(function(req, res){
-	res.sendFile(__dirname + '/public/index.html.bak');
+	res.sendFile(__dirname + '/public/err.html');
 });
 
 app.listen(PORT);
