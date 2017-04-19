@@ -5,7 +5,7 @@ const fs = require('fs');
 const PORT = '8080';
 var source;
 
-context = fs.readFileSync(__dirname + "/views/index.hbs");
+source = fs.readFileSync(__dirname + "/views/index.hbs");
 var index = handlebars.compile(source);
 
 app.use(function(req, res, next){
@@ -14,8 +14,7 @@ app.use(function(req, res, next){
 });
 
 app.get('/', function(req, res){
-	var index = 
-	res.send(handlebars.compile(source));
+	var index = res.send(handlebars.compile(index));
 });
 
 app.get('/tools', function(req, res){
