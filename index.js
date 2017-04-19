@@ -1,12 +1,11 @@
 const express = require('express');
 const app = express();
-const handlebars = require('handlebars');
-const fs = require('fs');
+const exhbs = require('express-handlebars');
 const PORT = '8080';
-var source;
 
-source = fs.readFileSync("utf8", __dirname + "/views/index.hbs");
-var index = handlebars.compile(source);
+app.engine('.hbs', exphbs({extname: '.hbs'}));
+app.set('view engine', '.hbs');
+app.enable('view cache');
 
 app.use(function(req, res, next){
 	console.log(req.path);
@@ -14,7 +13,7 @@ app.use(function(req, res, next){
 });
 
 app.get('/', function(req, res){
-	res.send(index());
+	res.render(index);
 });
 
 app.get('/tools', function(req, res){
