@@ -1,7 +1,12 @@
 const express = require('express');
 const app = express();
 const handlebars = require('handlebars');
+const fs = require('fs');
 const PORT = '8080';
+var source;
+
+context = fs.readFileSync(__dirname + "/views/index.hbs");
+var index = handlebars.compile(source);
 
 app.use(function(req, res, next){
 	console.log(req.path);
@@ -9,7 +14,8 @@ app.use(function(req, res, next){
 });
 
 app.get('/', function(req, res){
-	res.sendFile(__dirname + '/public/index.html');
+	var index = 
+	res.send(handlebars.compile(source));
 });
 
 app.get('/tools', function(req, res){
