@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/adumbidiot/docker-node-server#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "handlebars":"^4.0.6",
   }
 }
