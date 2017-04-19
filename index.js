@@ -14,7 +14,7 @@ app.use(function(req, res, next){
 });
 
 app.get('/', function(req, res){
-	var index = res.send(handlebars.compile(index));
+	res.send(index());
 });
 
 app.get('/tools', function(req, res){
