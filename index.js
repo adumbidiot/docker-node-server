@@ -3,7 +3,7 @@ const app = express();
 const exhbs = require('express-handlebars');
 const PORT = '8080';
 
-app.engine('.hbs', exphbs({extname: '.hbs'}));
+app.engine('.hbs', exhbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.enable('view cache');
 
