@@ -5,7 +5,7 @@ const fs = require('fs');
 const PORT = '8080';
 var source;
 
-source = fs.readFileSync(__dirname + "/views/index.hbs");
+source = fs.readFileSync("utf8", __dirname + "/views/index.hbs");
 var index = handlebars.compile(source);
 
 app.use(function(req, res, next){
