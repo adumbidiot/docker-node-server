@@ -17,7 +17,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/tools', function(req, res){
-	res.sendFile(__dirname + '/public/tools.html');
+	res.render('tools');
 });
 
 app.use(function(req, res){
