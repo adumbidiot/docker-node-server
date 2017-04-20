@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
+const config = require('./config');
 const exhbs = require('express-handlebars');
-const PORT = '8080';
 
-app.engine('.hbs', exhbs({extname: '.hbs', defaultLayout: 'main'}));
+app.engine('.hbs', exhbs(config.exhbs));
 app.set('view engine', '.hbs');
 app.enable('view cache');
 
@@ -24,4 +24,6 @@ app.use(function(req, res){
 	res.sendFile(__dirname + '/public/err.html');
 });
 
-app.listen(PORT);
+app.listen(config.PORT, function(){
+	console.log('Server running at port ' + config.PORT);	
+});
