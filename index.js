@@ -25,7 +25,7 @@ app.get('/games/platformer', function(req, res){
 });
 
 app.get('/games/platformer/test.swf', function(req, res){
-	res.render('platformer');
+	res.sendFile(__dirname + '/public/test.swf');
 });
 
 app.get('/tools', function(req, res){
