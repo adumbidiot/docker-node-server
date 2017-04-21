@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span> 
+      			</button>
+			<a class="navbar-brand" href="/">Nanopi</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li><a href="/">Home</a></li>
+				<li><a href="https://nanopi.ml/games">Games</a></li>
+				<li class="active"><a href="https://nanopi.ml/tools">Tools</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container text-center">
+  <h3>Games</h3>
+  <p><em>Have fun</em></p>
+  <br>
+  <div class="col-sm-3">
+	  <a href="https://www.nanopi.ml/tools/swfinfo">SWF Info Finder</a>
+  </div>
+</div>
