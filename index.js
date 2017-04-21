@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const config = require('./config');
 const exhbs = require('express-handlebars');
+const request = require('request');
 
 app.engine('.hbs', exhbs(config.exhbs));
 app.set('view engine', '.hbs');
@@ -33,7 +34,8 @@ app.get('/games/platformer/test.swf', function(req, res){
 });
 
 app.get('/games/platformer.swf', function(req, res){
-	res.redirect('https://www.nanopi.ml/api/platformer.swf');
+	request.get('http://nanopi.ddns.net/api/platformer.swf').pipe(res);
+	//res.redirect('https://www.nanopi.ml/api/platformer.swf');
 });
 
 app.get('/tools', function(req, res){
