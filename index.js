@@ -24,6 +24,10 @@ app.get('/games/platformer', function(req, res){
 	res.render('platformer');
 });
 
+app.get('/games/platformer/logic.js', function(req, res){
+	res.sendFile(__dirname + '/public/logic.js');
+});
+
 app.get('/games/platformer/test.swf', function(req, res){
 	res.sendFile(__dirname + '/public/test.swf');
 });
