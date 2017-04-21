@@ -28,6 +28,10 @@ app.get('/games/platformer/test.swf', function(req, res){
 	res.sendFile(__dirname + '/public/test.swf');
 });
 
+app.get('/games/platformer.swf', function(req, res){
+	res.redirect('https://nanopi.ml/api/platformer.swf');
+});
+
 app.get('/tools', function(req, res){
 	res.render('tools');
 });
