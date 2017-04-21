@@ -28,6 +28,10 @@ app.use(function(req, res){
 	res.sendFile(__dirname + '/public/err.html');
 });
 
+app.get('/api*', function(req, res){
+	res.redirect('https://www.nanopi.ml/api' + req.path);
+});
+
 app.listen(config.PORT, function(){
 	console.log('Server running at port ' + config.PORT);	
 });
