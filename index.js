@@ -20,16 +20,20 @@ app.get('/games', function(req, res){
 	res.render('games');
 });
 
+app.get('/games/platformer', function(req, res){
+	res.render('platformer');
+});
+
 app.get('/tools', function(req, res){
 	res.render('tools');
 });
 
-app.use(function(req, res){
-	res.sendFile(__dirname + '/public/err.html');
-});
-
 app.get('/api*', function(req, res){
 	res.redirect('https://www.nanopi.ml/api' + req.path);
+});
+
+app.use(function(req, res){
+	res.sendFile(__dirname + '/public/err.html');
 });
 
 app.listen(config.PORT, function(){
