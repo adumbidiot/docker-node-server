@@ -2,8 +2,9 @@ var past = 0;
 var sent = false;
 
 function time(data){
-	if(past === data && past !== 0){
+	if(past === data && past !== 0 && !sent){
 		console.log('done');
+		sent = true;
 		$.post("platformer/score", {
 			time: data
     		},
