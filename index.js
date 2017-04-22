@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const config = require('./config');
-const request = require('request');
 const games = require('./games');
 const handlebars = require('./handlebars');
 
@@ -14,16 +13,11 @@ app.use(function(req, res, next){
 	next();
 });
 
+app.use('/games', games);
+
 app.get('/', function(req, res){
 	res.render('index');
 });
-
-app.get('/games/platformer.swf', function(req, res){
-	request.get('http://nanopi.ddns.net/api/platformer.swf').pipe(res);
-	//res.redirect('https://www.nanopi.ml/api/platformer.swf');
-});
-
-app.use('/games', games);
 
 app.get('/tools', function(req, res){
 	res.render('tools');
