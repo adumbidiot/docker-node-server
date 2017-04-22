@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const config = require('./config');
-//const exhbs = require('express-handlebars');
 const request = require('request');
 const games = require('./games');
 const handlebars = require('./handlebars');
@@ -17,14 +16,6 @@ app.use(function(req, res, next){
 
 app.get('/', function(req, res){
 	res.render('index');
-});
-
-app.get('/games', function(req, res){
-	res.render('games');
-});
-
-app.get('/games/platformer', function(req, res){
-	res.render('platformer');
 });
 
 app.get('/games/platformer.swf', function(req, res){
