@@ -4,7 +4,7 @@ window.onload = function(){
 	var data = 0;
 	$.get("platformer/score", function(data, status){
 		var a = JSON.parse(data);
-		var b;
+		var b = '';
 		for(var i in a){
 			b += '<p>' + i.toString() + '</p>';
 		}
