@@ -31,6 +31,10 @@ app.post('/platformer/score', function(req, res){
 	res.send('ok');
 });
 
+app.get('/platformer/score', function(req, res){
+	res.json(scores);
+});
+
 app.get('/platformer/logic.js', function(req, res){
 	res.sendFile(__dirname + '/public/games/logic.js');
 });
