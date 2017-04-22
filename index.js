@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const config = require('./config');
 const games = require('./games');
+const api = require('./api');
 const handlebars = require('./handlebars');
 
 app.engine('.hbs', handlebars.engine);
@@ -14,6 +15,7 @@ app.use(function(req, res, next){
 });
 
 app.use('/games', games);
+app.use('/api', api);
 
 app.get('/', function(req, res){
 	res.render('index');
@@ -21,10 +23,6 @@ app.get('/', function(req, res){
 
 app.get('/tools', function(req, res){
 	res.render('tools');
-});
-
-app.get('/api*', function(req, res){
-	res.redirect('https://www.nanopi.ml/api' + req.path);
 });
 
 app.use(function(req, res){
