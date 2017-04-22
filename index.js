@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
 const config = require('./config');
-const exhbs = require('express-handlebars');
+//const exhbs = require('express-handlebars');
 const request = require('request');
 const games = require('./games');
+const handlebars = require('./handlebars');
 
-app.engine('.hbs', exhbs(config.exhbs));
+app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs');
 app.enable('view cache');
 
