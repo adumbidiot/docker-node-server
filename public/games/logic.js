@@ -1,5 +1,16 @@
 var past = 0;
 var sent = false;
+window.onload = function(){
+	var data = 0;
+	$.get("platformer/score", function(data, status){
+		var a = JSON.parse(data);
+		var b;
+		for(var i in a){
+			b += '<p>' + i.toString() + '</p>';
+		}
+        	document.getElementById('chart').innerHTML += b;
+    	});
+}
 
 function time(data){
 	if(past === data && past !== 0 && !sent){
