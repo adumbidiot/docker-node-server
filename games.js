@@ -3,6 +3,7 @@ const app = express();
 const request = require('request');
 const handlebars = require('./handlebars');
 const bodyparser = require('body-parser');
+var scores = [];
 
 app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs');
@@ -26,6 +27,8 @@ app.get('/platformer', function(req, res){
 
 app.post('/platformer/score', function(req, res){
 	console.log(req.body.time);
+	scores.push(req.body.time);
+	res.send('ok');
 });
 
 app.get('/platformer/logic.js', function(req, res){
