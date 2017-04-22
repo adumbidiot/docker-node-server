@@ -4,9 +4,10 @@ function time(data){
 	console.log(data);
 	if(past === data && past !== 0){
 		$.post("platformer/score", {
-			time: atob(data)
+			time: data
     		},
     		function(data, status){
+			console.log('ok');
        		});
 	}
 	past = data;
