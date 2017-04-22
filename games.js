@@ -2,10 +2,13 @@ const express = require('express');
 const app = express();
 const request = require('request');
 const handlebars = require('./handlebars');
+const bodyparser = require('body-parser');
 
 app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs');
 app.enable('view cache');
+
+app.use(bodyparser.urlencoded());
 
 app.get('/', function(req, res){
 	res.render('games');
@@ -17,6 +20,10 @@ app.get('/games/platformer.swf', function(req, res){
 
 app.get('/platformer', function(req, res){
 	res.render('platformer');
+});
+
+app.post('/platformer/score', function(req, res){
+	
 });
 
 app.get('/platformer/logic.js', function(req, res){
