@@ -20,7 +20,7 @@ app.get('/platformer', function(req, res){
 });
 
 app.get('/platformer/logic.js', function(req, res){
-	res.sendFile(__dirname + '/public/logic.js');
+	res.sendFile(__dirname + '/public/games/logic.js');
 });
 
 app.get('/platformer/test.swf', function(req, res){
