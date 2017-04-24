@@ -17,7 +17,7 @@ app.get('/', function(req, res){
 	res.render('games');
 });
 
-app.get('/games/platformer.swf', function(req, res){
+app.get('/platformer.swf', function(req, res){
 	request.get('http://nanopi.ddns.net/api/platformer.swf').pipe(res);
 });
 
