@@ -3,13 +3,13 @@ var sent = false;
 window.onload = function(){
 	var data = 0;
 	$.get("platformer/score", function(data, status){
-		var a = JSON.parse(data);
+		/*var a = JSON.parse(data);
 		console.log(a);
 		var b = '';
 		for(var i in a){
 			b += '<p>' + i.toString() + '</p>';
-		}
-        	document.getElementById('chart').innerHTML += a;
+		}*/
+        	document.getElementById('chart').innerHTML += data;
     	});
 }
 
