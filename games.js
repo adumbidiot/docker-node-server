@@ -26,9 +26,20 @@ app.get('/platformer', function(req, res){
 });
 
 app.post('/platformer/score', function(req, res){
-	console.log(req.body.time);
-	scores.push(req.body.time);
+	//Recieve Response
+	var score = req.body.time;
+	console.log(score);
 	res.send('ok');
+	
+	//Order score list
+	var index = 0;
+	for(var i = 0; i != scores.length; i++){
+		if(score >= scores[i]){
+			scores.splice(i, 0, score);
+			break;
+		}
+	}
+	//scores.push(score);
 });
 
 app.get('/platformer/score', function(req, res){
