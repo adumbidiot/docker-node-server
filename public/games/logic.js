@@ -4,7 +4,7 @@ window.onload = function(){
 	var data = 0;
 	$.get("platformer/score", function(data, status){
 		var a = '';
-		for(var i in a){
+		for(var i in data){
 			a += '<p>' + i + '</p>\n';
 		}
         	document.getElementById('chart').innerHTML = a;
