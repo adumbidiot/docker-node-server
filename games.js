@@ -3,7 +3,7 @@ const app = express();
 const request = require('request');
 const handlebars = require('./handlebars');
 const bodyparser = require('body-parser');
-var scores = [179.83333333046835, 153.24999999755812];
+var scores = ["179.83333333046835", "153.24999999755812"];
 
 app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs');
