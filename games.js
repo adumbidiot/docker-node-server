@@ -33,15 +33,14 @@ app.post('/platformer/score', function(req, res){
 	res.send('ok');
 	
 	//Order score list
-	var index = 0;
 	for(var i = 0; i != scores.length; i++){
 		if(score < scores[i]){
 			scores.splice(i, 0, score);
-			break;
+			return;
 		}
 	}
 	//TODO: ADD removal for entries over the limit of 10
-	//scores.push(score);
+	scores.push(score);
 });
 //Maybe move to its own file(repetetive)
 app.get('/platformer/score', function(req, res){
