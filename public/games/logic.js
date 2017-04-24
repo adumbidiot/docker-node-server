@@ -1,7 +1,8 @@
 var past = 0;
 var sent = false;
-window.onload = function(){
-	var data = 0;
+window.onload = updateScores;
+	
+function updateScores(){
 	$.get("platformer/score", function(data, status){
 		var a = '';
 		for(var i = 0; i != data.length; i++){
@@ -20,6 +21,7 @@ function time(data){
     		},
     		function(data, status){
 			console.log('ok');
+			updateScores();
        		});
 	}
 	past = data;
