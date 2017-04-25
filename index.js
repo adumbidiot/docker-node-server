@@ -21,6 +21,10 @@ app.get('/', function(req, res){
 	res.render('index');
 });
 
+app.get('/favicon.ico', function(req, res){
+	res.sendFile(__dirname + '/public/favicon.ico');
+});
+
 app.get('/tools', function(req, res){
 	res.render('tools');
 });
