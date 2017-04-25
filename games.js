@@ -40,19 +40,19 @@ app.get('/platformer', function(req, res){
 app.post('/platformer/score', function(req, res){
 	//Recieve Response
 	//TODO: Ignore values after 2nd decimal
-	var score = req.body.time;
+	var score = req.body.time; //Convieniece
 	console.log(score);
 	res.send('ok');
 	
 	//Order score list
 	for(var i = 0; i != scores.length; i++){
 		if(Number(score) < Number(scores[i])){
-			scores.splice(i, 0, score);
-			scores.length = 10;
-			return;
+			scores.splice(i, 0, score); //insert score
+			scores.length = 10; //Prune to 10
+			return; //end function
 		}
 	}
-	scores.length = 10;
+	scores.length = 10;//Prune to 10
 });
 //Maybe move to its own file(repetetive)
 app.get('/platformer/score', function(req, res){
