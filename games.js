@@ -13,8 +13,7 @@ var scores = [
 	"96.24999999846534",
 	"97.83333333177347",
 	"99.04166666508758",
-	"101.45833333171578",
-	"102.33333333170185"
+	"101.45833333171578"
 ]; // Test runs
 
 app.engine('.hbs', handlebars.engine); //Modularity could be improved
