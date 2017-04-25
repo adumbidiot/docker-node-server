@@ -3,6 +3,7 @@ const app = express(); //Replace with own hashtable-enabled router?
 const request = require('request'); //Maybe move to api.js 
 const handlebars = require('./handlebars');
 const bodyparser = require('body-parser'); //Maybe move to api.js
+//Don't look at me like that. I don't have a database yet.
 var scores = [
 	"91.99999999853299",
 	"93.70833333183913",
@@ -14,15 +15,15 @@ var scores = [
 	"97.83333333177347",
 	"99.04166666508758",
 	"101.45833333171578"
-]; // Test runs
+];
 
 app.engine('.hbs', handlebars.engine); //Modularity could be improved
 app.set('view engine', '.hbs'); //Easier to type
 app.enable('view cache'); //I rebuild the image every time so why not
-
+//TODO: Reorder for efficiency to eliminate unnecessary parsing
 app.use(bodyparser.urlencoded({
   extended: true
-}));
+}));//Parse post requests
 
 app.get('/', function(req, res){
 	res.render('games');
@@ -40,8 +41,8 @@ app.post('/platformer/score', function(req, res){
 	//Recieve Response
 	//TODO: Ignore values after 2nd decimal
 	var score = req.body.time; //Convieniece
-	console.log(score);
-	res.send('ok');
+	console.log(score);//WOW!!! Basic logging!
+	res.send('ok');//TODO: ADD errors and states
 	
 	//Order score list
 	for(var i = 0; i != scores.length; i++){
@@ -51,7 +52,7 @@ app.post('/platformer/score', function(req, res){
 			return; //end function
 		}
 	}
-	scores.length = 10;//Prune to 10
+	scores.length = 10; //Prune to 10
 });
 //Maybe move to its own file(repetetive)
 app.get('/platformer/score', function(req, res){
