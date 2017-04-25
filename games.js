@@ -47,6 +47,7 @@ app.post('/platformer/score', function(req, res){
 	for(var i = 0; i != scores.length; i++){
 		if(Number(score) < Number(scores[i])){
 			scores.splice(i, 0, score);
+			scores.length = 10;
 			return;
 		}
 	}
