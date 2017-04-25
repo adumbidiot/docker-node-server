@@ -15,7 +15,7 @@ var scores = [
 	"97.83333333177347",
 	"99.04166666508758",
 	"101.45833333171578"
-];
+]; //The worst way to maintain state but I still need to set up a database
 
 app.engine('.hbs', handlebars.engine); //Modularity could be improved
 app.set('view engine', '.hbs'); //Easier to type
@@ -52,7 +52,7 @@ app.post('/platformer/score', function(req, res){
 			return; //end function
 		}
 	}
-	scores.length = 10; //Prune to 10
+	scores.length = 10; //Prune to 10 (Do I really need to prune if no data is added?)
 });
 //Maybe move to its own file(repetetive)
 app.get('/platformer/score', function(req, res){
@@ -60,11 +60,11 @@ app.get('/platformer/score', function(req, res){
 });
 
 app.get('/platformer/logic.js', function(req, res){
-	res.sendFile(__dirname + '/public/games/logic.js'); 
+	res.sendFile(__dirname + '/public/games/logic.js');//Fix file name plz 
 });
 
 app.get('/platformer/test.swf', function(req, res){
-	res.sendFile(__dirname + '/public/test.swf');
+	res.sendFile(__dirname + '/public/test.swf'); //TODO: Clean code and rename SWF
 });
 
 module.exports = app;
