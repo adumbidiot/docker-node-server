@@ -3,7 +3,19 @@ const app = express(); //Replace with own hashtable-enabled router?
 const request = require('request'); //Maybe move to api.js 
 const handlebars = require('./handlebars');
 const bodyparser = require('body-parser'); //Maybe move to api.js
-var scores = ["153.24999999755812", "179.83333333046835"]; //Two test runs
+var scores = [
+		"93.70833333183913",
+		"94.37499999849518",
+		"99.04166666508758",
+		"101.45833333171578",
+		"102.33333333170185",
+		"102.8749999983599",
+		"104.166666665006", 
+		"110.66666666490255",
+		"153.24999999755812", 
+		"179.83333333046835",
+		"276.41666666226445"
+]; // Test runs
 
 app.engine('.hbs', handlebars.engine); //Modularity could be improved
 app.set('view engine', '.hbs'); //Easier to type
@@ -34,7 +46,7 @@ app.post('/platformer/score', function(req, res){
 	
 	//Order score list
 	for(var i = 0; i != scores.length; i++){
-		if(score < scores[i]){
+		if(Number(score) < Number(scores[i])){
 			scores.splice(i, 0, score);
 			return;
 		}
