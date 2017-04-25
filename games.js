@@ -50,8 +50,7 @@ app.post('/platformer/score', function(req, res){
 			return;
 		}
 	}
-	//TODO: ADD removal for entries over the limit of 10
-	scores.push(score);
+	scores.length = 10;
 });
 //Maybe move to its own file(repetetive)
 app.get('/platformer/score', function(req, res){
