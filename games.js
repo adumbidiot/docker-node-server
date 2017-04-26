@@ -64,6 +64,10 @@ app.get('/platformer/logic.js', function(req, res){
 	res.sendFile(__dirname + '/public/games/logic.js');//Fix file name plz 
 });
 
+app.get('/platformer/platformer.jpg', function(req, res){
+	res.sendFile(__dirname + '/public/games/platformer.jpg');
+});
+
 app.get('/platformer/test.swf', function(req, res){
 	res.sendFile(__dirname + '/public/test.swf'); //TODO: Clean code and rename SWF
 });
