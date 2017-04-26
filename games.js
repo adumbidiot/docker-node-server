@@ -69,7 +69,7 @@ app.get('/platformer/platformer.jpg', function(req, res){
 });
 
 app.get('/platformer/test.swf', function(req, res){
-	res.sendFile(__dirname + '/public/test.swf'); //TODO: Clean code and rename SWF
+	res.sendFile(__dirname + '/public/loader.swf'); //TODO: Clean code and rename SWF
 });
 
 //app.use('/platformer', platformer);
