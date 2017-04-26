@@ -9,6 +9,13 @@ const handlebars = require('./handlebars');
 const uws = require('uws');
 const uwss = new uws.Server({noServer: true});
 
+
+server.on('upgrade', function(req, sock, head){
+uwss.handleUpgrade(req, sock, head, function(){
+console.log('upgrade req');	
+});
+});
+
 app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs');
 app.enable('view cache');
