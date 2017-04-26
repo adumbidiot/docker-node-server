@@ -25,6 +25,7 @@
     "express": "^4.15.2",
     "express-handlebars":"^3.0.0",
     "request":"^2.81.0",
-    "body-parser": "^1.17.1"
+    "body-parser": "^1.17.1",
+    "uws": "^0.14.1"
   }
 }
