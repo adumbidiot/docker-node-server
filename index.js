@@ -5,6 +5,7 @@ const games = require('./games');
 const api = require('./api');
 const handlebars = require('./handlebars');
 const uws = require('uws');
+const uwss = uws.server({noserver: true});
 
 app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs');
