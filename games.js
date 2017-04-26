@@ -2,6 +2,7 @@ const express = require('express'); //TODO: Replace with Koa or better framework
 const app = express(); //Replace with own hashtable-enabled router?
 const request = require('request'); //Maybe move to api.js 
 const handlebars = require('./handlebars');
+//const platformer = require('./games/platformer');
 const bodyparser = require('body-parser'); //Maybe move to api.js
 //Don't look at me like that. I don't have a database yet.
 var scores = [
@@ -32,7 +33,7 @@ app.get('/', function(req, res){
 app.get('/platformer.swf', function(req, res){
 	request.get('http://nanopi.ddns.net/api/platformer.swf').pipe(res); //Temporary quick fix until I copy the code
 });
-
+//Maybe move to its own file(repetetive)
 app.get('/platformer', function(req, res){
 	res.render('platformer');
 });
@@ -54,7 +55,7 @@ app.post('/platformer/score', function(req, res){
 	}
 	scores.length = 10; //Prune to 10 (Do I really need to prune if no data is added?)
 });
-//Maybe move to its own file(repetetive)
+
 app.get('/platformer/score', function(req, res){
 	res.json(scores);
 });
@@ -66,5 +67,7 @@ app.get('/platformer/logic.js', function(req, res){
 app.get('/platformer/test.swf', function(req, res){
 	res.sendFile(__dirname + '/public/test.swf'); //TODO: Clean code and rename SWF
 });
+
+//app.use('/platformer', platformer);
 
 module.exports = app;
