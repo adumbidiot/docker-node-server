@@ -2,7 +2,7 @@ const express = require('express'); //TODO: Replace with Koa or better framework
 const app = express(); //Replace with own hashtable-enabled router?
 const request = require('request'); //Maybe move to api.js 
 const handlebars = require('./handlebars');
-//const platformer = require('./games/platformer');
+const platformer = require('./platformer');
 const bodyparser = require('body-parser'); //Maybe move to api.js
 //Don't look at me like that. I don't have a database yet.
 var scores = [
@@ -60,18 +60,6 @@ app.get('/platformer/score', function(req, res){
 	res.json(scores);
 });
 
-app.get('/platformer/logic.js', function(req, res){
-	res.sendFile(__dirname + '/public/games/logic.js');//Fix file name plz 
-});
-
-app.get('/platformer/platformer.jpg', function(req, res){
-	res.sendFile(__dirname + '/public/games/platformer.jpg');
-});
-
-app.get('/platformer/test.swf', function(req, res){
-	res.sendFile(__dirname + '/public/loader.swf'); //TODO: Clean code and rename SWF
-});
-
-//app.use('/platformer', platformer);
+app.use('/platformer', platformer);
 
 module.exports = app;
