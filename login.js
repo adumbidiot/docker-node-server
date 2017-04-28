@@ -17,7 +17,7 @@ app.use(bodyparser.urlencoded({
 app.use(cookieparser());
 
 app.get('/', function(req, res, next){
-  res.render(login, {login: true});
+  res.render('login', {login: true});
 });
 
 module.exports = app;
