@@ -27,7 +27,7 @@ app.use(bodyparser.urlencoded({
 }));//Parse post requests
 
 app.get('/', function(req, res){
-	res.render('games');
+	res.render('games' {games: true});
 });
 
 app.get('/platformer.swf', function(req, res){
