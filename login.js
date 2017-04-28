@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const bodyparser = require('body-parser');
 const cookieparser = require('cookie-parser');
 const handlebars = require('./handlebars');
+const cfg = require('./config');
 const secret = 'thecakewasalie';
 
 app.engine('.hbs', handlebars.engine);
