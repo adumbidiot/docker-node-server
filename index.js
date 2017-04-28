@@ -51,7 +51,6 @@ app.use('/login', login);
 
 app.get('/', function(req, res){
 	res.render('index', {home: true});
-	console.log(req.auth);
 });
 
 app.get('/favicon.ico', function(req, res){
@@ -72,5 +71,5 @@ app.use(function(req, res){
 
 server.listen(config.PORT, function(){
 	console.log('Server running at port ' + config.PORT);
-	console.log('ADMIN is :' + config.auth.username);
+	console.log('ADMIN is '  + config.auth.username);
 });
