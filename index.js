@@ -6,6 +6,7 @@ const config = require('./config');
 const games = require('./games');
 const api = require('./api');
 const login = require('./login');
+const admin = require('./admin');
 const handlebars = require('./handlebars');
 const uws = require('uws');
 const jwt = require('jsonwebtoken');
@@ -48,6 +49,7 @@ app.use(function(req, res, next){
 app.use('/games', games);
 app.use('/api', api);
 app.use('/login', login);
+app.use('/admin', admin);
 
 app.get('/', function(req, res){
 	res.render('index', {home: true, auth: req.auth});
