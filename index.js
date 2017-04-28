@@ -34,6 +34,7 @@ app.use(function(req, res, next){
 
 app.use('/games', games);
 app.use('/api', api);
+app.use('/login', login);
 
 app.get('/', function(req, res){
 	res.render('index', {home: true});
