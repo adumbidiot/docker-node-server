@@ -31,13 +31,24 @@ app.use(function(req, res, next){
 	console.log(req.path);
 	next();
 });
-
+app.use(cookieparser());
+app.use(function(req, res, next){
+  jwt.verify(req.cookies.auth, secret, function(err, decoded){
+    if(err){
+	    req.auth = false;
+    }else{
+	  req.auth = decoded;  
+    }
+	next();  
+  });
+});
 app.use('/games', games);
 app.use('/api', api);
 app.use('/login', login);
 
 app.get('/', function(req, res){
 	res.render('index', {home: true});
+	console.log(req.auth);
 });
 
 app.get('/favicon.ico', function(req, res){
