@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const bodyparser = require('body-parser');
 const cookieparser = require('cookie-parser');
 const handlebars = require('./handlebars');
-const cfg = require('./config');
+const config = require('./config');
 const secret = 'thecakewasalie';
 
 app.engine('.hbs', handlebars.engine);
@@ -29,10 +29,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/', function(req, res){
-  var profile = {
-    username: 'admin',
-    password: 'password'
-  }
+  var profile = config.auth;
   
   if(req.body.username === profile.username && req.body.password === profile.password){
     var token = jwt.sign(profile, secret);
