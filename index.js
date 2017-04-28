@@ -8,12 +8,18 @@ const api = require('./api');
 const handlebars = require('./handlebars');
 const uws = require('uws');
 const uwss = new uws.Server({noServer: true});
-
+const chat = new uws.Server({noServer: true});
 
 server.on('upgrade', function(req, sock, head){
-uwss.handleUpgrade(req, sock, head, function(){
-console.log('upgrade req');	
-});
+	if(req.path == '/chat'){
+		chat.handleUpgrade(req, sock, head, function(){
+			console.log('upgrade req');	
+		});	
+	}else{
+		uwss.handleUpgrade(req, sock, head, function(){
+			console.log('upgrade req');	
+		});
+	}
 });
 
 app.engine('.hbs', handlebars.engine);
@@ -38,6 +44,10 @@ app.get('/favicon.ico', function(req, res){
 
 app.get('/tools', function(req, res){
 	res.render('tools');
+});
+
+app.get('/chat', function(req, res){
+	res.render('chat');
 });
 
 app.use(function(req, res){
