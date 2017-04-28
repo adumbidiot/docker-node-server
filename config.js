@@ -3,5 +3,9 @@ module.exports = {
   exhbs: {
     extname: '.hbs', 
     defaultLayout: 'main'
+  },
+  auth: {
+    username: 'user',
+    password: 'pass'
   }
 }
