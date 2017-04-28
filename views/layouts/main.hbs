@@ -49,13 +49,13 @@
        					<li {{#if chat}}class="active"{{/if}}>
 						<a href="https://nanopi.ml/chat">Chat</a>
 					</li>
-					{{#if loggedIn}}
-						<li {{#unless auth}}class="active"{{/unless}}>
-							<a href="https://nanopi.ml/login">Login</a>
+					{{#if auth}}
+						<li {{#if admin}}class="active"{{/if}}>
+							<a href="https://nanopi.ml/admin">Admin</a>
 						</li>
 						{{else}}
-						<li {{#if auth}}class="active"{{/if}}>
-							<a href="https://nanopi.ml/admin">Admin</a>
+						<li {{#if login}}class="active"{{/if}}>
+							<a href="https://nanopi.ml/login">Login</a>
 						</li>
 					{{/if}}
 				</ul>
