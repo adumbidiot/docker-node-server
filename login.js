@@ -25,7 +25,7 @@ app.use(function(req, res, next){
 });
 
 app.get('/', function(req, res){
-  res.render('login', {login: true});
+  res.render('login', {login: true, auth: req.auth});
 });
 
 app.post('/', function(req, res){
