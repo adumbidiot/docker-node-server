@@ -27,7 +27,7 @@ app.use(bodyparser.urlencoded({
 }));//Parse post requests
 
 app.get('/', function(req, res){
-	res.render('games' {games: true});
+	res.render('games', {games: true});
 });
 
 app.get('/platformer.swf', function(req, res){
@@ -39,8 +39,8 @@ app.post('/platformer/score', function(req, res){
 	//Recieve Response
 	//TODO: Ignore values after 2nd decimal
 	var score = req.body.time; //Convieniece
-	console.log(score);//WOW!!! Basic logging!
-	res.send('ok');//TODO: ADD errors and states
+	console.log(score); //WOW!!! Basic logging!
+	res.send('ok'); //TODO: ADD errors and states
 	
 	//Order score list
 	for(var i = 0; i != scores.length; i++){
