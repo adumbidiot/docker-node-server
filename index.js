@@ -50,7 +50,7 @@ app.use('/api', api);
 app.use('/login', login);
 
 app.get('/', function(req, res){
-	res.render('index', {home: true});
+	res.render('index', {home: true, auth: req.auth});
 });
 
 app.get('/favicon.ico', function(req, res){
