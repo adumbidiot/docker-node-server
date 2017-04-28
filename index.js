@@ -57,5 +57,6 @@ app.use(function(req, res){
 });
 
 server.listen(config.PORT, function(){
-	console.log('Server running at port ' + config.PORT);	
+	console.log('Server running at port ' + config.PORT);
+	console.log('ADMIN is :' + config.auth.username);
 });
