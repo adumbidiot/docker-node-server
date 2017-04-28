@@ -35,7 +35,7 @@ app.use('/games', games);
 app.use('/api', api);
 
 app.get('/', function(req, res){
-	res.render('index');
+	res.render('index', {home: true});
 });
 
 app.get('/favicon.ico', function(req, res){
@@ -43,11 +43,11 @@ app.get('/favicon.ico', function(req, res){
 });
 
 app.get('/tools', function(req, res){
-	res.render('tools');
+	res.render('tools', {tools: true});
 });
 
 app.get('/chat', function(req, res){
-	res.render('chat');
+	res.render('chat' {chat: true});
 });
 
 app.use(function(req, res){
