@@ -50,11 +50,11 @@
 						<a href="https://nanopi.ml/chat">Chat</a>
 					</li>
 					{{#if loggedIn}}
-						<li {{#if login}}class="active"{{/if}}>
+						<li {{#if !auth}}class="active"{{/if}}>
 							<a href="https://nanopi.ml/login">Login</a>
 						</li>
 						{{else}}
-						<li {{#if admin}}class="active"{{/if}}>
+						<li {{#if auth}}class="active"{{/if}}>
 							<a href="https://nanopi.ml/admin">Admin</a>
 						</li>
 					{{/if}}
