@@ -47,7 +47,7 @@ app.get('/tools', function(req, res){
 });
 
 app.get('/chat', function(req, res){
-	res.render('chat' {chat: true});
+	res.render('chat', {chat: true});
 });
 
 app.use(function(req, res){
