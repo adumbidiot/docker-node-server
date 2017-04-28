@@ -5,6 +5,7 @@ const server = http.createServer(app);
 const config = require('./config');
 const games = require('./games');
 const api = require('./api');
+const login = require('./login');
 const handlebars = require('./handlebars');
 const uws = require('uws');
 const uwss = new uws.Server({noServer: true});
