@@ -5,7 +5,7 @@ module.exports = {
     defaultLayout: 'main'
   },
   auth: {
-    username: 'user',
-    password: 'pass'
+    username: 'USER',
+    password: 'PASS'
   }
 }
