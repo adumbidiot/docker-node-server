@@ -58,11 +58,11 @@ app.get('/favicon.ico', function(req, res){
 });
 
 app.get('/tools', function(req, res){
-	res.render('tools', {tools: true});
+	res.render('tools', {tools: true, auth: req.auth});
 });
 
 app.get('/chat', function(req, res){
-	res.render('chat', {chat: true});
+	res.render('chat', {chat: true, auth: req.auth});
 });
 
 app.use(function(req, res){
