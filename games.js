@@ -34,9 +34,6 @@ app.get('/platformer.swf', function(req, res){
 	request.get('http://nanopi.ddns.net/api/platformer.swf').pipe(res); //Temporary quick fix until I copy the code
 });
 //Maybe move to its own file(repetetive)
-app.get('/platformer', function(req, res){
-	res.render('platformer');
-});
 
 app.post('/platformer/score', function(req, res){
 	//Recieve Response
