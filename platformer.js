@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 
+app.get('/', function(req, res){
+	res.render('platformer');
+});
+
 app.get('/logic.js', function(req, res){
 	res.sendFile(__dirname + '/public/games/logic.js');//Fix file name plz 
 });
