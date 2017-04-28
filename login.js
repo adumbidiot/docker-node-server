@@ -18,10 +18,10 @@ app.use(bodyparser.urlencoded({
 app.use(cookieparser());
 
 app.use(function(req, res, next){
-  jwt.verify(req.cookies.auth, secret, function(err, decoded){
-    if(err) return next();
+  if(req.auth){
     return res.redirect('/');
-  });
+  }
+  return next();
 });
 
 app.get('/', function(req, res){
