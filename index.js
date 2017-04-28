@@ -8,6 +8,7 @@ const api = require('./api');
 const login = require('./login');
 const handlebars = require('./handlebars');
 const uws = require('uws');
+const jwt = require('jsonwebtoken');
 const cookieparser = require('cookie-parser');
 const uwss = new uws.Server({noServer: true});
 const chat = new uws.Server({noServer: true});
