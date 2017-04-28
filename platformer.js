@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', function(req, res){
-	res.render('platformer', {games: true});
+	res.render('platformer', {games: true, auth: req.auth});
 });
 
 app.get('/logic.js', function(req, res){
