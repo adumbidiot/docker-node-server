@@ -28,9 +28,7 @@ server.on('upgrade', function(req, sock, head){
 	}
 });
 
-app.engine('.hbs', handlebars.engine);
-app.set('view engine', '.hbs');
-app.enable('view cache');
+handlebars.attach([app]);
 
 app.use(function(req, res, next){
 	console.log(req.path);
@@ -76,4 +74,3 @@ server.listen(config.PORT, function(){
 	console.log('Server running at port ' + config.PORT);
 	console.log('ADMIN is '  + config.auth.username);
 });
-handlebars.attach([app]);
