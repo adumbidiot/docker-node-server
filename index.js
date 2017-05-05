@@ -23,7 +23,7 @@ server.on('upgrade', function(req, sock, head){
 		});	
 	}else{
 		uwss.handleUpgrade(req, sock, head, function(){
-			console.log('upgrade req');	
+			console.log(req.url);	
 		});
 	}
 });
