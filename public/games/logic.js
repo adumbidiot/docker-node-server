@@ -26,3 +26,14 @@ function time(data){
 	}
 	past = data;
 }
+
+function myFunction(name, time){
+	$.post("platformer/score", {
+			time: time,
+			name: name
+    	},
+    	function(data, status){
+		console.log('ok');
+		updateScores();
+       	});
+}
