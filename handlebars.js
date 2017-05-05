@@ -1,7 +1,7 @@
 const exhbs = require('express-handlebars');
 const config = require('./config');
-
-module.exports = exhbs.create(config.exhbs);
+const handlebars = exhbs.create(config.exhbs);
+module.exports = handlebars;
 module.exports.attach = function(array){
   for(var i in array){
     array[i].engine('.hbs', handlebars.engine);
