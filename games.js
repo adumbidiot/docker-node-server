@@ -31,7 +31,8 @@ app.get('/', function(req, res){
 });
 
 app.get('/platformer.swf', function(req, res){
-	request.get('http://nanopi.ddns.net/api/platformer.swf').pipe(res); //Temporary quick fix until I copy the code
+	res.redirect('https://nanopi.ml/api/Platformer_60fps.swf');
+	//request.get('http://nanopi.ddns.net/api/platformer.swf').pipe(res); //Temporary quick fix until I copy the code
 });
 //Maybe move to its own file(repetetive)
 
