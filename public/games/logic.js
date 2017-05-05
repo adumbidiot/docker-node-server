@@ -13,8 +13,8 @@ function updateScores(){
 }
 
 function myFunction(name, time){
-	console.log(name);
-	console.log(time);
+	console.log('NAME: ' + name);
+	console.log('TIME: ' + time);
 	$.post("platformer/score", {
 			time: time,
 			name: name
