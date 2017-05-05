@@ -28,12 +28,7 @@ app.get('/', function(req, res){
 	res.render('games', {games: true, auth: req.auth});
 });
 
-app.get('/platformer.swf', function(req, res){
-	res.redirect('https://nanopi.ml/api/Platformer_60fps.swf');
-	//request.get('http://nanopi.ddns.net/api/platformer.swf').pipe(res); //Temporary quick fix until I copy the code
-});
 //Maybe move to its own file(repetetive)
-
 app.post('/platformer/score', function(req, res){
 	//Recieve Response
 	//TODO: Ignore values after 2nd decimal
