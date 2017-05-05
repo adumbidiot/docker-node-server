@@ -39,8 +39,8 @@ app.post('/platformer/score', function(req, res){
 	
 	//Order score list
 	for(var i = 0; i != scores.length; i++){
-		if(Number(score) < Number(scores[i])){
-			scores.splice(i, 0, score); //insert score
+		if(Number(score) < Number(scores[i].score)){
+			scores.splice(i, 0, {name: name, score: score}); //insert score
 			scores.length = 10; //Prune to 10
 			return; //end function
 		}
