@@ -6,7 +6,7 @@ function updateScores(){
 	$.get("platformer/score", function(data, status){
 		var a = '';
 		for(var i = 0; i != data.length; i++){
-			a += '<p><b>' + (i + 1) + '</b> ' + data[i] + '</p>\n';
+			a += '<p><b>' + (i + 1) + '</b> ' + data[i].name + ':' + data[i].score + '</p>\n';
 		}
         	document.getElementById('chart').innerHTML = a;
     	});
