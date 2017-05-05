@@ -33,8 +33,8 @@ app.post('/platformer/score', function(req, res){
 	//Recieve Response
 	//TODO: Ignore values after 2nd decimal
 	var score = req.body.time;
-	var name = req.body.time;//Convieniece
-	console.log(score + ' | ' + time); //WOW!!! Basic logging!
+	var name = req.body.name;//Convieniece
+	console.log(score + ' | ' + name); //WOW!!! Basic logging!
 	res.send('ok'); //TODO: ADD errors and states
 	
 	//Order score list
