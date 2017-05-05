@@ -17,7 +17,7 @@ const uwss = new uws.Server({noServer: true});
 const chat = new uws.Server({noServer: true});
 
 server.on('upgrade', function(req, sock, head){
-	if(req.path == '/chat'){
+	if(req.url == '/chat'){
 		chat.handleUpgrade(req, sock, head, function(){
 			console.log('New Chat Client');	
 		});	
