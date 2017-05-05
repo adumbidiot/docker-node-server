@@ -13,8 +13,4 @@ app.get('/platformer.jpg', function(req, res){
 	res.sendFile(__dirname + '/public/games/platformer.jpg');
 });
 
-app.get('/test.swf', function(req, res){
-	res.sendFile(__dirname + '/public/loader.swf'); //TODO: Clean code and rename SWF
-});
-
 module.exports = app;
