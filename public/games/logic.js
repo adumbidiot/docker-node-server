@@ -12,21 +12,6 @@ function updateScores(){
     	});
 }
 
-function time(data){
-	if(past === data && past !== 0 && !sent){
-		console.log('done');
-		sent = true;
-		$.post("platformer/score", {
-			time: data
-    		},
-    		function(data, status){
-			console.log('ok');
-			updateScores();
-       		});
-	}
-	past = data;
-}
-
 function myFunction(name, time){
 	console.log(name);
 	console.log(time);
