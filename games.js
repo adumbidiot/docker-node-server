@@ -6,16 +6,16 @@ const platformer = require('./platformer');
 const bodyparser = require('body-parser'); //Maybe move to api.js
 //Don't look at me like that. I don't have a database yet.
 var scores = [
-	"999.999",
-	"999.999",
-	"999.999",
-	"999.999",
-	"999.999",
-	"999.999",
-	"999.999",
-	"999.999",
-	"999.999",
-	"999.999"
+	{name: 'NONE', score: '999.999'},
+	{name: 'NONE', score: '999.999'},
+	{name: 'NONE', score: '999.999'},
+	{name: 'NONE', score: '999.999'},
+	{name: 'NONE', score: '999.999'},
+	{name: 'NONE', score: '999.999'},
+	{name: 'NONE', score: '999.999'},
+	{name: 'NONE', score: '999.999'},
+	{name: 'NONE', score: '999.999'},
+	{name: 'NONE', score: '999.999'}
 ]; //The worst way to maintain state but I still need to set up a database
 
 handlebars.attach([app]);
