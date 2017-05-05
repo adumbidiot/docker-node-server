@@ -28,6 +28,8 @@ function time(data){
 }
 
 function myFunction(name, time){
+	console.log(name);
+	console.log(time);
 	$.post("platformer/score", {
 			time: time,
 			name: name
