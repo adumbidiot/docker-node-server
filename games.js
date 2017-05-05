@@ -18,9 +18,7 @@ var scores = [
 	"999.999"
 ]; //The worst way to maintain state but I still need to set up a database
 
-app.engine('.hbs', handlebars.engine); //Modularity could be improved
-app.set('view engine', '.hbs'); //Easier to type
-app.enable('view cache'); //I rebuild the image every time so why not
+handlebars.attach([app]);
 //TODO: Reorder for efficiency to eliminate unnecessary parsing
 app.use(bodyparser.urlencoded({
   extended: true
