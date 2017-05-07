@@ -65,7 +65,7 @@ app.get('/moomoo.io', function(req, res){
 				console.log(data);
 			}
 			return true
-		});
+		}));
 	});
 });
 
