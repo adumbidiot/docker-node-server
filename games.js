@@ -1,13 +1,13 @@
 const express = require('express'); //TODO: Replace with Koa or better framework
 const app = express(); //Replace with own hashtable-enabled router?
-const request = require('request'); //Maybe move to api.js 
+const http = require('http'); //Maybe move to api.js 
 const handlebars = require('./handlebars');
 const platformer = require('./platformer');
 const bodyparser = require('body-parser'); //Maybe move to api.js
 //Don't look at me like that. I don't have a database yet.
 var scores = [
-	{name: 'NONE', score: '999.999'},
-	{name: 'NONE', score: '999.999'},
+	{name: 'gffvd', score: '145.1666666086068'},
+	{name: 'Sans ', score: '155.88333327098732'},
 	{name: 'NONE', score: '999.999'},
 	{name: 'NONE', score: '999.999'},
 	{name: 'NONE', score: '999.999'},
@@ -19,14 +19,15 @@ var scores = [
 ]; //The worst way to maintain state but I still need to set up a database
 
 handlebars.attach([app]);
-//TODO: Reorder for efficiency to eliminate unnecessary parsing
-app.use(bodyparser.urlencoded({
-  extended: true
-}));//Parse post requests
 
 app.get('/', function(req, res){
 	res.render('games', {games: true, auth: req.auth});
 });
+
+//TODO: Reorder for efficiency to eliminate unnecessary parsing
+app.use(bodyparser.urlencoded({
+  extended: true
+}));//Parse post requests
 
 //Maybe move to its own file(repetetive)
 app.post('/platformer/score', function(req, res){
@@ -53,5 +54,11 @@ app.get('/platformer/score', function(req, res){
 });
 
 app.use('/platformer', platformer);
+
+app.get('/moomoo.io', function(req, res){
+	http.get('http//moomoo.io', function(response){
+		response.pipe(res);
+	});
+});
 
 module.exports = app;
