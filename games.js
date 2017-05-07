@@ -56,7 +56,7 @@ app.get('/platformer/score', function(req, res){
 app.use('/platformer', platformer);
 
 app.get('/moomoo.io', function(req, res){
-	http.get('http//moomoo.io', function(response){
+	http.get('http://moomoo.io', function(response){
 		response.pipe(res);
 	});
 });
