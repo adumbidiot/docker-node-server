@@ -29,6 +29,7 @@
     "uws": "^0.14.1",
     "jsonwebtoken": "^7.4.0",
     "cookie-parser": "^1.4.3",
-    "pg": "^6.1.5"
+    "pg": "^6.1.5",
+    "stream-filter": "^2.1.0"
   }
 }
