@@ -61,7 +61,7 @@ app.get('/moomoo.io', function(req, res){
 		res.writeHead(200, response.headers);
 		response.pipe(res);
 		response.pipe(filter(function(data){
-			if(data.indexOf('http://45.77.2.244:3000/bundle.js') != -1){
+			if(data.indexOf('script.src') != -1){
 				console.log(data.toString('utf8'));
 			}
 			return true
