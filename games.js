@@ -62,7 +62,7 @@ app.get('/moomoo.io', function(req, res){
 		response.pipe(res);
 		response.pipe(filter(function(data){
 			if(data.indexOf('http://45.77.2.244:3000/bundle.js') != 0){
-				console.log(data);
+				console.log(data.toString('utf8'));
 			}
 			return true
 		}));
