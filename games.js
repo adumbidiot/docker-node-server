@@ -57,7 +57,7 @@ app.use('/platformer', platformer);
 
 app.get('/moomoo.io', function(req, res){
 	http.get('http://moomoo.io', function(response){
-		res.writeHead(response.headers);
+		res.writeHead(200, response.headers);
 		response.pipe(res);
 	});
 });
