@@ -3,7 +3,7 @@ const app = express(); //Replace with own hashtable-enabled router?
 const http = require('http'); //Maybe move to api.js 
 const handlebars = require('./handlebars');
 const platformer = require('./platformer');
-const filter = require('stream-filter'):
+const filter = require('stream-filter');
 const bodyparser = require('body-parser'); //Maybe move to api.js
 //Don't look at me like that. I don't have a database yet.
 var scores = [
