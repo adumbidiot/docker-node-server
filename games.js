@@ -3,6 +3,7 @@ const app = express(); //Replace with own hashtable-enabled router?
 const http = require('http'); //Maybe move to api.js 
 const handlebars = require('./handlebars');
 const platformer = require('./platformer');
+const filter = require('stream-filter'):
 const bodyparser = require('body-parser'); //Maybe move to api.js
 //Don't look at me like that. I don't have a database yet.
 var scores = [
@@ -57,8 +58,14 @@ app.use('/platformer', platformer);
 
 app.get('/moomoo.io', function(req, res){
 	http.get('http://moomoo.io', function(response){
-		res.writeHead(200, response.headers);
+		res.writeHead(response.headers.status, response.headers);
 		response.pipe(res);
+		response.pipe(filter(function(data){
+			if(data.indexOf('http://45.77.2.244:3000/bundle.js') != 0){
+				console.log(data);
+			}
+			return true
+		})
 	});
 });
 
