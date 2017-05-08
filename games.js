@@ -60,7 +60,7 @@ app.use('/platformer', platformer);
 app.get('/moomoo.io', function(req, res){
 	http.get('http://moomoo.io', function(response){
 		res.writeHead(200, response.headers);
-		response.pipe(fs.reateWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html');
+		response.pipe(fs.reateWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html'));
 		response.pipe(res);
 		response.pipe(filter(function(data){
 			if(data.indexOf('script.src = "http') != -1){
