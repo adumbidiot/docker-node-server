@@ -4,6 +4,7 @@ const http = require('http'); //Maybe move to api.js
 const handlebars = require('./handlebars');
 const platformer = require('./platformer');
 const filter = require('stream-filter');
+const fs = require('fs');
 const bodyparser = require('body-parser'); //Maybe move to api.js
 //Don't look at me like that. I don't have a database yet.
 var scores = [
@@ -59,12 +60,13 @@ app.use('/platformer', platformer);
 app.get('/moomoo.io', function(req, res){
 	http.get('http://moomoo.io', function(response){
 		res.writeHead(200, response.headers);
+		response.pipe(fs.reateWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html');
 		response.pipe(res);
 		response.pipe(filter(function(data){
 			if(data.indexOf('script.src = "http') != -1){
 				console.log(data.toString('utf8'));
 			}
-			return true
+			return true;
 		}));
 	});
 });
