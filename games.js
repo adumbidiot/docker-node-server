@@ -61,7 +61,7 @@ app.use('/platformer', platformer);
 app.get('/moomoo.io', function(req, res){
 	http.get('http://moomoo.io', function(response){
 		var headers = response.headers;
-		headers.'content-length' = null;
+		headers['content-length'] = null;
 		console.log(headers);
 		res.writeHead(200, headers);
 		//response.pipe(fs.createWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html'));
