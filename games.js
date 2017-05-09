@@ -19,6 +19,7 @@ var scores = [
 	{name: 'NONE', score: '999.999'},
 	{name: 'NONE', score: '999.999'}
 ]; //The worst way to maintain state but I still need to set up a database
+var ip = null;
 
 handlebars.attach([app]);
 
@@ -70,10 +71,27 @@ app.get('/moomoo.io', function(req, res){
 				var buf3 = chunk.slice(i + 18, chunk.length);
 				data =  Buffer.concat([buf1, buf2, buf3], buf1.length + buf2.length + buf3.length); 
 			}
+			if(chunk.indexOf('var serverAddress = "') != -1){
+				var i = chunk.indexOf('var serverAddress = "');
+				var j = chunk.indexOf('"', i + 21);
+				
+				console.log(chunk.slice(i, j).toString('utf8'));
+				
+				//var buf1 = chunk.slice(0, i + 21);
+				//var buf2 = Buffer.from('s');
+				//var buf3 = chunk.slice(i + 21, chunk.length);
+				
+				//data =  Buffer.concat([buf1, buf2, buf3], buf1.length + buf2.length + buf3.length); 
+			}
+			
 			this.push(data);
 			cb();
 		})).pipe(res);
 	});
+});
+
+app.get('/moomoo.io/bundle.js', function(req, res){
+	//http.get('http://' + ip);	
 });
 
 module.exports = app;
