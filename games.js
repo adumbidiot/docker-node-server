@@ -110,7 +110,7 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 		res.writeHead(200, headers);
 		response.pipe(through2(function(chunk, enc, cb){
 			var data = chunk;
-			if(chunk.indexOf('\x68\x74\x74\x70') != -1 && c == 0){
+			if(chunk.indexOf('\x68\x74\x74\x70') != -1 && c == 5){
 				var i = data.indexOf('\x68\x74\x74\x70');
 				console.log(chunk.toString('utf8'));
 				var buf1 = data.slice(0, i + 4);
@@ -118,6 +118,8 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 				var buf3 = data.slice(i + 4, data.length); 
 				data = Buffer.concat([buf1, buf2, buf3]);
 				c++;
+			}else{
+				c++;	
 			}
 			this.push(data);
 			cb();
