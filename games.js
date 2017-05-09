@@ -19,7 +19,6 @@ var scores = [
 	{name: 'NONE', score: '999.999'},
 	{name: 'NONE', score: '999.999'}
 ]; //The worst way to maintain state but I still need to set up a database
-var ip = null;
 
 handlebars.attach([app]);
 
@@ -60,6 +59,7 @@ app.use('/platformer', platformer);
 
 app.get('/moomoo.io', function(req, res){
 	http.get('http://moomoo.io', function(response){
+		var ip = null;
 		var headers = response.headers;
 		delete headers['content-length'];
 		headers['transfer-encoding'] = 'chunked';
@@ -72,20 +72,12 @@ app.get('/moomoo.io', function(req, res){
 				var j = chunk.indexOf('"', i + 21);
 				ip = chunk.slice(i + 21, j).toString('utf8');
 				console.log(ip);
-				i = null;
-				buf1 = null;
-				buf2 = null;
-				buf3 = null;
-				//var buf1 = chunk.slice(0, i + 21);
-				//var buf2 = Buffer.from('nanopi.ml/games/moomoo.io/bundle.js');
-				//var buf3 = chunk.slice(j, chunk.length);
-				//data = Buffer.concat([buf1, buf2, buf3], buf1.length + buf2.length + buf3.length); 
 			}
 			
 			if(data.indexOf('"http://" + serverAddress + ":3000/bundle.js"') != -1){
 				var i = data.indexOf('"http://" + serverAddress + ":3000/bundle.js"');
 				var buf1 = data.slice(0, i + 1);
-				var buf2 = Buffer.from('https://nanopi.ml/games/moomoo.io/bundle.js');
+				var buf2 = Buffer.from('https://nanopi.ml/games/moomoo.io/bundle.js?' + ip);
 				var buf3 = data.slice(i + 44, data.length);
 				data = Buffer.concat([buf1, buf2, buf3]); 
 			}
@@ -96,7 +88,9 @@ app.get('/moomoo.io', function(req, res){
 });
 
 app.get('/moomoo.io/bundle.js', function(req, res){
-	//http.get('http://' + ip);	
+	http.get('http://' + req.query.ip + ':3000/bundle.js', function(response){
+		response.pipe(res);
+	});	
 });
 
 module.exports = app;
