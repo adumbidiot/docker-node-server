@@ -102,6 +102,7 @@ app.get('/moomoo.io', function(req, res){
 app.get('/moomoo.io/bundle.js', function(req, res){
 	http.get('http://' + req.query.ip + ':3000/bundle.js', function(response){
 		var headers = response.headers;
+		var c = 0;
 		headers['content-type'] = 'text/javascript; charset=utf-8';
 		headers['transfer-encoding'] = 'chunked';
 		delete headers['content-length'];
@@ -109,6 +110,9 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 		res.writeHead(200, headers);
 		response.pipe(through2(function(chunk, enc, cb){
 			var data = chunk;
+			if(c == 0){
+				console.log(chunk.toString('utf8'));
+			}
 			console.log(chunk.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F'));
 			if(chunk.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F') != -1){
 				var i = data.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F');
@@ -119,6 +123,7 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 				data = Buffer.concat([buf1, buf2, buf3]);
 			}
 			this.push(data);
+			c++;
 			cb();
 		})).pipe(res);
 	}).on('error', console.error);	
