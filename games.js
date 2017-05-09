@@ -65,10 +65,10 @@ app.get('/moomoo.io', function(req, res){
 			var data;
 			if(chunk.indexOf('script.src = "http') != -1){
 				var i = chunk.indexOf('script.src = "http') != -1;
-				data = chunk.slice(0, i + 18) + Buffer.from('s') + chunk.slice(i + 18, chunk.length); 
+				data = Buffer.concat(chunk.slice(0, i + 18), Buffer.from('s'), chunk.slice(i + 18, chunk.length)); 
 			}
 			console.log(chunk.toString('utf8'));
-			this.push(chunk);
+			this.push(data);
 			cb();
 		})).pipe(res);
 	});
