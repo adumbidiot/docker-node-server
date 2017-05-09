@@ -30,6 +30,7 @@
     "jsonwebtoken": "^7.4.0",
     "cookie-parser": "^1.4.3",
     "pg": "^6.1.5",
-    "stream-filter": "^2.1.0"
+    "stream-filter": "^2.1.0",
+    "through2", "^2.0.3"
   }
 }
