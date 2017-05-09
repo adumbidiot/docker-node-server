@@ -83,7 +83,7 @@ app.get('/moomoo.io', function(req, res){
 				var i = data.indexOf('"http://" + serverAddress + ":3000/bundle.js"');
 				var buf1 = data.slice(0, i + 45);
 				var buf2 = Buffer.from('s://nanopi.ml/games/moomoo.io/bundle.js');
-				var buf3 = data.slice(i + 46, chunk.length);
+				var buf3 = data.slice(i + 45, data.length);
 				data = Buffer.concat([buf1, buf2, buf3]); 
 			}
 			
