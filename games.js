@@ -74,9 +74,8 @@ app.get('/moomoo.io', function(req, res){
 			if(chunk.indexOf('var serverAddress = "') != -1){
 				var i = chunk.indexOf('var serverAddress = "');
 				var j = chunk.indexOf('"', i + 21);
-				
-				console.log(chunk.slice(i, j).toString('utf8'));
-				
+				ip = chunk.slice(i + 21, j + 1).toString('utf8');
+				console.log(ip);
 				//var buf1 = chunk.slice(0, i + 21);
 				//var buf2 = Buffer.from('s');
 				//var buf3 = chunk.slice(i + 21, chunk.length);
