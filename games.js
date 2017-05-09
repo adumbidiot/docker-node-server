@@ -3,7 +3,6 @@ const app = express(); //Replace with own hashtable-enabled router?
 const http = require('http'); //Maybe move to api.js 
 const handlebars = require('./handlebars');
 const platformer = require('./platformer');
-const filter = require('stream-filter');
 const through2 = require('through2');
 const fs = require('fs');
 const bodyparser = require('body-parser'); //Maybe move to api.js
@@ -61,20 +60,13 @@ app.use('/platformer', platformer);
 app.get('/moomoo.io', function(req, res){
 	http.get('http://moomoo.io', function(response){
 		res.writeHead(200, response.headers);
-		response.pipe(fs.createWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html'));
+		//response.pipe(fs.createWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html'));
 		response.pipe(through2(function(chunk){
 			if(chunk.indexOf('script.src = "http') != -1){
-				
-			}else{
-				this.push(chunk);	
+				chunk = chunk.slice(0, i + 18) + Buffer.from('s') + chunk(i + 18, chunk.length)); 
 			}
-		}).pipe(res);
-		response.pipe(filter(function(data){
-			if(data.indexOf('script.src = "http') != -1){
-				console.log(data.toString('utf8'));
-			}
-			return true;
-		}));
+			this.push(chunk);	
+		})).pipe(res);
 	});
 });
 
