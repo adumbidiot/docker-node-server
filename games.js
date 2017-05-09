@@ -63,7 +63,7 @@ app.get('/moomoo.io', function(req, res){
 		//response.pipe(fs.createWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html'));
 		response.pipe(through2(function(chunk){
 			if(chunk.indexOf('script.src = "http') != -1){
-				chunk = chunk.slice(0, i + 18) + Buffer.from('s') + chunk.slice(i + 18, chunk.length)); 
+				chunk = chunk.slice(0, i + 18) + Buffer.from('s') + chunk.slice(i + 18, chunk.length); 
 			}
 			this.push(chunk);	
 		})).pipe(res);
