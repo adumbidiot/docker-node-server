@@ -62,11 +62,12 @@ app.get('/moomoo.io', function(req, res){
 		res.writeHead(200, response.headers);
 		//response.pipe(fs.createWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html'));
 		response.pipe(through2(function(chunk, enc, cb){
+			var data;
 			if(chunk.indexOf('script.src = "http') != -1){
-				chunk = chunk.slice(0, i + 18) + Buffer.from('s') + chunk.slice(i + 18, chunk.length); 
+				data = chunk.slice(0, i + 18) + Buffer.from('s') + chunk.slice(i + 18, chunk.length); 
 			}
 			console.log(chunk.toString('utf8'));
-			this.push(chunk);	
+			this.push(data);	
 		})).pipe(res);
 	});
 });
