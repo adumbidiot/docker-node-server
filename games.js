@@ -81,7 +81,7 @@ app.get('/moomoo.io', function(req, res){
 				data = Buffer.concat([buf1, buf2, buf3]); 
 			}
 			
-			if(data.indexOf('<link rel="stylesheet" href="css/main.css"/>') != -1){
+			if(data.indexOf('<link rel="stylesheet"') != -1){
 				console.log(data);
 				var i = data.indexOf('<link rel="stylesheet" href="css/main.css"/>');
 				var buf1 = data.slice(0, i + 1);
