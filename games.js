@@ -82,6 +82,7 @@ app.get('/moomoo.io', function(req, res){
 			}
 			
 			if(chunk.indexOf('<link rel="stylesheet" href="css/main.css"/>') != -1){
+				console.log(data);
 				var i = data.indexOf('<link rel="stylesheet" href="css/main.css"/>');
 				var buf1 = data.slice(0, i + 1);
 				var buf2 = Buffer.from('<link rel="stylesheet" href="https://nanopi/games/moomoo.io/css/main.css"/>');
