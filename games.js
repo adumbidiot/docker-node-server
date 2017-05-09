@@ -109,7 +109,7 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 		res.writeHead(200, headers);
 		response.pipe(through2(function(chunk, enc, cb){
 			var data = chunk;
-			if(data.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F') != -1){
+			if(data.toString('utf8').indexOf('\x68\x74\x74\x70\x3A\x2F\x2F') != -1){
 				var i = data.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F');
 				console.log(chunk);
 				var buf1 = data.slice(0, i);
