@@ -65,7 +65,10 @@ app.get('/moomoo.io', function(req, res){
 			var data;
 			if(chunk.indexOf('script.src = "http') != -1){
 				var i = chunk.indexOf('script.src = "http') != -1;
-				data = Buffer.concat(chunk.slice(0, i + 18), Buffer.from('s'), chunk.slice(i + 18, chunk.length)); 
+				var buf1 = chunk.slice(0, i + 18);
+				var buf2 = Buffer.from('s');
+				var buf3 = chunk.slice(i + 18, chunk.length);
+				data =  Buffer.concat([buf1, buf2, buf3], buf1.length + buf2.length + buf3.length); 
 			}
 			console.log(chunk.toString('utf8'));
 			this.push(data);
