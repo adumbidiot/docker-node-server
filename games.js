@@ -61,11 +61,11 @@ app.get('/moomoo.io', function(req, res){
 	http.get('http://moomoo.io', function(response){
 		res.writeHead(200, response.headers);
 		//response.pipe(fs.createWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html'));
-		response.pipe(through2(function(chunk){
+		response.pipe(through2(function(chunk, enc, cb){
 			if(chunk.indexOf('script.src = "http') != -1){
 				chunk = chunk.slice(0, i + 18) + Buffer.from('s') + chunk.slice(i + 18, chunk.length); 
 			}
-			console.log(chunk);
+			console.log(chunk.toString('utf8'));
 			this.push(chunk);	
 		})).pipe(res);
 	});
