@@ -77,7 +77,7 @@ app.get('/moomoo.io', function(req, res){
 			if(data.indexOf('"http://" + serverAddress + ":3000/bundle.js"') != -1){
 				var i = data.indexOf('"http://" + serverAddress + ":3000/bundle.js"');
 				var buf1 = data.slice(0, i + 1);
-				var buf2 = Buffer.from('https://nanopi.ml/games/moomoo.io/bundle.js?' + ip);
+				var buf2 = Buffer.from('https://nanopi.ml/games/moomoo.io/bundle.js?ip=' + ip);
 				var buf3 = data.slice(i + 44, data.length);
 				data = Buffer.concat([buf1, buf2, buf3]); 
 			}
@@ -88,9 +88,9 @@ app.get('/moomoo.io', function(req, res){
 });
 
 app.get('/moomoo.io/bundle.js', function(req, res){
-	http.get('http://' + req.query.ip + ':3000/bundle.js', function(response){
+	http.get({url: 'http://' + req.query.ip + '/bundle.js' port: 3000}, function(response){
 		response.pipe(res);
-	});	
+	}).on('error', console.error);	
 });
 
 module.exports = app;
