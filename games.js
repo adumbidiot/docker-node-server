@@ -107,7 +107,7 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 		headers['transfer-encoding'] = 'chunked';
 		delete headers['content-length'];
 		res.writeHead(200, headers);
-		response/*.pipe(through2(function(chunk, enc, cb){
+		//response/*.pipe(through2(function(chunk, enc, cb){
 			var data = chunk;
 			if(data.indexOf('\x68\x74\x74\x70\x3A') != -1){
 				var i = data.indexOf('\x68\x74\x74\x70\x3A');
@@ -119,7 +119,8 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 			}
 			this.push(chunk);
 			cb();
-		}))*/.pipe(res);
+		//}))*/.pipe(res);
+		response.pipe(res);
 	}).on('error', console.error);	
 });
 
