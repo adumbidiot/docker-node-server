@@ -64,13 +64,6 @@ app.get('/moomoo.io', function(req, res){
 		//response.pipe(fs.createWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html'));
 		response.pipe(through2(function(chunk, enc, cb){
 			var data = chunk;
-			if(chunk.indexOf('script.src = "http') != -1){
-				var i = chunk.indexOf('script.src = "http');
-				var buf1 = chunk.slice(0, i + 18);
-				var buf2 = Buffer.from('s');
-				var buf3 = chunk.slice(i + 18, chunk.length);
-				data =  Buffer.concat([buf1, buf2, buf3], buf1.length + buf2.length + buf3.length); 
-			}
 			if(chunk.indexOf('var serverAddress = "') != -1){
 				var i = chunk.indexOf('var serverAddress = "');
 				var j = chunk.indexOf('"', i + 21);
@@ -80,6 +73,14 @@ app.get('/moomoo.io', function(req, res){
 				var buf2 = Buffer.from('nanopi.ml/games/moomoo.io/bundle.js');
 				var buf3 = chunk.slice(j, chunk.length);
 				data = Buffer.concat([buf1, buf2, buf3], buf1.length + buf2.length + buf3.length); 
+			}
+			
+			if(data.indexOf('script.src = "http') != -1){
+				var i = data.indexOf('script.src = "http');
+				var buf1 = data.slice(0, i + 18);
+				var buf2 = Buffer.from('s');
+				var buf3 = data.slice(i + 18, chunk.length);
+				data =  Buffer.concat([buf1, buf2, buf3], buf1.length + buf2.length + buf3.length); 
 			}
 			
 			this.push(data);
