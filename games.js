@@ -72,7 +72,7 @@ app.get('/moomoo.io', function(req, res){
 				var j = chunk.indexOf('"', i + 21);
 				ip = chunk.slice(i + 21, j).toString('utf8');
 				var buf1 = data.slice(0, i + 21);
-				var buf2 = Buffer.from('nanopi.ml');
+				var buf2 = Buffer.from('nanopi.ml;');
 				var buf3 = data.slice(j);
 				data = Buffer.concat([buf1, buf2, buf3]);
 			}
@@ -113,9 +113,9 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 			if(chunk.indexOf('\x68\x74\x74\x70') != -1 && c == 0){
 				var i = data.indexOf('\x68\x74\x74\x70');
 				console.log(chunk.toString('utf8'));
-				var buf1 = data.slice(0, i);
+				var buf1 = data.slice(0, i + 4);
 				var buf2 = Buffer.from('\x73');
-				var buf3 = data.slice(i + 4, data.length); 
+				var buf3 = data.slice(i, data.length); 
 				data = Buffer.concat([buf1, buf2, buf3]);
 				c++;
 			}
