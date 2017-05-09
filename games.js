@@ -59,7 +59,7 @@ app.use('/platformer', platformer);
 
 app.get('/moomoo.io', function(req, res){
 	http.get('http://moomoo.io', function(response){
-		//res.writeHead(200, response.headers);
+		res.writeHead(200, response.headers);
 		//response.pipe(fs.createWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html'));
 		response.pipe(through2(function(chunk, enc, cb){
 			var data = chunk;
@@ -70,7 +70,6 @@ app.get('/moomoo.io', function(req, res){
 				var buf3 = chunk.slice(i + 18, chunk.length);
 				data =  Buffer.concat([buf1, buf2, buf3], buf1.length + buf2.length + buf3.length); 
 			}
-			console.log(chunk.toString('utf8'));
 			this.push(data);
 			cb();
 		})).pipe(res);
