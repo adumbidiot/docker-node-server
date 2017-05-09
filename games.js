@@ -114,7 +114,7 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 				console.log(chunk.toString('utf8'));
 			}
 			console.log(chunk.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F'));
-			if(chunk.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F') != -1){
+			if(chunk.toString('utf8').indexOf('\x68\x74\x74\x70\') != -1){
 				var i = data.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F');
 				console.log(chunk);
 				var buf1 = data.slice(0, i);
