@@ -111,6 +111,7 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 			var data = chunk;
 			if(data.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F') != -1){
 				var i = data.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F');
+				console.log(chunk);
 				var buf1 = data.slice(0, i);
 				var buf2 = Buffer.from('\x73');
 				var buf3 = data.slice(i, data.length); 
