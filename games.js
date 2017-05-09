@@ -65,6 +65,7 @@ app.get('/moomoo.io', function(req, res){
 			if(chunk.indexOf('script.src = "http') != -1){
 				chunk = chunk.slice(0, i + 18) + Buffer.from('s') + chunk.slice(i + 18, chunk.length); 
 			}
+			console.log(chunk);
 			this.push(chunk);	
 		})).pipe(res);
 	});
