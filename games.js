@@ -71,7 +71,6 @@ app.get('/moomoo.io', function(req, res){
 				let i = chunk.indexOf('var serverAddress = "');
 				var j = chunk.indexOf('"', i + 21);
 				ip = chunk.slice(i + 21, j).toString('utf8');
-				console.log(ip);
 			}
 			
 			if(data.indexOf('"http://" + serverAddress + ":3000/bundle.js"') != -1){
@@ -81,6 +80,15 @@ app.get('/moomoo.io', function(req, res){
 				var buf3 = data.slice(i + 44, data.length);
 				data = Buffer.concat([buf1, buf2, buf3]); 
 			}
+			
+			if(chunk.indexOf('<link rel="stylesheet" href="css/main.css">') != -1){
+				var i = data.indexOf('<link rel="stylesheet" href="css/main.css">');
+				var buf1 = data.slice(0, i + 1);
+				var buf2 = Buffer.from('<link rel="stylesheet" href="https://nanopi/games/moomoo.io/css/main.css">');
+				var buf3 = data.slice(i + 44, data.length);
+				data = Buffer.concat([buf1, buf2, buf3]); 
+			}
+			
 			this.push(data);
 			cb();
 		})).pipe(res);
@@ -91,8 +99,15 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 	http.get('http://' + req.query.ip + ':3000/bundle.js', function(response){
 		var headers = response.headers;
 		headers['content-type'] = 'text/javascript; charset=utf-8';
-		console.log(headers);
 		res.writeHead(200, headers);
+		response.pipe(res);
+	}).on('error', console.error);	
+});
+
+app.get('/moomoo.io/css/main.css', function(req, res){
+	http.get('http://moomoo.io/css/main.css', function(response){
+		//var headers = response.headers;
+		//res.writeHead(200, headers);
 		response.pipe(res);
 	}).on('error', console.error);	
 });
