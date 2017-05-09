@@ -83,10 +83,10 @@ app.get('/moomoo.io', function(req, res){
 			
 			if(data.indexOf('<link rel="stylesheet"') != -1){
 				console.log(data);
-				var i = data.indexOf('<link rel="stylesheet" href="css/main.css"/>');
+				var i = data.indexOf('<link rel="stylesheet"');
 				var buf1 = data.slice(0, i + 1);
 				var buf2 = Buffer.from('<link rel="stylesheet" href="https://nanopi/games/moomoo.io/css/main.css"/>');
-				var buf3 = data.slice(i + 74, data.length);
+				var buf3 = data.slice(i + 22, data.length);
 				data = Buffer.concat([buf1, buf2, buf3]); 
 			}
 			
