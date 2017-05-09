@@ -88,7 +88,7 @@ app.get('/moomoo.io', function(req, res){
 });
 
 app.get('/moomoo.io/bundle.js', function(req, res){
-	http.get({url: 'http://' + req.query.ip + '/bundle.js' port: 3000}, function(response){
+	http.get({'http://' + req.query.ip + ':3000/bundle.js'}, function(response){
 		response.pipe(res);
 	}).on('error', console.error);	
 });
