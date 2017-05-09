@@ -104,7 +104,16 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 		var headers = response.headers;
 		headers['content-type'] = 'text/javascript; charset=utf-8';
 		res.writeHead(200, headers);
-		response.pipe(res);
+		response.pipe(through2(function(chunk, enc, cb){
+			var data = chunk;
+			if(data.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F') != -1){
+				var i = data.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F');
+				var buf1 = data.slice(0, i);
+				var buf2 = Buffer.from('\x73');
+				var buf3 = data.slice(i); 
+			}	
+			this.push(data);	
+		})).pipe(res);
 	}).on('error', console.error);	
 });
 
