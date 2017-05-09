@@ -64,7 +64,7 @@ app.get('/moomoo.io', function(req, res){
 		response.pipe(through2(function(chunk, enc, cb){
 			var data;
 			if(chunk.indexOf('script.src = "http') != -1){
-				var i = chunk.indexOf('script.src = "http') != -1;
+				var i = chunk.indexOf('script.src = "http');
 				var buf1 = chunk.slice(0, i + 18);
 				var buf2 = Buffer.from('s');
 				var buf3 = chunk.slice(i + 18, chunk.length);
