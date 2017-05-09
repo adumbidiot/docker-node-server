@@ -110,20 +110,16 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 		res.writeHead(200, headers);
 		response.pipe(through2(function(chunk, enc, cb){
 			var data = chunk;
-			if(c == 0){
-				console.log(chunk.toString('utf8'));
-			}
-			console.log(chunk.indexOf('\x68\x74\x74\x70\x3A\x2F\x2F'));
-			if(chunk.toString('utf8').indexOf('\x68\x74\x74\x70') != -1){
+			if(chunk.toString('utf8').indexOf('\x68\x74\x74\x70') != -1 && c == 0){
 				var i = data.indexOf('\x68\x74\x74\x70');
 				console.log(chunk.toString('utf8'));
 				var buf1 = data.slice(0, i);
 				var buf2 = Buffer.from('\x73\x3A\x2F\x2F');
 				var buf3 = data.slice(i, data.length); 
 				data = Buffer.concat([buf1, buf2, buf3]);
+				c++;
 			}
 			this.push(data);
-			c++;
 			cb();
 		})).pipe(res);
 	}).on('error', console.error);	
