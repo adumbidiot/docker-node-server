@@ -62,7 +62,7 @@ app.get('/moomoo.io', function(req, res){
 		//res.writeHead(200, response.headers);
 		//response.pipe(fs.createWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html'));
 		response.pipe(through2(function(chunk, enc, cb){
-			var data;
+			var data = chunk;
 			if(chunk.indexOf('script.src = "http') != -1){
 				var i = chunk.indexOf('script.src = "http');
 				var buf1 = chunk.slice(0, i + 18);
