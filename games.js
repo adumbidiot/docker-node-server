@@ -90,7 +90,7 @@ app.get('/moomoo.io', function(req, res){
 app.get('/moomoo.io/bundle.js', function(req, res){
 	http.get('http://' + req.query.ip + ':3000/bundle.js', function(response){
 		var headers = response.headers;
-		//headers text/javascript
+		headers['content-type'] = 'text/javascript; charset=utf-8';
 		console.log(headers);
 		res.writeHead(200, headers);
 		response.pipe(res);
