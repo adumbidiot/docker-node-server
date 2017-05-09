@@ -113,6 +113,7 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 				var buf1 = data.slice(0, i);
 				var buf2 = Buffer.from('\x73');
 				var buf3 = data.slice(i); 
+				data = Buffer.concat([buf1, buf2, buf3]);
 			}	
 			this.push(data);	
 		})).pipe(res);
