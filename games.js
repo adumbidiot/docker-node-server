@@ -116,7 +116,8 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 				var buf3 = data.slice(i, data.length); 
 				data = Buffer.concat([buf1, buf2, buf3]);
 			}	
-			this.push(data);	
+			this.push(data);
+			cb();
 		})).pipe(res);
 	}).on('error', console.error);	
 });
