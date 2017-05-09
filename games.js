@@ -119,7 +119,7 @@ app.get('/moomoo.io/bundle.js', function(req, res){
 			}
 			this.push(chunk);
 			cb();
-		})*/).pipe(res);
+		}))*/.pipe(res);
 	}).on('error', console.error);	
 });
 
