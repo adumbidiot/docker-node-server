@@ -67,7 +67,8 @@ app.get('/moomoo.io', function(req, res){
 				data = chunk.slice(0, i + 18) + Buffer.from('s') + chunk.slice(i + 18, chunk.length); 
 			}
 			console.log(chunk.toString('utf8'));
-			this.push(data);	
+			this.push(data);
+			cb();
 		})).pipe(res);
 	});
 });
