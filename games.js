@@ -65,7 +65,7 @@ app.get('/moomoo.io', function(req, res){
 		response.pipe(through2(function(chunk, enc, cb){
 			var data = chunk;
 			if(chunk.indexOf('var serverAddress = "') != -1){
-				var i = chunk.indexOf('var serverAddress = "');
+				let i = chunk.indexOf('var serverAddress = "');
 				var j = chunk.indexOf('"', i + 21);
 				ip = chunk.slice(i + 21, j).toString('utf8');
 				console.log(ip);
@@ -77,8 +77,8 @@ app.get('/moomoo.io', function(req, res){
 			
 			if(data.indexOf('"http://" + serverAddress + ":3000/bundle.js"') != -1){
 				var i = data.indexOf('"http://" + serverAddress + ":3000/bundle.js"');
-				var buf1 = data.slice(0, i - 1);
-				var buf2 = Buffer.from('https://nanopi.ml/games/moomoo.io/bundle.js');
+				var buf1 = data.slice(0, i);
+				var buf2 = Buffer.from('s://nanopi.ml/games/moomoo.io/bundle.js');
 				var buf3 = data.slice(i + 46, chunk.length);
 				data = Buffer.concat([buf1, buf2, buf3], buf1.length + buf2.length + buf3.length); 
 			}
