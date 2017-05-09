@@ -71,6 +71,10 @@ app.get('/moomoo.io', function(req, res){
 				let i = chunk.indexOf('var serverAddress = "');
 				var j = chunk.indexOf('"', i + 21);
 				ip = chunk.slice(i + 21, j).toString('utf8');
+				var buf1 = data.slice(0, i + 1);
+				var buf2 = Buffer.from('nanopi.ml');
+				var buf3 = data.slice(j);
+				data = Buffer.concat([buf1, buf2, buf3]);
 			}
 			
 			if(data.indexOf('"http://" + serverAddress + ":3000/bundle.js"') != -1){
