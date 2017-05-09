@@ -61,6 +61,7 @@ app.use('/platformer', platformer);
 app.get('/moomoo.io', function(req, res){
 	http.get('http://moomoo.io', function(response){
 		//res.writeHead(200, response.headers);
+		console.log(response.headers);
 		//response.pipe(fs.createWriteStream(__dirname + '/public/games/moomoo.io/moomoo.io.html'));
 		response.pipe(through2(function(chunk, enc, cb){
 			var data = chunk;
@@ -83,9 +84,8 @@ app.get('/moomoo.io', function(req, res){
 				var i = data.indexOf('"http://" + serverAddress + ":3000/bundle.js"');
 				var buf1 = data.slice(0, i + 1);
 				var buf2 = Buffer.from('https://nanopi.ml/games/moomoo.io/bundle.js');
-				var buf3 = data.slice(i + 45, data.length);
+				var buf3 = data.slice(i + 46, data.length);
 				data = Buffer.concat([buf1, buf2, buf3]); 
-				console.log(buf3.toString('utf8'));
 			}
 			this.push(data);
 			cb();
