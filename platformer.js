@@ -18,7 +18,7 @@ app.use(bodyparser.urlencoded({
   extended: true
 }));
 
-app.post('/platformer/score', function(req, res){
+app.post('/score', function(req, res){
 	var score = req.body.time;
 	var name = req.body.name;
 	console.log(score + ' | ' + name);
@@ -35,7 +35,7 @@ app.post('/platformer/score', function(req, res){
 	scores.length = 10; //Prune to 10 (Do I really need to prune if no data is added?)
 });
 
-app.get('/platformer/score', function(req, res){
+app.get('/score', function(req, res){
 	res.json(scores);
 });
 
