@@ -46,7 +46,7 @@ module.exports.scoreboard.skeletonsprint.load = function(data){
         }
         
         db.close();
-        return resolve(doc); 
+        return resolve(doc.scoreboard); 
       });
     });
   });
