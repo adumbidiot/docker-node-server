@@ -17,6 +17,8 @@ client.connect(url, function(err, db) {
 });
 */
 module.exports = client;
+module.exports.scoreboard = {};
+module.exports.scoreboard.skeletonsprint = {};
 module.exports.scoreboard.skeletonsprint.save = function(data){
   client.connect(url, function(err, db) {
     if(err){
