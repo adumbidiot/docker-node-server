@@ -4,7 +4,10 @@ const http = require('http'); //Maybe move to api.js
 const handlebars = require('./handlebars');
 const platformer = require('./platformer');
 const through2 = require('through2');
-const fs = require('fs');
+
+app.get('/', function(req, res){
+	res.render('games');	
+});
 
 app.use('/platformer', platformer);
 
