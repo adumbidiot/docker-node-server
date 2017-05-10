@@ -3,7 +3,7 @@ const app = express();
 const bodyparser = require('body-parser');
 var scores = [
 	{name: 'NONE', score: '999.999'},
-	{name: 'NONE ', score: '999.999'},
+	{name: 'NONE', score: '999.999'},
 	{name: 'NONE', score: '999.999'},
 	{name: 'NONE', score: '999.999'},
 	{name: 'NONE', score: '999.999'},
@@ -19,11 +19,9 @@ app.use(bodyparser.urlencoded({
 }));
 
 app.post('/platformer/score', function(req, res){
-	//Recieve Response
-	//TODO: Ignore values after 2nd decimal
 	var score = req.body.time;
-	var name = req.body.name;//Convieniece
-	console.log(score + ' | ' + name); //WOW!!! Basic logging!
+	var name = req.body.name;
+	console.log(score + ' | ' + name);
 	res.send('ok'); //TODO: ADD errors and states
 	
 	//Order score list
