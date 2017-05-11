@@ -4,7 +4,7 @@ const url = 'mongodb://192.168.1.11:27017/games';
 client.connect(url, function(err, db) {
   if(err) return console.error(err);
   var collection = db.collection('skeleton-sprint');
-  collection.updateOne({}, {scoreboard: 
+  collection.updateOne({}, {{$set: {scoreboard: 
 			[
 				{name: 'NONE', score: '9999.9999'},
 				{name: 'NONE', score: '9999.9999'},
@@ -16,7 +16,7 @@ client.connect(url, function(err, db) {
 				{name: 'NONE', score: '9999.9999'},
 				{name: 'NONE', score: '9999.9999'},
 				{name: 'NONE', score: '9999.9999'}
-			]});
+			]}}});
   			db.close();
 });
 
@@ -40,7 +40,7 @@ module.exports.scoreboard.skeletonsprint.save = function(data){
     }
     
     var collection = db.collection('skeleton-sprint');
-    collection.updateOne({}, {scoreboard: data});
+    collection.updateOne({}, {$set: {scoreboard: data}});
     db.close();
   });
 }
