@@ -5,7 +5,6 @@ const bodyparser = require('body-parser');
 const cookieparser = require('cookie-parser');
 const handlebars = require('./handlebars');
 const config = require('./config');
-const secret = 'thecakewasalie';
 
 app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs');
@@ -32,7 +31,7 @@ app.post('/', function(req, res){
   var profile = config.auth;
   
   if(req.body.username === profile.username && req.body.password === profile.password){
-    var token = jwt.sign(profile, secret);
+    var token = jwt.sign(profile, config.secret);
     res.cookie('auth', token, {expires: new Date(Date.now() + 900000), httpOnly: true, secure: true});
     res.redirect('/');
   }else{
