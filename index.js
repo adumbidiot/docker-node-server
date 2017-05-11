@@ -11,7 +11,6 @@ const handlebars = require('./handlebars');
 const uws = require('uws');
 const jwt = require('jsonwebtoken');
 const db = require('./db.js');
-const secret = 'thecakewasalie';
 const cookieparser = require('cookie-parser');
 const uwss = new uws.Server({noServer: true});
 const chat = new uws.Server({noServer: true});
@@ -36,7 +35,7 @@ app.use(function(req, res, next){
 });
 app.use(cookieparser());
 app.use(function(req, res, next){
-  jwt.verify(req.cookies.auth, secret, function(err, decoded){
+  jwt.verify(req.cookies.auth, config.secret, function(err, decoded){
     if(err){
 	    req.auth = false;
     }else{
@@ -45,6 +44,7 @@ app.use(function(req, res, next){
 	next();  
   });
 });
+
 app.use('/games', games);
 app.use('/api', api);
 app.use('/login', login);
