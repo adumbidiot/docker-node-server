@@ -1,6 +1,6 @@
 const client = require('mongodb').MongoClient;
 const url = 'mongodb://192.168.1.11:27017/games';
-
+/*
 client.connect(url, function(err, db) {
   if(err) return console.error(err);
   var collection = db.collection('skeleton-sprint');
@@ -19,7 +19,7 @@ client.connect(url, function(err, db) {
 			]}});
   			db.close();
 });
-
+*/
 /*
 client.connect(url, function(err, db) {
   var collection = db.collection('skeleton-sprint');
