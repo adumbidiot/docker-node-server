@@ -6,9 +6,7 @@ const cookieparser = require('cookie-parser');
 const handlebars = require('./handlebars');
 const config = require('./config');
 
-app.engine('.hbs', handlebars.engine);
-app.set('view engine', '.hbs');
-app.enable('view cache');
+handlebars.attach([app]);
 
 app.use(bodyparser.urlencoded({
   extended: true
