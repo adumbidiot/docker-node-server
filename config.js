@@ -7,5 +7,6 @@ module.exports = {
   auth: {
     username: 'USER',
     password: 'PASS'
-  }
+  },
+  secret: 'thecakewasalie' //ssssshhhhh
 }
