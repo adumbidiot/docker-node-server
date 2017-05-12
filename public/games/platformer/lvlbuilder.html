@@ -17,6 +17,7 @@
 					var clone = document.getElementById('block').cloneNode();
 					clone.style.width = "25px";
 					clone.style.height = "25px";
+					clone.removeEventListener('click');
 					event.target.appendChild(clone);
 					event.target.block = "block";
 				}
