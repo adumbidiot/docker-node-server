@@ -14,11 +14,9 @@
 					}
 				}
 				if(active == "block"){
-					var clone = document.getElementById('block').cloneNode();
-					clone.style.width = "25px";
-					clone.style.height = "25px";
-					clone.removeEventListener('click', clickblock(event));
-					event.target.appendChild(clone);
+					var bl = document.createElement('img');
+					bl.src = "./Block25x25.png";
+					event.target.appendChild(bl);
 					event.target.block = "block";
 				}
 				
