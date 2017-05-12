@@ -9,7 +9,7 @@
 			d.style.float = "left";
 			function render(event){
 				console.log('render');
-				if(event.target.block || active == "delete"){
+				if(event.target.block || (active == "delete" && event.target.firstChild)){
 					console.log('clear');
 					while(event.target.firstChild){
 						event.target.removeChild(event.target.firstChild)
