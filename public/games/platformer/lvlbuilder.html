@@ -56,16 +56,16 @@
 			}
 			function clickblock(event){
 				switch(event.target.id){
-					case: "block"
+					case "block":
 						document.getElementById('main').style.cursor = 'url("./Block25x25.png"), auto';
 						break;
-					case: "delete"
+					case "delete":
 						document.getElementById('main').style.cursor = 'url("./Delete25x25.png"), auto';
 						break;
-					case: "block_key"
+					case "block_key":
 						document.getElementById('main').style.cursor = 'url("./Block_key25x25.png"), auto';
 						break; 
-					case: "null"
+					case "null":
 						document.getElementById('main').style.cursor = 'default';
 						break;
 				}
@@ -94,8 +94,8 @@
 			<img src="./Block.png" onclick="clickblock(event)" id = "block"/>
 			<img src="./Block_key.png" onclick="clickblock(event)" id = "block_key"/>
 			<img src="./Delete.png" onclick="clickblock(event)" id = "delete"/>
-			<div style="width:50px;height:50px;" id = "null">Deselect</div>
+			<div style="width:50px;height:50px;border 1px solid black" id = "null">Deselect</div>
 		</div>
-		<div style="width:900px;height:450px" id="main"></div>
+		<div style="width:900px;height:450px;" id="main"></div>
 	</body>
 </html>
