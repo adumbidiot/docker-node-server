@@ -8,7 +8,7 @@
 			d.style.border = "1px solid black";
 			d.style.float = "left";
 			function render(event){
-				if(event.target.block){
+				if(event.target.block || active == "delete"){
 					while(event.target.firstChild){
 						event.target.removeChild(event.target.firstChild)
 					}
@@ -27,12 +27,6 @@
 				if(!mouse) return;
 				render(event);	
 			}
-			function remove(event){
-					
-			}
-			function click(event){
-				render(event);
-			}
 			function stopDrag(event){
 				render(event);
 				event.preventDefault();
@@ -45,7 +39,7 @@
 					m.appendChild(b);
 					b.addEventListener("mouseover",  paint);
 					b.addEventListener("mousedown",  stopDrag);
-					b.addEventListener("click", click);
+					b.addEventListener("click", render);
 				}
 			}
 			function clickblock(event){
