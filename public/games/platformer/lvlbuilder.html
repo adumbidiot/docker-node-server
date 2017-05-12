@@ -8,15 +8,15 @@
 			d.style.border = "1px solid black";
 			d.style.float = "left";
 			function render(event){
-				console.log('render: ' + event.target.id);
-				if(event.target.block || (active == "delete" && event.target.firstChild)){
-					console.log('clear: '+ event.target.id);
+				//console.log('render: ' + event.target.id);
+				if(event.target.block){
+					//console.log('clear: '+ event.target.id);
 					while(event.target.firstChild){
 						event.target.removeChild(event.target.firstChild);
 					}
 				}
 				if(active == "block"){
-					console.log('block');
+					//console.log('block');
 					var bl = document.createElement('img');
 					bl.src = "./Block.png";
 					bl.style.width = "25px";
@@ -24,7 +24,9 @@
 					event.target.appendChild(bl);
 					event.target.block = "block";
 				}
-				
+				if(active == "delete" && event.target == 'block'){
+					event.target.parentElement.removeChild(event.target);				
+				}
 			}
 			function paint(event){
 				if(!mouse) return;
