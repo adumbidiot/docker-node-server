@@ -8,7 +8,9 @@
 			d.style.border = "1px solid black";
 			d.style.float = "left";
 			function render(event){
+				console.log('render');
 				if(event.target.block || active == "delete"){
+					console.log('clear');
 					while(event.target.firstChild){
 						event.target.removeChild(event.target.firstChild)
 					}
