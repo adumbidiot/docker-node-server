@@ -26,6 +26,9 @@
 				if(!mouse) return;
 				render(event);	
 			}
+			function remove(event){
+					
+			}
 			function click(event){
 				render(event);
 			}
@@ -45,7 +48,11 @@
 				}
 			}
 			function clickblock(event){
-				document.getElementById('main').style.cursor = 'url("./Block25x25.png"), auto';
+				if(event.target.id == "block"){
+					document.getElementById('main').style.cursor = 'url("./Block25x25.png"), auto';
+				}else if(event.target.id == "delete"){
+					document.getElementById('main').style.cursor = 'url("./Delete.png"), auto';
+				}
 				active = event.target.id;	
 			}
 			var mouse = false;
@@ -69,6 +76,7 @@
 	<body id = "body">
 		<div style="position:absolute;right:10px;top:10px;height:100%;width:50px;border: 1px solid black">
 			<img src="./Block.png" onclick="clickblock(event)" id = "block" onmouseover="paint(event)"/>
+			<img src="./Delete.png" onclick="clickblock(event)" id = "delete"/>
 		</div>
 		<div style="width:900px;height:450px" id="main"></div>
 	</body>
