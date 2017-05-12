@@ -8,7 +8,7 @@
 			d.style.border = "1px solid black";
 			d.style.float = "left";
 			function render(event){
-				if(event.target.block){
+				if(event.target.block || active == "delete"){
 					while(event.target.firstChild){
 						event.target.removeChild(event.target.firstChild)
 					}
@@ -75,7 +75,7 @@
 	</head>
 	<body id = "body">
 		<div style="position:absolute;right:10px;top:10px;height:100%;width:50px;border: 1px solid black">
-			<img src="./Block.png" onclick="clickblock(event)" id = "block" onmouseover="paint(event)"/>
+			<img src="./Block.png" onclick="clickblock(event)" id = "block"/>
 			<img src="./Delete.png" onclick="clickblock(event)" id = "delete"/>
 		</div>
 		<div style="width:900px;height:450px" id="main"></div>
