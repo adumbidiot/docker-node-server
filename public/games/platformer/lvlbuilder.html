@@ -24,7 +24,7 @@
 					event.target.appendChild(bl);
 					event.target.block = "block";
 				}
-				if(active == "delete" && event.target == 'block'){
+				if(active == "delete" && event.target.id == 'block'){
 					event.target.parentElement.removeChild(event.target);				
 				}
 			}
