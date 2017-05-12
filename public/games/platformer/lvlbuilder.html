@@ -55,15 +55,21 @@
 				}
 			}
 			function clickblock(event){
-				if(event.target.id == "block"){
-					document.getElementById('main').style.cursor = 'url("./Block25x25.png"), auto';
-				}else if(event.target.id == "delete"){
-					document.getElementById('main').style.cursor = 'url("./Delete25x25.png"), auto';
-				}else if(event.target.id == "block_key"){
-					document.getElementById('main').style.cursor = 'url("./Block_key25x25.png"), auto';
+				switch(event.target.id){
+					case: "block"
+						document.getElementById('main').style.cursor = 'url("./Block25x25.png"), auto';
+						break;
+					case: "delete"
+						document.getElementById('main').style.cursor = 'url("./Delete25x25.png"), auto';
+						break;
+					case: "block_key"
+						document.getElementById('main').style.cursor = 'url("./Block_key25x25.png"), auto';
+						break; 
+					case: "null"
+						document.getElementById('main').style.cursor = 'default';
+						break;
 				}
 				active = event.target.id;
-				
 			}
 			var mouse = false;
 			document.onmousedown = function(){
@@ -88,7 +94,7 @@
 			<img src="./Block.png" onclick="clickblock(event)" id = "block"/>
 			<img src="./Block_key.png" onclick="clickblock(event)" id = "block_key"/>
 			<img src="./Delete.png" onclick="clickblock(event)" id = "delete"/>
-			<div style="width:50px;height:50px;">Deselect</div>
+			<div style="width:50px;height:50px;" id = "null">Deselect</div>
 		</div>
 		<div style="width:900px;height:450px" id="main"></div>
 	</body>
