@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<script>
+			var active = null;
+			var d = document.createElement("div");
+			d.style.width = "23px";
+			d.style.height = "23px";
+			d.style.border = "1px solid black";
+			d.style.float = "left";
+			function paint(event){
+				if(!mouse) return;
+				if(event.target.block){
+					while(event.target.firstChild){
+						event.target.removeChild(event.target.firstChild)
+					}
+				}
+				if(active == "block"){
+					var clone = document.getElementById('block').cloneNode();
+					clone.style.width = "25px";
+					clone.style.height = "25px";
+					event.target.appendChild(clone);
+					event.target.block = "block";
+				}
+				
+			}
+			function stopDrag(event){
+				event.preventDefault();
+			}
+			window.onload = function(){
+				var m = document.getElementById('main');
+				for(var i = 0; i != (18 * 36); i++){
+					var b = d.cloneNode();
+					b.id = i + 1;
+					m.appendChild(b);
+					b.addEventListener("mouseover",  paint);
+					b.addEventListener("mousedown",  stopDrag);	
+				}
+			}
+			function clickblock(event){
+				document.getElementById('main').style.cursor = 'url("./25px/Block.png"), auto';
+				active = event.target.id;	
+			}
+			var mouse = false;
+			document.onmousedown = function(){
+				mouse = true;
+			}
+			document.onmouseup = function(){
+				mouse = false;
+			}
+		</script>
+		<style>
+			* {
+    				-webkit-touch-callout:none;
+    				-webkit-user-select:none;
+  				-moz-user-select:none;
+    				-ms-user-select:none;
+    				user-select:none;
+			}
+		</style>
+	</head>
+	<body id = "body">
+		<div style="position:absolute;right:10px;top:10px;height:100%;width:50px;border: 1px solid black">
+			<img src="./Block.png" onclick="clickblock(event)" id = "block" onmouseover="paint(event)"/>
+		</div>
+		<div style="width:900px;height:450px" id="main"></div>
+	</body>
+</html>
