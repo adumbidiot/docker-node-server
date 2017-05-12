@@ -8,15 +8,12 @@
 			d.style.border = "1px solid black";
 			d.style.float = "left";
 			function render(event){
-				//console.log('render: ' + event.target.id);
 				if(event.target.block){
-					//console.log('clear: '+ event.target.id);
 					while(event.target.firstChild){
 						event.target.removeChild(event.target.firstChild);
 					}
 				}
 				if(active == "block"){
-					//console.log('block');
 					var bl = document.createElement('img');
 					bl.src = "./Block.png";
 					bl.style.width = "25px";
@@ -24,6 +21,15 @@
 					bl.id = "bl";
 					event.target.appendChild(bl);
 					event.target.block = "block";
+				}
+				if(active == "block_key"){
+					var bl = document.createElement('img');
+					bl.src = "./Block_key.png";
+					bl.style.width = "25px";
+					bl.style.height = "25px";
+					bl.id = "bl";
+					event.target.appendChild(bl);
+					event.target.block = "block_key";
 				}
 				if(active == "delete" && event.target.id == 'bl'){
 					event.target.parentElement.removeChild(event.target);				
@@ -53,8 +59,11 @@
 					document.getElementById('main').style.cursor = 'url("./Block25x25.png"), auto';
 				}else if(event.target.id == "delete"){
 					document.getElementById('main').style.cursor = 'url("./Delete25x25.png"), auto';
+				}else if(event.target.id == "block_key"){
+					document.getElementById('main').style.cursor = 'url("./block_key25x25.png"), auto';
 				}
-				active = event.target.id;	
+				active = event.target.id;
+				
 			}
 			var mouse = false;
 			document.onmousedown = function(){
@@ -78,6 +87,7 @@
 		<div style="position:absolute;right:10px;top:10px;height:100%;width:50px;border: 1px solid black">
 			<img src="./Block.png" onclick="clickblock(event)" id = "block"/>
 			<img src="./Delete.png" onclick="clickblock(event)" id = "delete"/>
+			<img src="./block_key.png" onclick="clickblock(event)" id = "block_key"/>
 		</div>
 		<div style="width:900px;height:450px" id="main"></div>
 	</body>
