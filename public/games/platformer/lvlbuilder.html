@@ -21,10 +21,11 @@
 					bl.src = "./Block.png";
 					bl.style.width = "25px";
 					bl.style.height = "25px";
+					bl.id = "bl";
 					event.target.appendChild(bl);
 					event.target.block = "block";
 				}
-				if(active == "delete" && event.target.id == 'block'){
+				if(active == "delete" && event.target.id == 'bl'){
 					event.target.parentElement.removeChild(event.target);				
 				}
 			}
