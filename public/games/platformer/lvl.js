@@ -17,7 +17,7 @@ window.lvl = function(){
 		this.board.appendChild(grid);
 		grid.addEventListener("mouseover",  mouseoverblock);
 		grid.addEventListener("mousedown",  stopdragblock);
-		grid.addEventListener("click", boardClick);
+		grid.addEventListener("click", this.boardClick);
 	}
 	
 	this.library = {
