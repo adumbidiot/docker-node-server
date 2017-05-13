@@ -64,6 +64,7 @@ document.onmouseup = function(){
 
 function render(event){
 	var target = event.target;
+	console.log(target);
 	if(target.type = 'block'){
 		render_legacy(event);
 	}
