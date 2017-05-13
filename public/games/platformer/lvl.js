@@ -29,7 +29,7 @@ lvl.prototype.render = function(index, activeBrush){
 	console.log(this);
 	var target = document.getElementById(index + 1);
 	console.log(target);
-	if(target. == activeBrush) return;
+	if(target.block == activeBrush) return;
 	if(target.block){
 		this.clearTile(target);
 	}
@@ -38,8 +38,9 @@ lvl.prototype.render = function(index, activeBrush){
 	block.style.width = '25px';
 	block.style.height = '25px';
 	block.src = './' + activeBrush + '.png';
-	block.type = activeBrush;
+	block.type = 'block';
 	target.appendChild(block);
+	target.block = activeBrush;
 }
 
 lvl.prototype.clearTile = function(index){
@@ -65,7 +66,7 @@ document.onmouseup = function(){
 function render(event){
 	var target = event.target;
 	console.log(target);
-	if(target.type = 'block'){
+	if(target.type == 'block'){
 		render_legacy(event);
 	}else{
 		var index = Number(target.id) - 1;
