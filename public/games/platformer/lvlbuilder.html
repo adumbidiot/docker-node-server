@@ -77,11 +77,12 @@
 					case "item_key":
 						document.getElementById('main').style.cursor = 'url("./item_key25x25.png"), auto';
 						break; 
-					case "null":
+					case active:
+					case default:
 						document.getElementById('main').style.cursor = 'default';
 						break;
 				}
-				event.target.style.border="5px solid transparent";
+				event.target.style.border="5px solid transparent grey";
 				document.getElementById(active).style.border = '0px';
 				active = event.target.id;
 			}
@@ -107,8 +108,8 @@
 		<div style="position:absolute;right:10px;top:10px;height:100%;width:50px;border: 1px solid black">
 			<img src="./Block.png" onclick="clickblock(event)" id = "block"/>
 			<img src="./Block_key.png" onclick="clickblock(event)" id = "block_key"/>
+			<img src="./item_key.png" onclick="clickblock(event)" id = "item_key"/>
 			<img src="./Delete.png" onclick="clickblock(event)" id = "delete"/>
-			<div style="width:50px;height:50px;border 1px solid black" id = "null">Deselect</div>
 		</div>
 		<div style="width:900px;height:450px;" id="main"></div>
 	</body>
