@@ -15,7 +15,7 @@ window.lvl = function(name){
 	
 	for(var i = 0; i != (18 * 32); i++){
 		var grid = this.gridTemplate.cloneNode();
-		grid.id = this.name + i + 1;
+		grid.id = this.name + (i + 1);
 		this.board.appendChild(grid);
 		grid.addEventListener("mouseover",  mouseoverblock);
 		grid.addEventListener("mousedown",  stopdragblock);
