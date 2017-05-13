@@ -25,7 +25,7 @@ window.lvl = function(){
 	}
 }
 
-lvl.prototype.render(index, activeBrush){
+lvl.prototype.render = function(index, activeBrush){
 	var target = this.board.getElementById(index + 1);
 	if(target.block == activeBrush) return;
 	if(target.block){
@@ -40,7 +40,7 @@ lvl.prototype.render(index, activeBrush){
 	target.appendChild(block);
 }
 
-lvl.prototype.clearTile(index){
+lvl.prototype.clearTile = function(index){
 	var target = this.board.getElementById(index + 1);
 	while(target.firstChild){
 		target.removeChild(target.firstChild);
@@ -48,7 +48,7 @@ lvl.prototype.clearTile(index){
 	event.target.block = null;
 }
 
-lvl.prototype.boardClick(event){
+lvl.prototype.boardClick = function(event){
 	render(event);
 }
 
