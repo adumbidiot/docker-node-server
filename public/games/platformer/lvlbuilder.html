@@ -118,7 +118,7 @@
 				for(var i = 0; i != (36 * 18); i++){
 					array.push((document.getElementById(i + 1).block || 'null'));
 				}
-				document.getElementById('interface').innerHTML = JSON.stringify(array);
+				document.getElementById('interface').value = JSON.stringify(array);
 			}
 			function importlvl(){
 				var array = JSON.parse(document.getElementById('interface').value);
