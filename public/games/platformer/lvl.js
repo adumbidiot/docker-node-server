@@ -29,6 +29,7 @@ window.lvl = function(name){
 
 lvl.prototype.render = function(index, activeBrush){
 	console.log(this);
+	console.log(this.name + (index + 1));
 	var target = document.getElementById(this.name + (index + 1));
 	console.log(target);
 	if(target.block == activeBrush) return;
