@@ -3,7 +3,8 @@
 		<script src="./lvl.js"></script>
 		<script>
 			var active = null;
-			var d = new lvl().gridTemplate;
+			const level = new lvl();
+			var d = level.gridTemplate;
 			function clear(event){
 				if(event.target.block){
 					while(event.target.firstChild){
@@ -84,7 +85,7 @@
 				}
 			}
 			function mouseoverblock(event){
-				if(!mouse) return;
+				if(!level.mouseDown) return;
 				render(event);	
 			}
 			function stopdragblock(event){
@@ -129,13 +130,6 @@
 					document.getElementById(active).style.border = '0px';
 				}
 				active = id;
-			}
-			var mouse = false;
-			document.onmousedown = function(){
-				mouse = true;
-			}
-			document.onmouseup = function(){
-				mouse = false;
 			}
 			function exportlvl(){
 				var array = [];
