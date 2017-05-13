@@ -63,27 +63,32 @@
 				}
 			}
 			function clickblock(event){
-				switch(event.target.id){
+				var main = document.getElementById('main');
+				var id = event.target.id;
+				switch(id){
 					case "block":
-						document.getElementById('main').style.cursor = 'url("./Block25x25.png"), auto';
+						main.style.cursor = 'url("./Block25x25.png"), auto';
 						break;
 					case "delete":
-						document.getElementById('main').style.cursor = 'url("./Delete25x25.png"), auto';
+						main.style.cursor = 'url("./Delete25x25.png"), auto';
 						break;
 					case "block_key":
-						document.getElementById('main').style.cursor = 'url("./Block_key25x25.png"), auto';
+						main.style.cursor = 'url("./Block_key25x25.png"), auto';
 						break;
 					case "item_key":
-						document.getElementById('main').style.cursor = 'url("./item_key25x25.png"), auto';
+						main.style.cursor = 'url("./item_key25x25.png"), auto';
 						break; 
 					case active:
 					default:
-						document.getElementById('main').style.cursor = 'default';
+						main.style.cursor = 'default';
+						id = null;
 						break;
 				}
-				event.target.style.border="5px solid transparent grey";
-				document.getElementById(active).style.border = '0px';
-				active = event.target.id;
+				event.target.style.border= "5px solid transparent grey";
+				if(active){
+					document.getElementById(active).style.border = '0px';
+				}
+				active = id;
 			}
 			var mouse = false;
 			document.onmousedown = function(){
