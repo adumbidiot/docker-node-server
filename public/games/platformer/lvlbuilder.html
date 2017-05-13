@@ -18,12 +18,13 @@
 				}
 			}
 			function render(event){
+				if(event.target.block == active){
+					return;
+				}
 				var bl = document.createElement('img');
 				bl.style.width = "25px";
 				bl.style.height = "25px";
 				switch(active){
-					case event.target.block:
-						break;
 					case "block":
 						clear(event);
 						bl.src = "./Block.png";
