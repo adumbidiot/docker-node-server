@@ -1,8 +1,15 @@
 window.lvl = function(){
-      var d = document.createElement("div");
-			d.style.width = "23px";
-			d.style.height = "23px";
-			d.style.border = "1px solid black";
-			d.style.float = "left";
-      this.gridTemplate = d;
+	this.gridTemplate = document.createElement("div");
+	this.gridTemplate.style.width = "23px";
+	this.gridTemplate.style.height = "23px";
+	this.gridTemplate.style.border = "1px solid black";
+	this.gridTemplate.style.float = "left";
+	
+	this.mouseDown = false;
+	document.onmousedown = function(){
+		this.mouseDown = true;
+	}
+	document.onmouseup = function(){
+		this.mouseDown = false;
+	}
 }
