@@ -113,12 +113,45 @@
 			document.onmouseup = function(){
 				mouse = false;
 			}
-			function parse(){
+			function exportlvl(){
 				var array = [];
 				for(var i = 0; i != (36 * 18); i++){
 					array.push((document.getElementById(i + 1).block || 'null'));
 				}
-				document.getElementById('output').innerHTML = '[' + array.toString() + ']';
+				document.getElementById('interface').innerHTML = '[' + array.toString() + ']';
+			}
+			function importlvl(){
+				var array = JSON.parse(document.getElementById('interface').innerHTML);
+				console.log(array);
+				for(var i = 0; i != (36 * 18); i++){
+					if(array[i]){
+						var grid = document.getElementById(i+1);
+						grid.block = array[i];
+						var bl = document.createElement('img');
+						bl.style.width = "25px";
+						bl.style.height = "25px";
+						switch(active){
+							case "block":
+								bl.src = "./Block.png";
+								bl.id = "bl";
+								bl.block_id = "block";
+								grid.appendChild(bl);
+								break;
+							case "block_key":
+								bl.src = "./Block_key.png";
+								bl.id = "bl";
+								bl.block_id = "block_key";
+								grid.appendChild(bl);
+								break;
+							case "item_key":
+								bl.src = "./item_key.png";
+								bl.id = "bl";
+								bl.block_id = "item_key";
+								grid.appendChild(bl);
+								break;
+						}
+					}
+				}
 			}
 		</script>
 		<style>
@@ -139,7 +172,7 @@
 			<img src="./Delete.png" onclick="clickblock(event)" id = "delete"/>
 		</div>
 		<div style="width:900px;height:450px;" id="main"></div>
-		<button onclick="parse()">Export</button>
-		<textarea id="output"></textarea>
+		<button onclick="exportlvl()">Export</button>
+		<textarea id="interface"></textarea>
 	</body>
 </html>
