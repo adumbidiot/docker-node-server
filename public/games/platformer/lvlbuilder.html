@@ -31,6 +31,15 @@
 					event.target.appendChild(bl);
 					event.target.block = "block_key";
 				}
+				if(active == "item_key"){
+					var bl = document.createElement('img');
+					bl.src = "./item_key.png";
+					bl.style.width = "25px";
+					bl.style.height = "25px";
+					bl.id = "bl";
+					event.target.appendChild(bl);
+					event.target.block = "item_key";
+				}
 				if(active == "delete" && event.target.id == 'bl'){
 					event.target.parentElement.removeChild(event.target);				
 				}
@@ -64,11 +73,16 @@
 						break;
 					case "block_key":
 						document.getElementById('main').style.cursor = 'url("./Block_key25x25.png"), auto';
+						break;
+					case "item_key":
+						document.getElementById('main').style.cursor = 'url("./item_key25x25.png"), auto';
 						break; 
 					case "null":
 						document.getElementById('main').style.cursor = 'default';
 						break;
 				}
+				event.target.style.border="5px solid transparent";
+				document.getElementById(active).style.border = '0px';
 				active = event.target.id;
 			}
 			var mouse = false;
