@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<script src="./lvl.js"></script>
+		<script>
+			var active = null;
+			const level = new lvl();
+			var d = level.gridTemplate;
+			function clear(event){
+				if(event.target.block){
+					while(event.target.firstChild){
+						event.target.removeChild(event.target.firstChild);
+					}
+					event.target.block = null;
+				}
+				if(event.target.id == 'bl'){
+					event.target.parentElement.block = null;
+					event.target.parentElement.removeChild(event.target);
+				}
+			}
+			function clearAll(event){
+				for(var i = 0; i != (32 * 18); i++){
+					var grid = document.getElementById(i+1);
+					while(grid.firstChild){
+						grid.removeChild(grid.firstChild);
+					}
+					grid.block = null;
+				}
+			}
+			window.onload = function(){
+				document.getElementById('placeholder').appendChild(level.board);
+			}
+			function clickblock(event){
+				var main = document.getElementById('main');
+				var id = event.target.id;
+				switch(id){
+					case "block":
+						main.style.cursor = 'url("./Block25x25.png"), auto';
+						break;
+					case "delete":
+						main.style.cursor = 'url("./Delete25x25.png"), auto';
+						break;
+					case "block_key":
+						main.style.cursor = 'url("./Block_key25x25.png"), auto';
+						break;
+					case "item_key":
+						main.style.cursor = 'url("./item_key25x25.png"), auto';
+						break; 
+					case active:
+					default:
+						main.style.cursor = 'default';
+						id = null;
+						break;
+				}
+				event.target.style.border= "5px solid transparent";
+				if(active){
+					document.getElementById(active).style.border = '0px';
+				}
+				active = id;
+			}
+			function exportlvl(){
+				var array = [];
+				for(var i = 0; i != (32 * 18); i++){
+					array.push((document.getElementById(i + 1).block || 'null'));
+				}
+				document.getElementById('interface').value = array;
+			}
+			function importlvl(){
+				clearAll();
+				var array = document.getElementById('interface').value.split(',');
+				console.log(array);
+				for(var i = 0; i != (32 * 18); i++){
+					if(array[i]){
+						var grid = document.getElementById(i+1);
+						grid.block = array[i];
+						var bl = document.createElement('img');
+						bl.style.width = "25px";
+						bl.style.height = "25px";
+						switch(array[i]){
+							case "block":
+								bl.src = "./Block.png";
+								bl.id = "bl";
+								bl.block_id = "block";
+								grid.appendChild(bl);
+								break;
+							case "block_key":
+								bl.src = "./Block_key.png";
+								bl.id = "bl";
+								bl.block_id = "block_key";
+								grid.appendChild(bl);
+								break;
+							case "item_key":
+								bl.src = "./item_key.png";
+								bl.id = "bl";
+								bl.block_id = "item_key";
+								grid.appendChild(bl);
+								break;
+						}
+					}
+				}
+			}
+		</script>
+		<style>
+			* {
+    				-webkit-touch-callout:none;
+    				-webkit-user-select:none;
+  				-moz-user-select:none;
+    				-ms-user-select:none;
+    				user-select:none;
+			}
+		</style>
+	</head>
+	<body id = "body">
+		<div style="position:absolute;right:10px;top:10px;height:100%;width:50px;border: 1px solid black">
+			<img src="./Block.png" onclick="clickblock(event)" id = "block"/>
+			<img src="./Block_key.png" onclick="clickblock(event)" id = "block_key"/>
+			<img src="./item_key.png" onclick="clickblock(event)" id = "item_key"/>
+			<img src="./Delete.png" onclick="clickblock(event)" id = "delete"/>
+		</div>
+		<div id="placeholder"></div>
+		<button onclick="exportlvl()">Export</button>
+		<button onclick="importlvl()">Import</button>
+		<textarea id="interface"></textarea>
+	</body>
+</html>
