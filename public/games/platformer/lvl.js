@@ -26,6 +26,7 @@ window.lvl = function(){
 }
 
 lvl.prototype.render = function(index, activeBrush){
+	console.log(this);
 	var target = this.board.getElementById(index + 1);
 	if(target.block == activeBrush) return;
 	if(target.block){
