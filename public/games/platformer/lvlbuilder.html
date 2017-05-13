@@ -121,7 +121,7 @@
 				document.getElementById('interface').innerHTML = '[' + array.toString() + ']';
 			}
 			function importlvl(){
-				var array = JSON.parse(document.getElementById('interface').innerHTML);
+				var array = JSON.parse(document.getElementById('interface').value);
 				console.log(array);
 				for(var i = 0; i != (36 * 18); i++){
 					if(array[i]){
