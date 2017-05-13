@@ -22,28 +22,28 @@
 				bl.style.width = "25px";
 				bl.style.height = "25px";
 				switch(active){
-					case active:
+					case event.target.block:
 						break;
 					case "block":
+						clear(event);
 						bl.src = "./Block.png";
 						bl.id = "bl";
 						event.target.appendChild(bl);
 						event.target.block = "block";
-						clear(event);
 						break;
 					case "block_key":
+						clear(event);
 						bl.src = "./Block_key.png";
 						bl.id = "bl";
 						event.target.appendChild(bl);
 						event.target.block = "block_key";
-						clear(event);
 						break;
-					case "item_key": 
+					case "item_key":
+						clear(event);
 						bl.src = "./item_key.png";
 						bl.id = "bl";
 						event.target.appendChild(bl);
 						event.target.block = "item_key";
-						clear(event);
 						break;
 					case "delete":
 						clear(event);
