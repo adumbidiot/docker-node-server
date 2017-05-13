@@ -13,6 +13,9 @@
 						event.target.removeChild(event.target.firstChild);
 					}
 				}
+				if(event.target.id == 'bl'){
+					event.target.parentElement.removeChild(event.target);
+				}
 				var bl = document.createElement('img');
 				bl.style.width = "25px";
 				bl.style.height = "25px";
@@ -36,18 +39,16 @@
 						event.target.block = "item_key";
 						break;
 					case "delete":
-						if(event.target.id == 'bl'){
-							event.target.parentElement.removeChild(event.target);
-						}
 						break;
 					default:
+						break;
 				}
 			}
-			function paint(event){
+			function mouseoverblock(event){
 				if(!mouse) return;
 				render(event);	
 			}
-			function stopDrag(event){
+			function stopdragblock(event){
 				render(event);
 				event.preventDefault();
 			}
@@ -57,8 +58,8 @@
 					var b = d.cloneNode();
 					b.id = i + 1;
 					m.appendChild(b);
-					b.addEventListener("mouseover",  paint);
-					b.addEventListener("mousedown",  stopDrag);
+					b.addEventListener("mouseover",  mouseoverblock);
+					b.addEventListener("mousedown",  stopdragblock);
 					b.addEventListener("click", render);
 				}
 			}
@@ -102,7 +103,7 @@
 				for(var i = 0; i != (36 * 18); i++){
 					array.push((document.getElementById(i + 1).block || 'null'));
 				}
-				document.getElementById('output').innerHTML = array.toString();
+				document.getElementById('output').innerHTML = '[' + array.toString() + ']';
 			}
 		</script>
 		<style>
