@@ -93,17 +93,7 @@
 				event.preventDefault();
 			}
 			window.onload = function(){
-				var p = document.getElementById('placeholder');
-				p.appendChild(level.board);
-				var m = document.getElementById('main');
-				for(var i = 0; i != (18 * 32); i++){
-					var b = d.cloneNode();
-					b.id = i + 1;
-					m.appendChild(b);
-					b.addEventListener("mouseover",  mouseoverblock);
-					b.addEventListener("mousedown",  stopdragblock);
-					b.addEventListener("click", render);
-				}
+				document.getElementById('placeholder').appendChild(level.board);
 			}
 			function clickblock(event){
 				var main = document.getElementById('main');
