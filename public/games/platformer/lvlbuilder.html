@@ -61,7 +61,7 @@
 				render(event);	
 			}
 			function stopdragblock(event){
-				render(event);
+				//render(event);
 				event.preventDefault();
 			}
 			window.onload = function(){
@@ -72,7 +72,7 @@
 					m.appendChild(b);
 					b.addEventListener("mouseover",  mouseoverblock);
 					b.addEventListener("mousedown",  stopdragblock);
-					//b.addEventListener("click", render);
+					b.addEventListener("click", render);
 				}
 			}
 			function clickblock(event){
