@@ -41,24 +41,39 @@
 						bl.src = "./Block.png";
 						bl.id = "bl";
 						bl.block_id = "block";
-						event.target.appendChild(bl);
-						event.target.block = "block";
+						if(event.target.id == 'bl'){
+							event.target.parentElement.appendChild(bl);
+							event.target.parentElement.block = "block";
+						}else{
+							event.target.appendChild(bl);
+							event.target.block = "block";
+						}
 						break;
 					case "block_key":
 						clear(event);
 						bl.src = "./Block_key.png";
 						bl.id = "bl";
 						bl.block_id = "block_key";
-						event.target.appendChild(bl);
-						event.target.block = "block_key";
+						if(event.target.id == 'bl'){
+							event.target.parentElement.appendChild(bl);
+							event.target.parentElement.block = "block_key";
+						}else{
+							event.target.appendChild(bl);
+							event.target.block = "block_key";
+						}
 						break;
 					case "item_key":
 						clear(event);
 						bl.src = "./item_key.png";
 						bl.id = "bl";
 						bl.block_id = "item_key";
-						event.target.appendChild(bl);
-						event.target.block = "item_key";
+						if(event.target.id == 'bl'){
+							event.target.parentElement.appendChild(bl);
+							event.target.parentElement.block = "item_key";
+						}else{
+							event.target.appendChild(bl);
+							event.target.block = "item_key";
+						}
 						break;
 					case "delete":
 						clear(event);
