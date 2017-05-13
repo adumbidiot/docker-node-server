@@ -12,8 +12,10 @@
 					while(event.target.firstChild){
 						event.target.removeChild(event.target.firstChild);
 					}
+					event.target.block = null;
 				}
 				if(event.target.id == 'bl'){
+					event.target.parentElement.block = null;
 					event.target.parentElement.removeChild(event.target);
 				}
 			}
