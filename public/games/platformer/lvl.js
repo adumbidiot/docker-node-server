@@ -4,6 +4,7 @@ window.lvl = function(){
 	this.gridTemplate.style.height = '23px';
 	this.gridTemplate.style.border = '1px solid black';
 	this.gridTemplate.style.float = 'left';
+	this.gridTemplate.type = 'holder';
 	
 	this.board = document.createElement('div');
 	this.board.id = 'main';
@@ -16,8 +17,39 @@ window.lvl = function(){
 		this.board.appendChild(grid);
 		grid.addEventListener("mouseover",  mouseoverblock);
 		grid.addEventListener("mousedown",  stopdragblock);
-		grid.addEventListener("click", render);
+		grid.addEventListener("click", boardClick);
 	}
+	
+	this.library = {
+		
+	}
+}
+
+lvl.prototype.render(index){
+	var target = this.board.getElementById(index + 1);
+	if(target.block == active) return;
+	if(target.block){
+		this.clearTile(target);
+	}
+	
+	var block = document.createElement('img');
+	block.style.width = '25px';
+	block.style.height = '25px';
+	block.src = './Block.png';
+	block.type = 'block';
+	target.appendChild(block);
+}
+
+lvl.prototype.clearTile(index){
+	var target = this.board.getElementById(index + 1);
+	while(target.firstChild){
+		target.removeChild(target.firstChild);
+	}
+	event.target.block = null;
+}
+
+lvl.prototype.boardClick(event){
+	render(event);
 }
 
 window.lvl.mouseDown = false;
@@ -29,9 +61,21 @@ document.onmouseup = function(){
 }
 
 function render(event){
-				if(event.target.block == active || event.target.block_id == active){
-					return;
-				}
+	var target = event.target;
+	if(target.type = 'block'){
+		render_legacy(event);
+	}
+	var index = Number(target.id) - 1;
+	
+}
+
+	
+	
+//Legacy
+function render_legacy(event){
+	if(event.target.block == active || event.target.block_id == active){
+		return;
+	}
 				var bl = document.createElement('img');
 				bl.style.width = "25px";
 				bl.style.height = "25px";
