@@ -13,35 +13,34 @@
 						event.target.removeChild(event.target.firstChild);
 					}
 				}
-				if(active == "block"){
-					var bl = document.createElement('img');
-					bl.src = "./Block.png";
-					bl.style.width = "25px";
-					bl.style.height = "25px";
-					bl.id = "bl";
-					event.target.appendChild(bl);
-					event.target.block = "block";
-				}
-				if(active == "block_key"){
-					var bl = document.createElement('img');
-					bl.src = "./Block_key.png";
-					bl.style.width = "25px";
-					bl.style.height = "25px";
-					bl.id = "bl";
-					event.target.appendChild(bl);
-					event.target.block = "block_key";
-				}
-				if(active == "item_key"){
-					var bl = document.createElement('img');
-					bl.src = "./item_key.png";
-					bl.style.width = "25px";
-					bl.style.height = "25px";
-					bl.id = "bl";
-					event.target.appendChild(bl);
-					event.target.block = "item_key";
-				}
-				if(active == "delete" && event.target.id == 'bl'){
-					event.target.parentElement.removeChild(event.target);				
+				var bl = document.createElement('img');
+				bl.style.width = "25px";
+				bl.style.height = "25px";
+				switch(active){
+					case "block":
+						bl.src = "./Block.png";
+						bl.id = "bl";
+						event.target.appendChild(bl);
+						event.target.block = "block";
+						break;
+					case "block_key":
+						bl.src = "./Block_key.png";
+						bl.id = "bl";
+						event.target.appendChild(bl);
+						event.target.block = "block_key";
+						break;
+					case "item_key": 
+						bl.src = "./item_key.png";
+						bl.id = "bl";
+						event.target.appendChild(bl);
+						event.target.block = "item_key";
+						break;
+					case "delete":
+						if(event.target.id == 'bl'){
+							event.target.parentElement.removeChild(event.target);
+						}
+						break;
+					default:
 				}
 			}
 			function paint(event){
@@ -78,7 +77,7 @@
 						document.getElementById('main').style.cursor = 'url("./item_key25x25.png"), auto';
 						break; 
 					case active:
-					case default:
+					default:
 						document.getElementById('main').style.cursor = 'default';
 						break;
 				}
