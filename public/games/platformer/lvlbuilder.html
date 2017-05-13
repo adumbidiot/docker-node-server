@@ -3,11 +3,7 @@
 		<script src="./lvl.js"></script>
 		<script>
 			var active = null;
-			var d = document.createElement("div");
-			d.style.width = "23px";
-			d.style.height = "23px";
-			d.style.border = "1px solid black";
-			d.style.float = "left";
+			var d = new lvl().gridTemplate;
 			function clear(event){
 				if(event.target.block){
 					while(event.target.firstChild){
