@@ -29,7 +29,7 @@ lvl.prototype.render = function(index, activeBrush){
 	console.log(this);
 	var target = document.getElementById(index + 1);
 	console.log(target);
-	if(target.block == activeBrush) return;
+	if(target. == activeBrush) return;
 	if(target.block){
 		this.clearTile(target);
 	}
@@ -67,9 +67,10 @@ function render(event){
 	console.log(target);
 	if(target.type = 'block'){
 		render_legacy(event);
+	}else{
+		var index = Number(target.id) - 1;
+		level.render(index, active);
 	}
-	var index = Number(target.id) - 1;
-	level.render(index, active);
 }
 
 	
