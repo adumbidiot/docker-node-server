@@ -25,9 +25,9 @@ window.lvl = function(){
 	}
 }
 
-lvl.prototype.render(index){
+lvl.prototype.render(index, activeBrush){
 	var target = this.board.getElementById(index + 1);
-	if(target.block == active) return;
+	if(target.block == activeBrush) return;
 	if(target.block){
 		this.clearTile(target);
 	}
@@ -36,7 +36,7 @@ lvl.prototype.render(index){
 	block.style.width = '25px';
 	block.style.height = '25px';
 	block.src = './Block.png';
-	block.type = 'block';
+	block.type = activeBrush;
 	target.appendChild(block);
 }
 
@@ -66,7 +66,7 @@ function render(event){
 		render_legacy(event);
 	}
 	var index = Number(target.id) - 1;
-	
+	level.render(index, active);
 }
 
 	
