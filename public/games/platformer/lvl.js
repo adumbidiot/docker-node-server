@@ -1,4 +1,6 @@
-window.lvl = function(){
+window.lvl = function(name){
+	this.name = name;
+	
 	this.gridTemplate = document.createElement('div');
 	this.gridTemplate.style.width = '23px';
 	this.gridTemplate.style.height = '23px';
@@ -7,13 +9,13 @@ window.lvl = function(){
 	this.gridTemplate.type = 'holder';
 	
 	this.board = document.createElement('div');
-	this.board.id = 'main';
+	this.board.id = this.name;
 	this.board.style.width = '800px';
 	this.board.height = '450px';
 	
 	for(var i = 0; i != (18 * 32); i++){
 		var grid = this.gridTemplate.cloneNode();
-		grid.id = i + 1;
+		grid.id = this.name + i + 1;
 		this.board.appendChild(grid);
 		grid.addEventListener("mouseover",  mouseoverblock);
 		grid.addEventListener("mousedown",  stopdragblock);
@@ -27,7 +29,7 @@ window.lvl = function(){
 
 lvl.prototype.render = function(index, activeBrush){
 	console.log(this);
-	var target = document.getElementById(index + 1);
+	var target = document.getElementById(this.name + (index + 1));
 	console.log(target);
 	if(target.block == activeBrush) return;
 	if(target.block){
@@ -44,7 +46,7 @@ lvl.prototype.render = function(index, activeBrush){
 }
 
 lvl.prototype.clearTile = function(index){
-	var target = this.board.getElementById(index + 1);
+	var target = document.getElementById(this.name + (index + 1));
 	while(target.firstChild){
 		target.removeChild(target.firstChild);
 	}
@@ -67,7 +69,9 @@ function render(event){
 	var target = event.target;
 	console.log(target);
 	if(target.type == 'block'){
-		render_legacy(event);
+		//render_legacy(event);
+		var index = Number(target.parentNode.id) - 1;
+		level.render(index, active);
 	}else{
 		var index = Number(target.id) - 1;
 		level.render(index, active);
