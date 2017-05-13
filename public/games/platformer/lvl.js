@@ -6,10 +6,10 @@ window.lvl = function(){
 	this.gridTemplate.style.float = "left";
 	
 	this.mouseDown = false;
-	document.onmousedown = function(){
-		this.mouseDown = true;
+	document.onmousedown = function(this.mouseDown){
+		mouseDown = true;
 	}
-	document.onmouseup = function(){
-		this.mouseDown = false;
+	document.onmouseup = function(this.mouseDown){
+		mouseDown = false;
 	}
 }
