@@ -20,7 +20,7 @@
 				}
 			}
 			function render(event){
-				if(event.target.block == active){
+				if(event.target.block == active || event.target.block_id == active){
 					return;
 				}
 				var bl = document.createElement('img');
@@ -31,6 +31,7 @@
 						clear(event);
 						bl.src = "./Block.png";
 						bl.id = "bl";
+						bl.block_id = "block";
 						event.target.appendChild(bl);
 						event.target.block = "block";
 						break;
@@ -38,6 +39,7 @@
 						clear(event);
 						bl.src = "./Block_key.png";
 						bl.id = "bl";
+						bl.block_id = "block_key";
 						event.target.appendChild(bl);
 						event.target.block = "block_key";
 						break;
@@ -45,6 +47,7 @@
 						clear(event);
 						bl.src = "./item_key.png";
 						bl.id = "bl";
+						bl.block_id = "item_key";
 						event.target.appendChild(bl);
 						event.target.block = "item_key";
 						break;
