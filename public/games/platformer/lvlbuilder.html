@@ -7,7 +7,7 @@
 			d.style.height = "23px";
 			d.style.border = "1px solid black";
 			d.style.float = "left";
-			function render(event){
+			function clear(event){
 				if(event.target.block){
 					while(event.target.firstChild){
 						event.target.removeChild(event.target.firstChild);
@@ -16,31 +16,40 @@
 				if(event.target.id == 'bl'){
 					event.target.parentElement.removeChild(event.target);
 				}
+			}
+			function render(event){
 				var bl = document.createElement('img');
 				bl.style.width = "25px";
 				bl.style.height = "25px";
 				switch(active){
+					case active:
+						break;
 					case "block":
 						bl.src = "./Block.png";
 						bl.id = "bl";
 						event.target.appendChild(bl);
 						event.target.block = "block";
+						clear(event);
 						break;
 					case "block_key":
 						bl.src = "./Block_key.png";
 						bl.id = "bl";
 						event.target.appendChild(bl);
 						event.target.block = "block_key";
+						clear(event);
 						break;
 					case "item_key": 
 						bl.src = "./item_key.png";
 						bl.id = "bl";
 						event.target.appendChild(bl);
 						event.target.block = "item_key";
+						clear(event);
 						break;
 					case "delete":
+						clear(event);
 						break;
 					default:
+						clear(event);
 						break;
 				}
 			}
