@@ -28,6 +28,7 @@ window.lvl = function(){
 lvl.prototype.render = function(index, activeBrush){
 	console.log(this);
 	var target = document.getElementById(index + 1);
+	console.log(target);
 	if(target.block == activeBrush) return;
 	if(target.block){
 		this.clearTile(target);
@@ -36,7 +37,7 @@ lvl.prototype.render = function(index, activeBrush){
 	var block = document.createElement('img');
 	block.style.width = '25px';
 	block.style.height = '25px';
-	block.src = './Block.png';
+	block.src = './' + activeBrush + '.png';
 	block.type = activeBrush;
 	target.appendChild(block);
 }
