@@ -13,7 +13,7 @@ window.lvl = function(){
 	for(var i = 0; i != (18 * 32); i++){
 		var grid = this.gridTemplate.cloneNode();
 		grid.id = i + 1;
-		this.board.appendChild(b);
+		this.board.appendChild(grid);
 		grid.addEventListener("mouseover",  mouseoverblock);
 		grid.addEventListener("mousedown",  stopdragblock);
 		grid.addEventListener("click", render);
