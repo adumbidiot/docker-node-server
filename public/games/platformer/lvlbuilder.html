@@ -19,6 +19,15 @@
 					event.target.parentElement.removeChild(event.target);
 				}
 			}
+			function clearAll(event){
+				for(var i = 0; i != (36 * 18); i++){
+					var grid = document.getElementById(i+1);
+					while(grid.firstChild){
+						grid.removeChild(grid.firstChild);
+					}
+					grid.block = null;
+				}
+			}
 			function render(event){
 				if(event.target.block == active || event.target.block_id == active){
 					return;
