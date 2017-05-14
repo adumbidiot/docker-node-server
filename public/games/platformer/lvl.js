@@ -44,6 +44,7 @@ lvl.prototype.render = function(index, activeBrush){
 }
 
 lvl.prototype.clearTile = function(index){
+	console.log(this.name + (index + 1));
 	var target = document.getElementById(this.name + (index + 1));
 	while(target.firstChild){
 		target.removeChild(target.firstChild);
