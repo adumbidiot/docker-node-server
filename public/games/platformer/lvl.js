@@ -13,6 +13,47 @@ window.lvl = function(name){
 	this.board.id = this.name;
 	this.board.style.width = '800px';
 	this.board.height = '450px';
+	
+	this.encode = {
+		MAIN: 'X0',
+		block: 'B0',
+		block_key: 'BK',
+		exit: 'E0',
+		switch: 'S0',
+		SwitchCeiling: 'S1',
+		ToggleBlockSolid: 'T0',
+		ToggleBlockPhase: 'T1',
+		WireRed: 'WR',
+		PowerUpBurrow: 'P0',
+		PowerUpGravity: 'P1',
+		item_key: 'IK',
+		SecretExit: 'Z0',
+		Decoration_Scaffold: 'D0',
+		Decoration_Sconce: 'D1',
+		Mask_Circle: 'A0',
+		null: '00'
+	}
+	
+	this.decode = {
+		X0: 'Main',
+		B0: 'block',
+		BK: 'block_key',
+		E0: 'exit',
+		S0: 'switch',
+		S1: 'SwitchCeiling',
+		T0: 'ToggleBlockSolid',
+		T1: 'ToggleBlockPhase',
+		WR: 'WireRed',
+		P0: 'PowerUpBurrow' ,
+		P1: 'PowerUpGravity',
+		IK: 'item_key',
+		Z0: 'SecretExit',
+		D0: 'Decoration_Scaffold',
+		D1: 'Decoration_Sconce',
+		A0: 'Mask_Circle',
+		00: 'null'
+	}
+	
 	this.down = function(event){
 		self.renderEvent(event);
 		event.preventDefault();
@@ -83,7 +124,8 @@ lvl.prototype.renderEvent = function(event){
 lvl.prototype.export = function(){
 	var array = [];
 	for(var i = 0; i != (32 * 18); i++){
-		array.push((document.getElementById(name + (i + 1)).block || 'null'));
+		var id = document.getElementById(name + (i + 1)).block || 'null';
+		array.push(encode[id]);
 	}
 	return array;	
 }
@@ -93,7 +135,7 @@ lvl.prototype.import = function(data){
 	var array = data.split(',');
 	for(var i = 0; i != (32 * 18); i++){
 		if(data != 'null'){
-			render(i, data[i]);
+			render(i, decode[data[i]]);
 		}
 	}
 }
