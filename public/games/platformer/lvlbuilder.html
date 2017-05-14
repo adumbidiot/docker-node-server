@@ -41,6 +41,14 @@
 			}
 			function exportlvl(){
 				document.getElementById('interface').value = level.export();
+				var textToSave = level.export;
+
+				var hiddenElement = document.createElement('a');
+
+				hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+				hiddenElement.target = '_blank';
+				hiddenElement.download = 'myFile.txt';
+				hiddenElement.click();
 			}
 			function importlvl(){
 				var data = document.getElementById('interface').value;
