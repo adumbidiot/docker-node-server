@@ -129,12 +129,15 @@ lvl.prototype.export = function(){
 		array.push(this.encode[id]);
 	}
 	var array2D = [];
-	for(var i = 0; i != (32 * 18); i += 18){
+	for(var i = 0; i != (32 * 18); i += 32){
 		var subArray = [];
-		for(var j = 0; j!= 18; j++){
+		for(var j = 0; j != 32; j++){
 			subArray.push(array[i+j]);
 		}
 		array2D.push(subArray);
+	}
+	for(int i = 0; i != 18; i++){
+		array2D[i] = '[' + array2D[i].toString() + ']';
 	}
 	return array2D;	
 }
