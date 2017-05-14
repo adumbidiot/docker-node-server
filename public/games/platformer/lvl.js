@@ -1,6 +1,6 @@
 window.lvl = function(name){
 	this.name = name;
-	this.self = this;
+	var self = this;
 	
 	this.gridTemplate = document.createElement('div');
 	this.gridTemplate.style.width = '23px';
