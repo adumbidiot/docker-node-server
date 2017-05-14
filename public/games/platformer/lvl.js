@@ -17,9 +17,9 @@ window.lvl = function(name){
 		var grid = this.gridTemplate.cloneNode();
 		grid.id = this.name + (i + 1);
 		this.board.appendChild(grid);
-		grid.addEventListener("mouseover",  mouseoverblock);
-		grid.addEventListener("mousedown",  stopdragblock);
-		grid.addEventListener("click", this.boardClick);
+		grid.addEventListener("mouseover",  this.boardMouseOver);
+		grid.addEventListener("mousedown",  this.boardMouseDown);
+		grid.addEventListener("click", this.boardMouseClick);
 	}
 	
 	this.library = {
@@ -52,8 +52,28 @@ lvl.prototype.clearTile = function(index){
 	target.block = null;
 }
 
-lvl.prototype.boardClick = function(event){
-	render(event);
+lvl.prototype.renderEvent = function(event){
+	var target = event.target;
+	if(target.type == 'block'){
+		target = target.parentNode;
+	}
+	
+	var index = Number(target.id.slice(this.name.length)) - 1;
+	this.render(index, active);
+}
+
+lvl.prototype.boardMouseClick = function(event){
+	renderEvent(event);
+}
+
+lvl.prototype.boardMouseOver = function(event){
+	if(!lvl.mouseDown) return;
+	this.renderEvent(event);
+}
+
+lvl.prototype.boardMouseDrag = function(event){
+	renderEvent(event);
+	event.preventDefault();
 }
 
 window.lvl.mouseDown = false;
@@ -63,24 +83,3 @@ document.onmousedown = function(){
 document.onmouseup = function(){
 	window.lvl.mouseDown = false;
 }
-
-//TODO: Remove all following functions
-function render(event){
-	var target = event.target;
-	if(target.type == 'block'){
-		target = target.parentNode;
-	}
-	
-	var index = Number(target.id.slice(level.name.length)) - 1;
-	level.render(index, active);
-}
-
-//Legacy
-			function mouseoverblock(event){
-				if(!lvl.mouseDown) return;
-				render(event);	
-			}
-			function stopdragblock(event){
-				render(event);
-				event.preventDefault();
-			}
