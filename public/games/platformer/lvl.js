@@ -33,6 +33,7 @@ lvl.prototype.render = function(index, activeBrush){
 	if(target.block){
 		this.clearTile(index);
 	}
+	if(activeBrush == 'delete') return;
 	
 	var block = document.createElement('img');
 	block.style.width = '25px';
@@ -44,12 +45,10 @@ lvl.prototype.render = function(index, activeBrush){
 }
 
 lvl.prototype.clearTile = function(index){
-	console.log(this.name + (index + 1));
 	var target = document.getElementById(this.name + (index + 1));
 	while(target.firstChild){
 		target.removeChild(target.firstChild);
 	}
-	console.log(target);
 	target.block = null;
 }
 
@@ -77,64 +76,6 @@ function render(event){
 }
 
 //Legacy
-function render_legacy(event){
-	if(event.target.block == active || event.target.block_id == active){
-		return;
-	}
-				var bl = document.createElement('img');
-				bl.style.width = "25px";
-				bl.style.height = "25px";
-				switch(active){
-					case "block":
-						var parent = event.target.parentElement;
-						clear(event);
-						bl.src = "./Block.png";
-						bl.id = "bl";
-						bl.block_id = "block";
-						if(event.target.id == 'bl'){
-							parent.appendChild(bl);
-							parent.block = "block";
-						}else{
-							event.target.appendChild(bl);
-							event.target.block = "block";
-						}
-						break;
-					case "block_key":
-						var parent = event.target.parentElement;
-						clear(event);
-						bl.src = "./Block_key.png";
-						bl.id = "bl";
-						bl.block_id = "block_key";
-						if(event.target.id == 'bl'){
-							parent.appendChild(bl);
-							parent.block = "block_key";
-						}else{
-							event.target.appendChild(bl);
-							event.target.block = "block_key";
-						}
-						break;
-					case "item_key":
-						var parent = event.target.parentElement;
-						clear(event);
-						bl.src = "./item_key.png";
-						bl.id = "bl";
-						bl.block_id = "item_key";
-						if(event.target.id == 'bl'){
-							parent.appendChild(bl);
-							parent.block = "item_key";
-						}else{
-							event.target.appendChild(bl);
-							event.target.block = "item_key";
-						}
-						break;
-					case "delete":
-						clear(event);
-						break;
-					default:
-						clear(event);
-						break;
-				}
-			}
 			function mouseoverblock(event){
 				if(!lvl.mouseDown) return;
 				render(event);	
