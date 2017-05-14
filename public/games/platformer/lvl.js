@@ -127,7 +127,7 @@ lvl.prototype.export = function(){
 		var element = document.getElementById(this.name + (i + 1));
 		console.log(element);
 		var id = element.block || 'null';
-		array.push(encode[id]);
+		array.push(this.encode[id]);
 	}
 	return array;	
 }
@@ -137,7 +137,7 @@ lvl.prototype.import = function(data){
 	var array = data.split(',');
 	for(var i = 0; i != (32 * 18); i++){
 		if(data != 'null'){
-			render(i, decode[data[i]]);
+			this.render(i, this.decode[data[i]]);
 		}
 	}
 }
