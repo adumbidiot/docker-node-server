@@ -126,7 +126,7 @@ lvl.prototype.export = function(){
 	for(var i = 0; i != (32 * 18); i++){
 		var element = document.getElementById(name + (i + 1));
 		console.log(element);
-		var id = document.getElementById(name + (i + 1)).block || 'null';
+		var id = element.block || 'null';
 		array.push(encode[id]);
 	}
 	return array;	
