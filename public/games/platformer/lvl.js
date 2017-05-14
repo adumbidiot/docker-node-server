@@ -87,7 +87,8 @@ lvl.prototype.import = function(data){
 }
 
 lvl.prototype.boardMouseClick = function(event){
-	renderEvent(event);
+	console.log(this);
+	this.renderEvent(event);
 }
 
 lvl.prototype.boardMouseOver = function(event){
@@ -97,7 +98,8 @@ lvl.prototype.boardMouseOver = function(event){
 }
 
 lvl.prototype.boardMouseDrag = function(event){
-	renderEvent(event);
+	console.log(this);
+	this.renderEvent(event);
 	event.preventDefault();
 }
 
