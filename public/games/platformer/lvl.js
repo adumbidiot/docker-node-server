@@ -71,6 +71,7 @@ function render(event){
 	console.log(target);
 	if(target.type == 'block'){
 		//render_legacy(event);
+		console.log(target.parentNode);
 		var index = Number(target.parentNode.id) - 1;
 		level.render(index, active);
 	}else{
