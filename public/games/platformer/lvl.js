@@ -136,10 +136,11 @@ lvl.prototype.export = function(){
 		}
 		array2D.push(subArray);
 	}
+	var output = '';
 	for(var i = 0; i != 18; i++){
-		array2D[i] = 'lvlArray[x]['+ i + '][' + array2D[i].toString() + ']';
+		output = 'lvlArray[x]['+ i + '] = [' + array2D[i].toString() + '];';
 	}
-	return array2D;	
+	return output;	
 }
 
 lvl.prototype.import = function(data){
