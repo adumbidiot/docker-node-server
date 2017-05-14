@@ -14,15 +14,14 @@ window.lvl = function(name){
 	this.board.style.width = '800px';
 	this.board.height = '450px';
 	this.down = function(event){
-		console.log(self);
 		self.renderEvent(event);
+		event.preventDefault();
 	}
 	this.over = function(event){
-		console.log(self);
+		if(!lvl.mouseDown) return;
 		self.renderEvent(event);
 	}
 	this.click = function(event){
-		console.log(self);
 		self.renderEvent(event);
 	}
 }
@@ -97,20 +96,6 @@ lvl.prototype.import = function(data){
 			render(i, data[i]);
 		}
 	}
-}
-
-lvl.prototype.boardMouseClick = function(event){
-	this.renderEvent(event);
-}
-
-lvl.prototype.boardMouseOver = function(event){
-	if(!lvl.mouseDown) return;
-	this.renderEvent(event);
-}
-
-lvl.prototype.boardMouseDrag = function(event){
-	this.renderEvent(event);
-	event.preventDefault();
 }
 
 window.lvl.mouseDown = false;
