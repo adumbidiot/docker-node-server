@@ -84,10 +84,11 @@ lvl.prototype.import = function(data){
 
 lvl.prototype.boardMouseClick = function(event){
 	console.log(this);
+	console.log(this.name);
 	this.renderEvent(event);
 }
 
-lvl.prototype.boardMouseOver = function(){
+lvl.prototype.boardMouseOver = function(event){
 	if(!lvl.mouseDown) return;
 	console.log(this);
 	this.renderEvent(event);
