@@ -19,9 +19,9 @@ lvl.prototype.generateBoard = function(){
 		var grid = this.gridTemplate.cloneNode();
 		grid.id = this.name + (i + 1);
 		this.board.appendChild(grid);
-		grid.addEventListener("mouseover",  this.boardMouseOver.bind(this));
-		grid.addEventListener("mousedown",  this.boardMouseDown.bind(this));
-		grid.addEventListener("click", this.boardMouseClick.bind(this));
+		grid.addEventListener("mouseover",  function(){this.boardMouseOver}));
+		grid.addEventListener("mousedown",  function(){this.boardMouseDown});
+		grid.addEventListener("click", function(){this.boardMouseClick});
 	}
 	return this.board;
 }
