@@ -143,10 +143,12 @@ lvl.prototype.export = function(){
 	return output;	
 }
 
-lvl.prototype.import = function(data){
+lvl.prototype.import = function(raw){
 	this.clearAllTiles();
-	var array = data.split(',');
-	console.log(array);
+	var call = 'var x = 0; var lvlArray = [][];' + raw + 'return lvlArray;';
+	var interpret = new Function(call);
+	console.log(interpret());
+	var data = interpret();
 	for(var i = 0; i != (32 * 18); i++){
 		console.log(this.decode[data[i]]);
 		console.log(array[i]);
