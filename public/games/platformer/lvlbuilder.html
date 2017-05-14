@@ -4,19 +4,6 @@
 		<script>
 			var active = null;
 			const level = new lvl('main');
-			var d = level.gridTemplate;
-			function clear(event){
-				if(event.target.block){
-					while(event.target.firstChild){
-						event.target.removeChild(event.target.firstChild);
-					}
-					event.target.block = null;
-				}
-				if(event.target.id == 'bl'){
-					event.target.parentElement.block = null;
-					event.target.parentElement.removeChild(event.target);
-				}
-			}
 			function clearAll(event){
 				for(var i = 0; i != (32 * 18); i++){
 					var grid = document.getElementById(i+1);
@@ -62,45 +49,11 @@
 				active = id;
 			}
 			function exportlvl(){
-				var array = [];
-				for(var i = 0; i != (32 * 18); i++){
-					array.push((document.getElementById(i + 1).block || 'null'));
-				}
-				document.getElementById('interface').value = array;
+				document.getElementById('interface').value = level.export();
 			}
 			function importlvl(){
-				clearAll();
-				var array = document.getElementById('interface').value.split(',');
-				console.log(array);
-				for(var i = 0; i != (32 * 18); i++){
-					if(array[i]){
-						var grid = document.getElementById(i+1);
-						grid.block = array[i];
-						var bl = document.createElement('img');
-						bl.style.width = "25px";
-						bl.style.height = "25px";
-						switch(array[i]){
-							case "block":
-								bl.src = "./block.png";
-								bl.id = "bl";
-								bl.block_id = "block";
-								grid.appendChild(bl);
-								break;
-							case "block_key":
-								bl.src = "./block_key.png";
-								bl.id = "bl";
-								bl.block_id = "block_key";
-								grid.appendChild(bl);
-								break;
-							case "item_key":
-								bl.src = "./item_key.png";
-								bl.id = "bl";
-								bl.block_id = "item_key";
-								grid.appendChild(bl);
-								break;
-						}
-					}
-				}
+				var data = document.getElementById('interface').value;
+				level.import(data);
 			}
 		</script>
 		<style>
