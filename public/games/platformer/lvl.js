@@ -22,11 +22,11 @@ lvl.prototype.generateBoard = function(){
 		this.board.appendChild(grid);
 		console.log(this);
 		var func = function(event){
-			this.boardMouseOver.bind(event);
+			this.boardMouseOver;
 		}
 		grid.addEventListener("mouseover", func);
-		grid.addEventListener("mousedown", this.boardMouseDown.bind(this));
-		grid.addEventListener("click", this.boardMouseClick.bind(this));
+		grid.addEventListener("mousedown", this.boardMouseDown);
+		grid.addEventListener("click", this.boardMouseClick);
 	}
 	return this.board;
 }
