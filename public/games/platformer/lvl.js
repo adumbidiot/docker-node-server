@@ -134,6 +134,7 @@ lvl.prototype.export = function(){
 lvl.prototype.import = function(data){
 	this.clearAllTiles();
 	var array = data.split(',');
+	console.log(array);
 	for(var i = 0; i != (32 * 18); i++){
 		if(this.decode[data] != 'null'){
 			this.render(i, this.decode[data[i]]);
