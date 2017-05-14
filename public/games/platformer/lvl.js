@@ -12,7 +12,9 @@ window.lvl = function(name){
 	this.board.id = this.name;
 	this.board.style.width = '800px';
 	this.board.height = '450px';
-	
+}
+
+lvl.prototype.generateBoard = function(){
 	for(var i = 0; i != (18 * 32); i++){
 		var grid = this.gridTemplate.cloneNode();
 		grid.id = this.name + (i + 1);
@@ -21,6 +23,7 @@ window.lvl = function(name){
 		grid.addEventListener("mousedown",  this.boardMouseDown.bind(this));
 		grid.addEventListener("click", this.boardMouseClick.bind(this));
 	}
+	return this.board;
 }
 
 lvl.prototype.render = function(index, blockType){
