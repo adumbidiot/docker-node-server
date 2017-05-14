@@ -35,23 +35,23 @@ window.lvl = function(name){
 	}
 	
 	this.decode = {
-		X0: 'Main',
-		B0: 'block',
-		BK: 'block_key',
-		E0: 'exit',
-		S0: 'switch',
-		S1: 'SwitchCeiling',
-		T0: 'ToggleBlockSolid',
-		T1: 'ToggleBlockPhase',
-		WR: 'WireRed',
-		P0: 'PowerUpBurrow' ,
-		P1: 'PowerUpGravity',
-		IK: 'item_key',
-		Z0: 'SecretExit',
-		D0: 'Decoration_Scaffold',
-		D1: 'Decoration_Sconce',
-		A0: 'Mask_Circle',
-		00: 'null'
+		'X0': 'Main',
+		'B0': 'block',
+		'BK': 'block_key',
+		'E0': 'exit',
+		'S0': 'switch',
+		'S1': 'SwitchCeiling',
+		'T0': 'ToggleBlockSolid',
+		'T1': 'ToggleBlockPhase',
+		'WR': 'WireRed',
+		'P0': 'PowerUpBurrow' ,
+		'P1': 'PowerUpGravity',
+		'IK': 'item_key',
+		'Z0': 'SecretExit',
+		'D0': 'Decoration_Scaffold',
+		'D1': 'Decoration_Sconce',
+		'A0': 'Mask_Circle',
+		'00': 'null'
 	}
 	
 	this.down = function(event){
