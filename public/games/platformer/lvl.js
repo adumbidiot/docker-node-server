@@ -20,7 +20,6 @@ lvl.prototype.generateBoard = function(){
 		var grid = this.gridTemplate.cloneNode();
 		grid.id = this.name + (i + 1);
 		this.board.appendChild(grid);
-		console.log(this);
 		var down = function(event){
 			this.boardMouseDown;
 		}
