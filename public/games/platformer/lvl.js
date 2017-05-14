@@ -13,6 +13,15 @@ window.lvl = function(name){
 	this.board.id = this.name;
 	this.board.style.width = '800px';
 	this.board.height = '450px';
+	this.down = function(event){
+		this.renderEvent(event);
+	}
+	this.over = function(event){
+		this.renderEvent(event);
+	}
+	this.click = function(event){
+		this.renderEvent(event);
+	}
 }
 
 lvl.prototype.generateBoard = function(){
@@ -20,15 +29,7 @@ lvl.prototype.generateBoard = function(){
 		var grid = this.gridTemplate.cloneNode();
 		grid.id = this.name + (i + 1);
 		this.board.appendChild(grid);
-		var down = function(event){
-			this.boardMouseDown(event);
-		}
-		var over = function(event){
-			this.boardMouseOver(event);
-		}
-		var click = function(event){
-			this.boardMouseClick(event);
-		}
+		
 		grid.addEventListener("mouseover", over);
 		grid.addEventListener("mousedown", down);
 		grid.addEventListener("click", click);
