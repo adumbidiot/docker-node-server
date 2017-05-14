@@ -92,6 +92,7 @@ lvl.prototype.boardMouseClick = function(event){
 
 lvl.prototype.boardMouseOver = function(event){
 	if(!lvl.mouseDown) return;
+	console.log(this);
 	this.renderEvent(event);
 }
 
