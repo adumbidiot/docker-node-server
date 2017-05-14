@@ -29,6 +29,7 @@ window.lvl = function(name){
 
 lvl.prototype.render = function(index, activeBrush){
 	console.log(this);
+	console.log(index);
 	console.log(this.name + (index + 1));
 	var target = document.getElementById(this.name + (index + 1));
 	console.log(target);
@@ -71,11 +72,11 @@ function render(event){
 	console.log(target);
 	if(target.type == 'block'){
 		//render_legacy(event);
-		console.log(target.parentNode);
-		var index = target.parentNode.id - 1;
+		var index = Number(target.parentNode.id.slice(level.name.length)) - 1;
+		console.log(index);
 		level.render(index, active);
 	}else{
-		var index = target.id - 1;
+		var index = Number(target.id.slice(level.name.length))- 1;
 		level.render(index, active);
 	}
 }
