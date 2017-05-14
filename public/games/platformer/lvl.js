@@ -29,7 +29,7 @@ window.lvl = function(name){
 
 lvl.prototype.render = function(index, activeBrush){
 	var target = document.getElementById(this.name + (index + 1));
-	if(target.block == activeBrush) return;
+	if(target.block == activeBrush || !activeBrush) return;
 	if(target.block){
 		this.clearTile(index);
 	}
