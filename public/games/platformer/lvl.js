@@ -136,8 +136,8 @@ lvl.prototype.export = function(){
 		}
 		array2D.push(subArray);
 	}
-	for(int i = 0; i != 18; i++){
-		array2D[i] = '[' + array2D[i].toString() + ']';
+	for(var i = 0; i != 18; i++){
+		array2D[i] = 'lvlArray[x]['+ i + '][' + array2D[i].toString() + ']';
 	}
 	return array2D;	
 }
