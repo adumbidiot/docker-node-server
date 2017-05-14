@@ -51,6 +51,10 @@
 						id = null;
 						break;
 				}
+				if(id == active){
+					main.style.cursor = 'default';
+					id = null;
+				}
 				event.target.style.border= "5px solid transparent";
 				if(active){
 					document.getElementById(active).style.border = '0px';
