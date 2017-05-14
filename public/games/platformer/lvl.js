@@ -21,13 +21,13 @@ lvl.prototype.generateBoard = function(){
 		grid.id = this.name + (i + 1);
 		this.board.appendChild(grid);
 		var down = function(event){
-			this.boardMouseDown;
+			this.boardMouseDown(event);
 		}
 		var over = function(event){
-			this.boardMouseOver;
+			this.boardMouseOver(event);
 		}
 		var click = function(event){
-			this.boardMouseClick;
+			this.boardMouseClick(event);
 		}
 		grid.addEventListener("mouseover", over);
 		grid.addEventListener("mousedown", down);
