@@ -28,11 +28,7 @@ window.lvl = function(name){
 }
 
 lvl.prototype.render = function(index, activeBrush){
-	console.log(this);
-	console.log(index);
-	console.log(this.name + (index + 1));
 	var target = document.getElementById(this.name + (index + 1));
-	console.log(target);
 	if(target.block == activeBrush) return;
 	if(target.block){
 		this.clearTile(target);
@@ -48,11 +44,13 @@ lvl.prototype.render = function(index, activeBrush){
 }
 
 lvl.prototype.clearTile = function(index){
+	console.log(index);
 	var target = document.getElementById(this.name + (index + 1));
 	while(target.firstChild){
 		target.removeChild(target.firstChild);
 	}
-	event.target.block = null;
+	console.log(target);
+	target.block = null;
 }
 
 lvl.prototype.boardClick = function(event){
@@ -67,13 +65,12 @@ document.onmouseup = function(){
 	window.lvl.mouseDown = false;
 }
 
+//TODO: Remove all following functions
 function render(event){
 	var target = event.target;
-	console.log(target);
 	if(target.type == 'block'){
 		//render_legacy(event);
 		var index = Number(target.parentNode.id.slice(level.name.length)) - 1;
-		console.log(index);
 		level.render(index, active);
 	}else{
 		var index = Number(target.id.slice(level.name.length))- 1;
