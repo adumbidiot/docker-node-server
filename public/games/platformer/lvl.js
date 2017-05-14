@@ -72,10 +72,10 @@ function render(event){
 	if(target.type == 'block'){
 		//render_legacy(event);
 		console.log(target.parentNode);
-		var index = Number(target.parentNode.id) - 1;
+		var index = target.parentNode.id - 1;
 		level.render(index, active);
 	}else{
-		var index = Number(target.id) - 1;
+		var index = target.id - 1;
 		level.render(index, active);
 	}
 }
