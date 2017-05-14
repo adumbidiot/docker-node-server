@@ -128,7 +128,15 @@ lvl.prototype.export = function(){
 		var id = element.block || 'null';
 		array.push(this.encode[id]);
 	}
-	return array;	
+	var array2D = [];
+	for(var i = 0; i != (32 * 18); i += 18){
+		var subArray = [];
+		for(var j = 0; j!= 18; j++){
+			subArray.push(array[i+j]);
+		}
+		array2D.push(subArray);
+	}
+	return array2D;	
 }
 
 lvl.prototype.import = function(data){
