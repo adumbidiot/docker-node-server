@@ -18,9 +18,11 @@ window.lvl = function(name){
 		self.renderEvent(event);
 	}
 	this.over = function(event){
+		console.log(self);
 		self.renderEvent(event);
 	}
 	this.click = function(event){
+		console.log(self);
 		self.renderEvent(event);
 	}
 }
