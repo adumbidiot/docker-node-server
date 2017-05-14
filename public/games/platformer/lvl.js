@@ -1,5 +1,6 @@
 window.lvl = function(name){
 	this.name = name;
+	this.self = this;
 	
 	this.gridTemplate = document.createElement('div');
 	this.gridTemplate.style.width = '23px';
@@ -19,9 +20,9 @@ lvl.prototype.generateBoard = function(){
 		var grid = this.gridTemplate.cloneNode();
 		grid.id = this.name + (i + 1);
 		this.board.appendChild(grid);
-		grid.addEventListener("mouseover",  function(event){return this.boardMouseOver(event)}));
-		grid.addEventListener("mousedown",  function(event){ return this.boardMouseDown(event)});
-		grid.addEventListener("click", function(event){ return this.boardMouseClick(event)});
+		grid.addEventListener("mouseover", this.boardMouseOver);
+		grid.addEventListener("mousedown", this.boardMouseDown);
+		grid.addEventListener("click", this.boardMouseClick);
 	}
 	return this.board;
 }
@@ -86,20 +87,16 @@ lvl.prototype.import = function(data){
 }
 
 lvl.prototype.boardMouseClick = function(event){
-	console.log(this);
-	console.log(this.name);
-	this.renderEvent(event);
+	self.renderEvent(event);
 }
 
 lvl.prototype.boardMouseOver = function(event){
 	if(!lvl.mouseDown) return;
-	console.log(this);
-	this.renderEvent(event);
+	self.renderEvent(event);
 }
 
 lvl.prototype.boardMouseDrag = function(event){
-	console.log(this);
-	this.renderEvent(event);
+	self.renderEvent(event);
 	event.preventDefault();
 }
 
