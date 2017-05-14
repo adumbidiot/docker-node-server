@@ -4,17 +4,8 @@
 		<script>
 			var active = null;
 			const level = new lvl('main');
-			function clearAll(event){
-				for(var i = 0; i != (32 * 18); i++){
-					var grid = document.getElementById(i+1);
-					while(grid.firstChild){
-						grid.removeChild(grid.firstChild);
-					}
-					grid.block = null;
-				}
-			}
 			window.onload = function(){
-				document.getElementById('placeholder').appendChild(generateBoard());
+				document.getElementById('placeholder').appendChild(level.generateBoard());
 			}
 			function clickblock(event){
 				var main = document.getElementById('main');
