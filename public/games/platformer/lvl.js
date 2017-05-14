@@ -14,6 +14,7 @@ window.lvl = function(name){
 	this.board.style.width = '800px';
 	this.board.height = '450px';
 	this.down = function(event){
+		console.log(self);
 		self.renderEvent(event);
 	}
 	this.over = function(event){
