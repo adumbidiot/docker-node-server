@@ -14,13 +14,13 @@ window.lvl = function(name){
 	this.board.style.width = '800px';
 	this.board.height = '450px';
 	this.down = function(event){
-		this.renderEvent(event);
+		self.renderEvent(event);
 	}
 	this.over = function(event){
-		this.renderEvent(event);
+		self.renderEvent(event);
 	}
 	this.click = function(event){
-		this.renderEvent(event);
+		self.renderEvent(event);
 	}
 }
 
