@@ -21,12 +21,18 @@ lvl.prototype.generateBoard = function(){
 		grid.id = this.name + (i + 1);
 		this.board.appendChild(grid);
 		console.log(this);
-		var func = function(event){
+		var down = function(event){
+			this.boardMouseDown;
+		}
+		var over = function(event){
 			this.boardMouseOver;
 		}
-		grid.addEventListener("mouseover", func);
-		grid.addEventListener("mousedown", this.boardMouseDown);
-		grid.addEventListener("click", this.boardMouseClick);
+		var click = function(event){
+			this.boardMouseClick;
+		}
+		grid.addEventListener("mouseover", over);
+		grid.addEventListener("mousedown", down);
+		grid.addEventListener("click", click);
 	}
 	return this.board;
 }
@@ -91,16 +97,16 @@ lvl.prototype.import = function(data){
 }
 
 lvl.prototype.boardMouseClick = function(event){
-	self.renderEvent(event);
+	this.renderEvent(event);
 }
 
 lvl.prototype.boardMouseOver = function(event){
 	if(!lvl.mouseDown) return;
-	self.renderEvent(event);
+	this.renderEvent(event);
 }
 
 lvl.prototype.boardMouseDrag = function(event){
-	self.renderEvent(event);
+	this.renderEvent(event);
 	event.preventDefault();
 }
 
