@@ -124,7 +124,7 @@ lvl.prototype.renderEvent = function(event){
 lvl.prototype.export = function(){
 	var array = [];
 	for(var i = 0; i != (32 * 18); i++){
-		var element = document.getElementById(name + (i + 1));
+		var element = document.getElementById(this.name + (i + 1));
 		console.log(element);
 		var id = element.block || 'null';
 		array.push(encode[id]);
