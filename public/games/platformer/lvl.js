@@ -125,7 +125,6 @@ lvl.prototype.export = function(){
 	var array = [];
 	for(var i = 0; i != (32 * 18); i++){
 		var element = document.getElementById(this.name + (i + 1));
-		console.log(element);
 		var id = element.block || 'null';
 		array.push(this.encode[id]);
 	}
@@ -136,7 +135,7 @@ lvl.prototype.import = function(data){
 	this.clearAllTiles();
 	var array = data.split(',');
 	for(var i = 0; i != (32 * 18); i++){
-		if(data != 'null'){
+		if(this.decode[data] != 'null'){
 			this.render(i, this.decode[data[i]]);
 		}
 	}
