@@ -23,11 +23,6 @@
 					case "item_key":
 						main.style.cursor = 'url("./item_key25x25.png"), auto';
 						break; 
-					case active:
-					default:
-						main.style.cursor = 'default';
-						id = null;
-						break;
 				}
 				if(id == active){
 					main.style.cursor = 'default';
@@ -41,14 +36,15 @@
 			}
 			function exportlvl(){
 				document.getElementById('interface').value = level.export();
-				var textToSave = level.export;
+				
+				//var textToSave = (level.export());
 
-				var hiddenElement = document.createElement('a');
+				//var hiddenElement = document.createElement('a');
 
-				hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
-				hiddenElement.target = '_blank';
-				hiddenElement.download = 'myFile.txt';
-				hiddenElement.click();
+				//hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+				//hiddenElement.target = '_blank';
+				//hiddenElement.download = 'myFile.txt';
+				//hiddenElement.click();
 			}
 			function importlvl(){
 				var data = document.getElementById('interface').value;
