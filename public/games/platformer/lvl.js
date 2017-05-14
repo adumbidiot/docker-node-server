@@ -52,6 +52,12 @@ lvl.prototype.clearTile = function(index){
 	target.block = null;
 }
 
+lvl.prototype.clearAllTiles = function(){
+	for(var i = 0; i != (18 * 32); i++){
+		this.clearTile(i);
+	}
+}
+
 lvl.prototype.renderEvent = function(event){
 	var target = event.target;
 	if(target.type == 'block'){
@@ -60,6 +66,24 @@ lvl.prototype.renderEvent = function(event){
 	
 	var index = Number(target.id.slice(this.name.length)) - 1;
 	this.render(index, active);
+}
+
+lvl.prototype.export = function(){
+	var array = [];
+	for(var i = 0; i != (32 * 18); i++){
+		array.push((document.getElementById(name + (i + 1)).block || 'null'));
+	}
+	return array;	
+}
+
+lvl.prototype.import = function(data){
+	this.clearAllTiles();
+	var array = data.split(',');
+	for(var i = 0; i != (32 * 18); i++){
+		if(data != 'null'){
+			render(i, data[i]);
+		}
+	}
 }
 
 lvl.prototype.boardMouseClick = function(event){
