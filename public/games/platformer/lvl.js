@@ -20,6 +20,7 @@ lvl.prototype.generateBoard = function(){
 		var grid = this.gridTemplate.cloneNode();
 		grid.id = this.name + (i + 1);
 		this.board.appendChild(grid);
+		console.log(this);
 		grid.addEventListener("mouseover", this.boardMouseOver.bind(this));
 		grid.addEventListener("mousedown", this.boardMouseDown.bind(this));
 		grid.addEventListener("click", this.boardMouseClick.bind(this));
