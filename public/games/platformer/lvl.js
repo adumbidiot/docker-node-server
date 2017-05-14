@@ -69,17 +69,13 @@ document.onmouseup = function(){
 function render(event){
 	var target = event.target;
 	if(target.type == 'block'){
-		//render_legacy(event);
-		var index = Number(target.parentNode.id.slice(level.name.length)) - 1;
-		level.render(index, active);
-	}else{
-		var index = Number(target.id.slice(level.name.length))- 1;
-		level.render(index, active);
+		target = target.parentNode;
 	}
+	
+	var index = Number(target.id.slice(level.name.length)) - 1;
+	level.render(index, active);
 }
 
-	
-	
 //Legacy
 function render_legacy(event){
 	if(event.target.block == active || event.target.block_id == active){
