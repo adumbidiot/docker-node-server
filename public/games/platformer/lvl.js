@@ -21,27 +21,23 @@ window.lvl = function(name){
 		grid.addEventListener("mousedown",  this.boardMouseDown);
 		grid.addEventListener("click", this.boardMouseClick);
 	}
-	
-	this.library = {
-		
-	}
 }
 
-lvl.prototype.render = function(index, activeBrush){
+lvl.prototype.render = function(index, blockType){
 	var target = document.getElementById(this.name + (index + 1));
-	if(target.block == activeBrush || !activeBrush) return;
+	if(target.block == blockType || !blockType) return;
 	if(target.block){
 		this.clearTile(index);
 	}
-	if(activeBrush == 'delete') return;
+	if(blockType == 'delete') return;
 	
 	var block = document.createElement('img');
 	block.style.width = '25px';
 	block.style.height = '25px';
-	block.src = './' + activeBrush + '.png';
+	block.src = './' + blockType + '.png';
 	block.type = 'block';
 	target.appendChild(block);
-	target.block = activeBrush;
+	target.block = blockType;
 }
 
 lvl.prototype.clearTile = function(index){
@@ -91,7 +87,7 @@ lvl.prototype.boardMouseClick = function(event){
 	this.renderEvent(event);
 }
 
-lvl.prototype.boardMouseOver = function(event){
+lvl.prototype.boardMouseOver = function(){
 	if(!lvl.mouseDown) return;
 	console.log(this);
 	this.renderEvent(event);
