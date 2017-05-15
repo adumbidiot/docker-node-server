@@ -25,13 +25,11 @@
 				document.getElementById('interface').value = level.export();
 			}
 			function downloadlvl(){
-				//var textToSave = (level.export());
-
-				//var hiddenElement = document.createElement('a');
-
-				//hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
-				//hiddenElement.target = '_blank';
-				//hiddenElement.download = 'myFile.txt';
+				var textToSave = (level.export());
+				var hiddenElement = document.createElement('a');
+				hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+				hiddenElement.target = '_blank';
+				hiddenElement.download = 'mylvl.txt';
 				//hiddenElement.click();
 			}
 			function importlvl(){
@@ -59,6 +57,7 @@
 			<img src="./block_key.png" onclick="clickblock(event)" id = "block_key"/>
 			<img src="./item_key.png" onclick="clickblock(event)" id = "item_key"/>
 			<img src="./decoration_scaffold.png" onclick="clickblock(event)" id = "decoration_scaffold"/>
+			<img src="./toggleblocksolid.png" onclick="clickblock(event)" id = "toggleblocksolid"/>
 			<img src="./main.png" onclick="clickblock(event)" id = "main"/>
 			<img src="./delete.png" onclick="clickblock(event)" id = "delete"/>
 		</div>
@@ -66,6 +65,7 @@
 		<div style="bottom:10px;border:2px solid black;position:absolute;">
 			<button onclick="exportlvl()">Export</button>
 			<button onclick="importlvl()">Import</button>
+			<button onclick="downloadlvl()">Download</button>
 			<textarea id="interface"></textarea>
 		</div>
 	</body>
