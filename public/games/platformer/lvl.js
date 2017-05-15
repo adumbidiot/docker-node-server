@@ -152,7 +152,7 @@ lvl.prototype.import = function(raw){
 	var out = interpret()
 	console.log(out);
 	console.log(JSON.stringify(out));
-	var data = out;
+	var data = out[0];
 	var array = [];
 	for(var i = 0; i != data.length; i++){
 		for(var j = 0; j != data[i].length; j++){
