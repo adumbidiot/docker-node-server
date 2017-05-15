@@ -149,12 +149,13 @@ lvl.prototype.import = function(raw){
 	console.log(stupidjscrap);
 	var call = 'var x = 0; var lvlArray = []; lvlArray[x] = [];with(' + stupidjscrap.toString() + '){' + raw + 'return lvlArray;}';
 	var interpret = new Function(call);
-	console.log(interpret());
-	var data = interpret();
+	var out = interpret()
+	console.log(out);
+	var data = out;
 	var array = [];
 	for(var i = 0; i != data.length; i++){
 		for(var j = 0; j != data[i].length; j++){
-			array.push[data[0][i][j]];
+			array.push(data[i][j]);
 		}
 	}
 	console.log(array);
