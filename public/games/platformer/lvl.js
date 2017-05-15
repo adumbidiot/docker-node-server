@@ -155,7 +155,7 @@ lvl.prototype.import = function(raw){
 	var array = [];
 	for(var i = 0; i != data.length; i++){
 		for(var j = 0; j != data[i].length; j++){
-			array.push(data[i][j]);
+			array.push(data[0][i][j]);
 		}
 	}
 	console.log(array);
