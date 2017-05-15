@@ -153,10 +153,8 @@ lvl.prototype.import = function(raw){
 		final = final.concat(item);
 	});
 	console.log(final);
-	var data = out;
 	var array = [];
-	array = [].concat.apply([], out);
-	
+	array = [].concat.apply([], final);
 	console.log(array);
 	for(var i = 0; i != (32 * 18); i++){
 		if(array[i] != 0){
