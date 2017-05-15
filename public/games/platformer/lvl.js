@@ -20,6 +20,7 @@ window.lvl = function(name){
 	this.background.style.width = '800px';
 	this.background.style.height = '450px';
 	this.background.style.zIndex = '-1';
+	this.background.style.position = 'absolute';
 	
 	this.encode = {
 		main: 'X0',
