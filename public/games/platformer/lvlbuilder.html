@@ -8,7 +8,7 @@
 			}
 			function clickblock(event){
 				var id = event.target.id;
-				if(level.encode[id] != '00' && level.encode[id]){
+				if((level.encode[id] != '00' && level.encode[id]) || id == 'delete'){
 					level.board.style.cursor = 'url("./' + id + '25x25.png"), auto';
 				}
 				if(id == level.active){
