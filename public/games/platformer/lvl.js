@@ -145,9 +145,7 @@ lvl.prototype.export = function(){
 
 lvl.prototype.import = function(raw){
 	this.clearAllTiles();//I WANT TO DIE
-	var stupidjscrap = JSON.stringify(this.decode);
-	console.log(stupidjscrap);
-	var call = 'var x = 0; var lvlArray = []; lvlArray[x] = [];with(' + stupidjscrap.toString() + '){' + raw + 'return lvlArray;}';
+	var call = 'var lvlArray = new Array(999); with(' + JSON.stringify(this.decode) + '){' + raw + 'return lvlArray[0];}';
 	var interpret = new Function(call);
 	var out = interpret()[0];
 	console.log(out);
