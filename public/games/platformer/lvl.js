@@ -28,7 +28,7 @@ window.lvl = function(name){
 		PowerUpGravity: 'P1',
 		item_key: 'IK',
 		SecretExit: 'Z0',
-		Decoration_Scaffold: 'D0',
+		decoration_scaffold: 'D0',
 		Decoration_Sconce: 'D1',
 		Mask_Circle: 'A0',
 		null: '00'
@@ -48,7 +48,7 @@ window.lvl = function(name){
 		'P1': 'PowerUpGravity',
 		'IK': 'item_key',
 		'Z0': 'SecretExit',
-		'D0': 'Decoration_Scaffold',
+		'D0': 'decoration_scaffold',
 		'D1': 'Decoration_Sconce',
 		'A0': 'Mask_Circle',
 		'00': 'null'
