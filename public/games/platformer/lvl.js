@@ -145,10 +145,14 @@ lvl.prototype.export = function(){
 
 lvl.prototype.import = function(raw){
 	this.clearAllTiles();//I WANT TO DIE
-	var call = 'var x = 0; var lvlArray = []; lvlArray[x] = []; for(var i = 0; i != 999; i++){lvlArray.push([]);} with(' + JSON.stringify(this.decode) + '){' + raw + 'return lvlArray[0];}';
+	var call = 'var x = 0; var lvlArray = []; lvlArray[x] = []; for(var i = 0; i != 999; i++){lvlArray.push([]);} with(' + JSON.stringify(this.decode) + '){' + raw + '} return lvlArray;';
 	var interpret = new Function(call);
 	var out = interpret()[0];
-	console.log(out);
+	var final = [];
+	out.forEach(function(item, index, array){
+		final = final.concat(item);
+	});
+	console.log(final);
 	console.log(JSON.stringify(out));
 	var data = out;
 	var array = [];
