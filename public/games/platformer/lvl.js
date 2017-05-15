@@ -16,6 +16,8 @@ window.lvl = function(name){
 	
 	this.background = document.createElement('img');
 	this.background.src = './background.png';
+	this.background.style.width = '800px';
+	this.background.style.height = '450px';
 	
 	this.encode = {
 		MAIN: 'X0',
@@ -156,10 +158,8 @@ lvl.prototype.import = function(raw){
 	out.forEach(function(item, index, array){
 		final = final.concat(item);
 	});
-	console.log(final);
 	var array = [];
 	array = [].concat.apply([], final);
-	console.log(array);
 	for(var i = 0; i != (32 * 18); i++){
 		if(array[i] != 0){
 			this.render(i, array[i]);
