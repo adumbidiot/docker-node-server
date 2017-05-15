@@ -18,6 +18,7 @@ window.lvl = function(name){
 	this.background.src = './background.png';
 	this.background.style.width = '800px';
 	this.background.style.height = '450px';
+	this.background.style.zIndex = '-1';
 	
 	this.encode = {
 		MAIN: 'X0',
