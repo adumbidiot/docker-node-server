@@ -14,6 +14,9 @@ window.lvl = function(name){
 	this.board.style.width = '800px';
 	this.board.height = '450px';
 	
+	this.background = document.createElement('img');
+	this.background.src = './background.png';
+	
 	this.encode = {
 		MAIN: 'X0',
 		block: 'B0',
@@ -77,6 +80,7 @@ lvl.prototype.generateBoard = function(){
 		grid.addEventListener("mousedown", this.down);
 		grid.addEventListener("click", this.click);
 	}
+	this.board.appendChild(this.background);
 	return this.board;
 }
 
