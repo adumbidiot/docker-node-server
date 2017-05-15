@@ -21,6 +21,8 @@ window.lvl = function(name){
 	this.background.style.height = '450px';
 	this.background.style.zIndex = '-1';
 	this.background.style.position = 'absolute';
+	this.background.style.top = '0px';
+	this.background.style.left = '0px';
 	
 	this.encode = {
 		main: 'X0',
