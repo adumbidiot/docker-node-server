@@ -1,5 +1,6 @@
 window.lvl = function(name){
 	this.name = name;
+	this.active = null
 	var self = this;
 	
 	this.gridTemplate = document.createElement('div');
@@ -129,7 +130,7 @@ lvl.prototype.renderEvent = function(event){
 	}
 	
 	var index = Number(target.id.slice(this.name.length)) - 1;
-	this.render(index, active);
+	this.render(index, this.active);
 }
 //TODO: Simplify
 lvl.prototype.export = function(){
