@@ -157,8 +157,9 @@ lvl.prototype.import = function(raw){
 			array.push[data[i][j]];
 		}
 	}
+	console.log(array);
 	for(var i = 0; i != (32 * 18); i++){
-		if(this.decode[array[i]] != 'null' && this.decode[array[i]]){
+		if(array[i] != 0){
 			this.render(i, this.decode[array[i]]);
 		}
 	}
