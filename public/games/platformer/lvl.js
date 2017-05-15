@@ -120,7 +120,7 @@ lvl.prototype.renderEvent = function(event){
 	var index = Number(target.id.slice(this.name.length)) - 1;
 	this.render(index, active);
 }
-
+//TODO: Simplify
 lvl.prototype.export = function(){
 	var array = [];
 	for(var i = 0; i != (32 * 18); i++){
@@ -145,7 +145,7 @@ lvl.prototype.export = function(){
 
 lvl.prototype.import = function(raw){
 	this.clearAllTiles();
-	var call = 'var x = 0; var lvlArray = [];lvlArray[x] = [];' + raw + 'return lvlArray;';
+	var call = 'var x = 0; var lvlArray = []; lvlArray[x] = []; console.log(this); this = ' + this.decode + ';' + raw + 'return lvlArray;';
 	var interpret = new Function(call);
 	console.log(interpret());
 	var data = interpret();
