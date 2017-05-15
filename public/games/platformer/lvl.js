@@ -154,10 +154,8 @@ lvl.prototype.import = function(raw){
 	console.log(JSON.stringify(out));
 	var data = out[0];
 	var array = [];
-	for(var i = 0; i != data.length; i++){
-		for(var j = 0; j != data[i].length; j++){
-			array[((i + 1) * (j + 1))-1] = data[i][j];
-		}
+	for(var i = 0; i != 36 * 18; i++){
+		array = array.concat[i];
 	}
 	console.log(array);
 	for(var i = 0; i != (32 * 18); i++){
