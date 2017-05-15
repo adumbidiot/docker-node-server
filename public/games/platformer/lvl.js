@@ -12,7 +12,8 @@ window.lvl = function(name){
 	this.board = document.createElement('div');
 	this.board.id = this.name;
 	this.board.style.width = '800px';
-	this.board.height = '450px';
+	this.board.style.height = '450px';
+	this.board.style.position = 'relative';
 	
 	this.background = document.createElement('img');
 	this.background.src = './background.png';
@@ -21,7 +22,7 @@ window.lvl = function(name){
 	this.background.style.zIndex = '-1';
 	
 	this.encode = {
-		MAIN: 'X0',
+		main: 'X0',
 		block: 'B0',
 		block_key: 'BK',
 		exit: 'E0',
@@ -41,7 +42,7 @@ window.lvl = function(name){
 	}
 	
 	this.decode = {
-		'X0': 'Main',
+		'X0': 'main',
 		'B0': 'block',
 		'BK': 'block_key',
 		'E0': 'exit',
