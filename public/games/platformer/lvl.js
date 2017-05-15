@@ -3,8 +3,8 @@ window.lvl = function(name){
 	var self = this;
 	
 	this.gridTemplate = document.createElement('div');
-	this.gridTemplate.style.width = '25px';
-	this.gridTemplate.style.height = '25px';
+	this.gridTemplate.style.width = '24px';
+	this.gridTemplate.style.height = '24px';
 	this.gridTemplate.style.border = '1px solid black';
 	this.gridTemplate.style.float = 'left';
 	this.gridTemplate.type = 'holder';
