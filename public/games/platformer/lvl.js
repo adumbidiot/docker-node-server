@@ -151,11 +151,12 @@ lvl.prototype.import = function(raw){
 	var interpret = new Function(call);
 	var out = interpret()
 	console.log(out);
+	console.log(JSON.stringify(out));
 	var data = out;
 	var array = [];
 	for(var i = 0; i != data.length; i++){
 		for(var j = 0; j != data[i].length; j++){
-			array[i + j] = data[0][j];
+			array[i + j] = data[i][j];
 		}
 	}
 	console.log(array);
