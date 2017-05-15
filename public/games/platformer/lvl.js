@@ -150,7 +150,13 @@ lvl.prototype.import = function(raw){
 	var call = 'var x = 0; var lvlArray = []; lvlArray[x] = [];with(' + stupidjscrap.toString() + '){' + raw + 'return lvlArray;}';
 	var interpret = new Function(call);
 	console.log(interpret());
-	var array = interpret();
+	var data = interpret();
+	var array = [];
+	for(var i = 0; i != data.length; i++){
+		for(var j = 0; j != data[i].length; j++){
+			array.push[data[i][j]];
+		}
+	}
 	for(var i = 0; i != (32 * 18); i++){
 		if(this.decode[array[i]] != 'null' && this.decode[array[i]]){
 			this.render(i, this.decode[array[i]]);
