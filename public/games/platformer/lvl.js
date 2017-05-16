@@ -77,6 +77,9 @@ window.lvl = function(name){
 	this.click = function(event){
 		self.renderEvent(event);
 	}
+	this.ondarkchange = function(){
+		
+	}
 }
 
 lvl.prototype.generateBoard = function(){
