@@ -5,6 +5,10 @@
 			const level = new lvl('build');
 			window.onload = function(){
 				document.getElementById('placeholder').appendChild(level.generateBoard());
+				var darkbox = document.getElementById('dark');
+				darkbox.onchange = function(){
+					dark.checked = !level.dark;
+				}
 			}
 			function clickblock(event){
 				var id = event.target.id;
@@ -38,10 +42,6 @@
 			}
 			window.ondragstart = function(){
 				return false;	
-			}
-			var darkbox = document.getElementById('dark');
-			darkbox.onchange = function(){
-				dark.checked = !level.dark;
 			}
 		</script>
 		<style>
