@@ -39,6 +39,10 @@
 			window.ondragstart = function(){
 				return false;	
 			}
+			var darkbox = document.getElementById('dark');
+			darkbox.onchange = function(){
+				dark.checked = !level.dark;
+			}
 		</script>
 		<style>
 			* {
@@ -79,7 +83,7 @@
 			<button onclick="importlvl()">Import</button>
 			<button onclick="downloadlvl()">Download</button>
 			<textarea id="interface" style="width:400px"></textarea>
-			<input id="dark" type="checkbox" value="dark">
+			<input id="dark" type="checkbox">Dark
 		</div>
 	</body>
 </html>
