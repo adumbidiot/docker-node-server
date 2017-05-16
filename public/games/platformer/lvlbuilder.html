@@ -43,6 +43,7 @@
 			window.ondragstart = function(){
 				return false;	
 			}
+			//level.ondarkchange
 		</script>
 		<style>
 			* {
@@ -78,7 +79,7 @@
 			<img src="./delete.png" onclick="clickblock(event)" id = "delete" alt = "delete"/>
 		</div>
 		<div id="placeholder"></div>
-		<div style="bottom:10px;border:2px solid black;position:absolute;width:800px;">
+		<div style="bottom:10px;outline:2px solid black;position:absolute;width:800px;">
 			<button onclick="exportlvl()">Export</button>
 			<button onclick="importlvl()">Import</button>
 			<button onclick="downloadlvl()">Download</button>
