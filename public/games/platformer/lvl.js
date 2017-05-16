@@ -1,6 +1,7 @@
 window.lvl = function(name){
 	this.name = name;
-	this.active = null
+	this.dark = false;
+	this.active = null;
 	var self = this;
 	
 	this.gridTemplate = document.createElement('div');
@@ -95,6 +96,9 @@ lvl.prototype.generateBoard = function(){
 lvl.prototype.render = function(index, blockType){
 	var target = document.getElementById(this.name + (index + 1));
 	if(target.block == blockType || !blockType) return;
+	if(target.block == 'mask_circle'){
+	   this.dark = true;
+	}
 	if(target.block){
 		this.clearTile(index);
 	}
