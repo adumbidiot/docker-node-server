@@ -3,11 +3,12 @@
 		<script src="./lvl.js"></script>
 		<script>
 			const level = new lvl('build');
+			var darkbox;
 			window.onload = function(){
 				document.getElementById('placeholder').appendChild(level.generateBoard());
-				var darkbox = document.getElementById('dark');
+				darkbox = document.getElementById('dark');
 				darkbox.onchange = function(){
-					dark.checked = !level.dark;
+					level.setDark(!level.setDarkdark);
 				}
 			}
 			function clickblock(event){
