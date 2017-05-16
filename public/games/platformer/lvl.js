@@ -114,7 +114,7 @@ lvl.prototype.render = function(index, blockType){
 	target.block = blockType;
 }
 
-lvl.prototype.setDark(value){
+lvl.prototype.setDark = function(value){
 	this.dark = value;
 	this.ondarkchange(value); 
 }
