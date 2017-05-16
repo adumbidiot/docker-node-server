@@ -36,10 +36,9 @@
 				var data = document.getElementById('interface').value;
 				level.import(data);
 			}
-			function stopDrag(){
-				return false;
+			window.ondragstart = function(){
+				return false;	
 			}
-			document.ondragstart = stopDrag();
 		</script>
 		<style>
 			* {
