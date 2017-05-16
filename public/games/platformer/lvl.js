@@ -97,7 +97,7 @@ lvl.prototype.render = function(index, blockType){
 	var target = document.getElementById(this.name + (index + 1));
 	if(target.block == blockType || !blockType) return;
 	if(blockType == 'mask_circle'){
-		this.dark = true;
+		this.setDark(true);
 		return;
 	}
 	if(target.block){
@@ -112,6 +112,11 @@ lvl.prototype.render = function(index, blockType){
 	block.type = 'block';
 	target.appendChild(block);
 	target.block = blockType;
+}
+
+lvl.prototype.setDark(value){
+	this.dark = value;
+	this.ondarkchange(value); 
 }
 
 lvl.prototype.clearTile = function(index){
