@@ -43,7 +43,9 @@
 			window.ondragstart = function(){
 				return false;	
 			}
-			//level.ondarkchange
+			level.ondarkchange = function(value){
+				darkbox.checked = value;
+			}
 		</script>
 		<style>
 			* {
