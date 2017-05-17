@@ -39,7 +39,12 @@
 				document.getElementById('interface').value = level.export();
 			}
 			function exportlvl1D(){
-				document.getElementById('interface').value = level.export1D();
+				var data = level.export1D();
+				var out = '';
+				for(var i = 0; i != data.length; i++){
+					out += data[i] + '\n';
+				}
+				document.getElementById('interface').value = out;
 			}
 			function downloadlvl(){
 				var textToSave = (level.export());
