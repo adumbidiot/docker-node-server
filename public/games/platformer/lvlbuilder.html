@@ -44,10 +44,32 @@
 				eb.style.top = '80%';
 				eb.innerHTML = 'EXPORT';
 				eb.onclick = function(){
-					document.getElementById('interface').value = level.export();
+					if(document.getElementById('AS3').checked){
+						document.getElementById('interface').value = level.export();
+					}else{
+						document.getElementById('interface').value = level.exportlvl1D();
+					}
+					
 					stopPop();
 				}
 				popupcenter.appendChild(eb);
+				
+				var as = document.createElement('input');
+				as.type = 'radio';
+				as.name = 'export';
+				as.innerHTML = '2D AS3 array';
+				as.checked = true;
+				as.id = 'AS3';
+				
+				popupcenter.appendChild(as);
+				
+				var l = document.createElement('input');
+				l.type = 'radio';
+				l.name = 'export';
+				l.innerHTML = 'Line by Line Representation';
+				l.id = 'lbl';
+				
+				popupcenter.appendChild(l);
 			}
 			function exportlvl1D(){
 				var data = level.export1D();
