@@ -188,8 +188,22 @@ lvl.prototype.export = function(){
 	return output;	
 }
 
+lvl.prototype.import1D = function(data){
+	var array = data.slice(',');
+	this.importArray1D(array);
+}
+
+
+lvl.prototype.importArray1D = function(array){
+	this.clearAllTiles();
+	for(var i = 0; i!= (32 * 18); i++){
+		if(array[i] != 0){
+			this.render(i, array[i]);
+		}
+	}
+}
+
 lvl.prototype.import = function(raw){
-	this.clearAllTiles();//I WANT TO DIE
 	var call = 'var x = 0; var lvlArray = []; lvlArray[x] = []; for(var i = 0; i != 999; i++){lvlArray.push([]);} with(' + JSON.stringify(this.decode) + '){' + raw + '} return lvlArray;';
 	var interpret = new Function(call);
 	var out = interpret();
@@ -197,13 +211,8 @@ lvl.prototype.import = function(raw){
 	out.forEach(function(item, index, array){
 		final = final.concat(item);
 	});
-	var array = [];
-	array = [].concat.apply([], final);
-	for(var i = 0; i != (32 * 18); i++){
-		if(array[i] != 0){
-			this.render(i, array[i]);
-		}
-	}
+	var array = [].concat.apply([], final);
+	this.importArray1D(array);
 }
 
 window.lvl.mouseDown = false;
