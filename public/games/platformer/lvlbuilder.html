@@ -53,6 +53,10 @@
 				var data = document.getElementById('interface').value;
 				level.import(data);
 			}
+			function importlvl1D(){
+				var data = document.getElementById('interface').value;
+				level.import1D(data);
+			}
 			window.ondragstart = function(){
 				return false;	
 			}
@@ -97,7 +101,7 @@
 			<div id="placeholder"></div>
 			<div style="bottom:10px;outline:2px solid black;position:absolute;width:800px;">
 				<button onclick="exportlvl()" oncontextmenu="javascript:exportlvl1D();return false;">Export</button>
-				<button onclick="importlvl()">Import</button>
+				<button onclick="importlvl()" oncontextmenu="javascript:importlvl1D();return false;">Import</button>
 				<button onclick="downloadlvl()">Download</button>
 				<textarea id="interface" style="width:400px"></textarea>
 				<input id="dark" type="checkbox">Dark
@@ -108,8 +112,8 @@
 			<h2>NOTES:</h2>
 			<ul>
 				<li>W.I.P. THIS IS A PROTOTYPE!</li>
-				<li>Dark is read only. Cannot set level to dark.</li>
-				<li>Export data is big</li>
+				<li>Dark is read only. Cannot set level to dark. Doing so may break part of the builder's UI though it will still function and export fine</li>
+				<li>Export data is big. It is typically over 2000 chars long and does not vary much in size, even with an empty level</li>
 				<li>Export data compression and decompression utilities are not supported</li>
 				<li>Right clicking export generates a stripped version of level that CANNOT be reimported directly(not supported yet)</li>
 				<li>Red Wire is not supported</li>
