@@ -43,7 +43,7 @@
 				eb.style.width = '20%';
 				eb.style.top = '80%';
 				eb.innerHTML = 'EXPORT';
-				eb.onnclick = function(){
+				eb.onclick = function(){
 					document.getElementById('interface').value = level.export();
 					stopPop();
 				}
@@ -133,7 +133,6 @@
 				<button onclick="exportlvl()" oncontextmenu="javascript:exportlvl1D();return false;">Export</button>
 				<button onclick="importlvl()" oncontextmenu="javascript:importlvl1D();return false;">Import</button>
 				<button onclick="downloadlvl()">Download</button>
-				<button onclick="pop()">Popup</button>
 				<textarea id="interface" style="width:400px"></textarea>
 				<input id="dark" type="checkbox">Dark
 				<input id="gridbox" type="checkbox" checked>Enable Grid
