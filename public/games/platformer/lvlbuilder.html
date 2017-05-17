@@ -36,7 +36,18 @@
 				level.active = id;
 			}
 			function exportlvl(){
-				document.getElementById('interface').value = level.export();
+				pop();
+				var eb = document.createElement('button');
+				eb.style.position = 'absolute';
+				eb.style.left = '40%';
+				eb.style.width = '20%';
+				eb.style.top = '80%';
+				eb.innerHTML = 'EXPORT';
+				eb.onnclick = function(){
+					document.getElementById('interface').value = level.export();
+					stopPop();
+				}
+				popupcenter.appendChild(eb);
 			}
 			function exportlvl1D(){
 				var data = level.export1D();
