@@ -126,7 +126,7 @@ lvl.prototype.setDark = function(value){
 lvl.prototype.disableGrid = function(){
 	this.grid = false;
 	for(var i = 0; i != (36 * 18); i++){
-		document.getElementById(this.name + i).style = null;
+		document.getElementById(this.name + i).style.outline = '0px';
 	}
 }
 
