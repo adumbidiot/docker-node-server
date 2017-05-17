@@ -5,10 +5,12 @@
 			const level = new lvl('build');
 			var darkbox;
 			var gridbox;
+			var popup;
 			window.onload = function(){
 				document.getElementById('placeholder').appendChild(level.generateBoard());
 				darkbox = document.getElementById('dark');
 				gridbox = document.getElementById('gridbox');
+				popup = document.getElementById('popup');
 				darkbox.onchange = function(){
 					level.setDark(!level.setDarkdark);
 				}
@@ -64,6 +66,9 @@
 			level.ondarkchange = function(value){
 				darkbox.checked = value;
 			}
+			function pop(){
+				popup.style.display= "initial";
+			}
 		</script>
 		<style>
 			* {
@@ -79,7 +84,12 @@
 			}
 		</style>
 	</head>
-	<body oncontextmenu="return false;">
+	<body>
+		<div style="display:none;opacity:0.5;" id="popup">
+			<div id="popupcenter" style="position:absolute; width:50%; height:50%; top:50%; left:50%;">
+				Test
+			</div>
+		</div>
 		<div style="position:relative;height:100%;width:100%;">
 			<div style="position:absolute;right:10px;top:10px;height:450px;width:104px;outline: 1px solid black; background-image: url('./background.png');">
 				<img src="./block.png" onclick="clickblock(event)" id = "block" alt = "block"/>
@@ -90,12 +100,10 @@
 				<img src="./toggleblocksolid.png" onclick="clickblock(event)" id = "toggleblocksolid" alt = "toggleblocksolid"/>
 				<img src="./toggleblockphase.png" onclick="clickblock(event)" id = "toggleblockphase" alt = "toggleblockphase"/>
 				<img src="./switch.png" onclick="clickblock(event)" id = "switch" alt = "switch"/>
-				<!--<img src="./switchceiling.png"onclick="clickblock(event)" id = "switchceiling" alt = "switchceiling"/>-->
 				<img src="./exit.png" onclick="clickblock(event)" id = "exit" alt = "exit"/>
 				<!--<img  onclick="clickblock(event)" id = "secretexit" alt = "secretexit"/>
 				<img  onclick="clickblock(event)" id = "wirered" alt = "wirered"/>-->
 				<img src="./powerupburrow.png" onclick="clickblock(event)" id = "powerupburrow" alt = "powerupburrow"/>
-				<!--<img  onclick="clickblock(event)" id = "powerupgravity" alt = "powerupgravity"/>-->
 				<img src="./main.png" onclick="clickblock(event)" id = "main" alt = "main"/>
 				<img src="./delete.png" onclick="clickblock(event)" id = "delete" alt = "delete"/>
 			</div>
@@ -104,6 +112,7 @@
 				<button onclick="exportlvl()" oncontextmenu="javascript:exportlvl1D();return false;">Export</button>
 				<button onclick="importlvl()" oncontextmenu="javascript:importlvl1D();return false;">Import</button>
 				<button onclick="downloadlvl()">Download</button>
+				<button onclick="pop()">Popup</button>
 				<textarea id="interface" style="width:400px"></textarea>
 				<input id="dark" type="checkbox">Dark
 				<input id="gridbox" type="checkbox" checked>Enable Grid
