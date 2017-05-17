@@ -4,11 +4,18 @@
 		<script>
 			const level = new lvl('build');
 			var darkbox;
+			var gridbox;
 			window.onload = function(){
 				document.getElementById('placeholder').appendChild(level.generateBoard());
 				darkbox = document.getElementById('dark');
+				gridbox = document.getElementById('gridbox');
 				darkbox.onchange = function(){
 					level.setDark(!level.setDarkdark);
+				}
+				gridbox.onchange = function(){
+					if(gridbox.checked){
+						level.disableGrid();
+					}
 				}
 			}
 			function clickblock(event){
@@ -88,6 +95,7 @@
 			<button onclick="downloadlvl()">Download</button>
 			<textarea id="interface" style="width:400px"></textarea>
 			<input id="dark" type="checkbox">Dark
+			<input id="gridbox" type="checkbox">Enable Grid
 		</div>
 		<div style="outline:1px solid black;position:absolute;right:10px;bottom:10px;">
 			<h2>NOTES:</h2>
