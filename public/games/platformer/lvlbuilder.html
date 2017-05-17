@@ -6,11 +6,13 @@
 			var darkbox;
 			var gridbox;
 			var popup;
+			var popupcenter;
 			window.onload = function(){
 				document.getElementById('placeholder').appendChild(level.generateBoard());
 				darkbox = document.getElementById('dark');
 				gridbox = document.getElementById('gridbox');
 				popup = document.getElementById('popup');
+				popupcenter = document.getElementById('popupcenter');
 				darkbox.onchange = function(){
 					level.setDark(!level.setDarkdark);
 				}
@@ -66,8 +68,15 @@
 			level.ondarkchange = function(value){
 				darkbox.checked = value;
 			}
+			function stopPop(){
+				popup.style.display= "none";
+			}
 			function pop(){
 				popup.style.display= "initial";
+				var c = document.createElement('button')
+				popupcenter.appendNode(c);
+				c.onclick = stopPop();
+				c.innerHTML = 'cancel';
 			}
 		</script>
 		<style>
@@ -86,7 +95,7 @@
 	</head>
 	<body>
 		<div style="display:none;background-color: rgba(0, 0, 0, 0.5);position:fixed;top:0px;height:100%;width:100%;left:0px;z-index:999" id="popup">
-			<div id="popupcenter" style="position:fixed;width:80%;height:10%;top:80%;left:10%;background-color:rgba(255, 255, 255, 1);"></div>
+			<div id="popupcenter" style="position:fixed;width:80%;height:80%;top:10%;left:10%;background-color:rgba(255, 255, 255, 1);"></div>
 		</div>
 		<div style="position:relative;height:100%;width:100%;">
 			<div style="position:absolute;right:10px;top:10px;height:450px;width:104px;outline: 1px solid black; background-image: url('./background.png');">
