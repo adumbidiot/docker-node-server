@@ -160,14 +160,19 @@ lvl.prototype.renderEvent = function(event){
 	var index = Number(target.id.slice(this.name.length)) - 1;
 	this.render(index, this.active);
 }
-//TODO: Simplify
-lvl.prototype.export = function(){
+
+lvl.prototype.export1D = function(){
 	var array = [];
 	for(var i = 0; i != (32 * 18); i++){
 		var element = document.getElementById(this.name + (i + 1));
 		var id = element.block || 'null';
 		array.push(this.encode[id]);
 	}
+	return array;
+}
+//TODO: Simplify
+lvl.prototype.export = function(){
+	var array = this.export1D();
 	var array2D = [];
 	for(var i = 0; i != (32 * 18); i += 32){
 		var subArray = [];
