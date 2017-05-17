@@ -132,6 +132,9 @@ lvl.prototype.disableGrid = function(){
 
 lvl.prototype.enableGrid = function(){
 	this.grid = true;
+	for(var i = 0; i != (36 * 18); i++){
+		document.getElementById(this.name + (i+1)).style.outline = '1px solid black';
+	}
 }
 
 lvl.prototype.clearTile = function(index){
