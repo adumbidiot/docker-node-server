@@ -73,7 +73,10 @@
 			}
 			function pop(){
 				popup.style.display= "initial";
-				var c = document.createElement('button')
+				var c = document.createElement('button');
+				c.style.position = 'absolute';
+				c.style.bottom = '2px';
+				c.style.right = '2px';
 				popupcenter.appendChild(c);
 				c.onclick = stopPop();
 				c.innerHTML = 'cancel';
