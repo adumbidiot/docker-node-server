@@ -197,8 +197,8 @@ lvl.prototype.import1D = function(data){
 lvl.prototype.importArray1D = function(array){
 	this.clearAllTiles();
 	for(var i = 0; i!= (32 * 18); i++){
-		if(this.decode[array[i]] != 0){
-			this.render(i, this.decode[array[i]]);
+		if(array[i] != 0){
+			this.render(i, array[i]);
 		}
 	}
 }
