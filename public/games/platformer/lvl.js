@@ -125,17 +125,15 @@ lvl.prototype.setDark = function(value){
 
 lvl.prototype.disableGrid = function(){
 	this.grid = false;
-	for(var i = 0; i != (36 * 18); i++){
+	for(var i = 0; i != (32 * 18); i++){
 		document.getElementById(this.name + (i+1)).style.outline = '0px';
-		if(!document.getElementById(this.name + (i+1))) console.log(i);
 	}
 }
 
 lvl.prototype.enableGrid = function(){
 	this.grid = true;
-	for(var i = 0; i != (36 * 18); i++){
+	for(var i = 0; i != (32 * 18); i++){
 		document.getElementById(this.name + (i+1)).style.outline = '1px solid black';
-		if(!document.getElementById(this.name + (i+1))) console.log(i);
 	}
 }
 
