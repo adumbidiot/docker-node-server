@@ -69,16 +69,16 @@
 				darkbox.checked = value;
 			}
 			function stopPop(){
-				popup.style.display= "none";
+				popup.style.display = "none";
 			}
 			function pop(){
-				popup.style.display= "initial";
+				popup.style.display = "initial";
 				var c = document.createElement('button');
 				c.style.position = 'absolute';
 				c.style.bottom = '2px';
 				c.style.right = '2px';
 				popupcenter.appendChild(c);
-				c.onclick = stopPop();
+				c.onclick = stopPop;
 				c.innerHTML = 'cancel';
 			}
 		</script>
