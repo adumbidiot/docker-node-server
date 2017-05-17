@@ -2,6 +2,7 @@ window.lvl = function(name){
 	this.name = name;
 	this.dark = false;
 	this.active = null;
+	this.grid = true;
 	var self = this;
 	
 	this.gridTemplate = document.createElement('div');
@@ -120,6 +121,17 @@ lvl.prototype.render = function(index, blockType){
 lvl.prototype.setDark = function(value){
 	this.dark = value;
 	this.ondarkchange(value); 
+}
+
+lvl.prototype.disableGrid = function(){
+	this.grid = false;
+	for(var i = 0; i != (36 * 18); i++){
+		document.getElementById(this.name + i).style = null;
+	}
+}
+
+lvl.prototype.enableGrid = function(){
+	this.grid = true;
 }
 
 lvl.prototype.clearTile = function(index){
