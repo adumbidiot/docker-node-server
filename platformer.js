@@ -72,6 +72,9 @@ app.get('/customLevel.txt', function(req, res, next){
 		case '4':
 			res.sendFile(__dirname + '/public/games/platformer/customLevel4.txt');
 			break;
+		case '5':
+			res.sendFile(__dirname + '/public/games/platformer/customLevel5.txt');
+			break;
 		default:
 			console.log(req.cookies);
 			next();
