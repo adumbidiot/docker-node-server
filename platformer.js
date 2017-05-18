@@ -59,7 +59,8 @@ app.get('/platformer.jpg', function(req, res){
 });
 
 app.get('/customLevel.txt', function(req, res, next){
-	console.log(req.cookies);	
+	console.log(req.cookies);
+	next();
 });
 
 app.use(express.static('./public/games/platformer'));
