@@ -25,8 +25,9 @@ function myFunction(name, time){
 
 function clickCustom(event){
 	console.log(event.target);
-	var lvl = event.target.level;
-	document.cookie = 'level=' + lvl;
+	var lvl = event.target.id;
+	var i = lvl.indexOf('custom');
+	document.cookie = 'level=' + lvl.substr(i);
 	updateScores(); //Why not?
 }
 document.cookie="level=1";
