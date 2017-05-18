@@ -24,3 +24,5 @@ function myFunction(name, time){
 		updateScores();
        	});
 }
+
+document.cookie="level=1";
