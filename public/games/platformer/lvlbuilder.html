@@ -47,7 +47,7 @@
 					if(document.getElementById('AS3').checked){
 						document.getElementById('interface').value = level.export();
 					}else{
-						document.getElementById('interface').value = level.exportlvl1D();
+						document.getElementById('interface').value = exportlvl1D();
 					}
 					
 					stopPop();
@@ -57,17 +57,24 @@
 				var as = document.createElement('input');
 				as.type = 'radio';
 				as.name = 'export';
-				as.innerHTML = '2D AS3 array';
 				as.checked = true;
-				as.id = 'AS3';
 				
 				popupcenter.appendChild(as);
+				
+				var asspan = document.createElement('span');
+				popupcenter.appendChild(asspan);
+				asspan.innerHTML = '2D AS3 array';
+				
+				popupcenter.appendChild(asspan);
 				
 				var l = document.createElement('input');
 				l.type = 'radio';
 				l.name = 'export';
-				l.innerHTML = 'Line by Line Representation';
 				l.id = 'lbl';
+				
+				var lblspan = document.createElement('span');
+				popupcenter.appendChild(lblspan);
+				lblspan.innerHTML = 'Line by Line Representation';
 				
 				popupcenter.appendChild(l);
 			}
