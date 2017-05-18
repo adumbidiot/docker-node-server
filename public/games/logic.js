@@ -25,4 +25,8 @@ function myFunction(name, time){
        	});
 }
 
+function clickCustom(event){
+	var lvl = event.target.id;
+	document.cookie = 'level=' + lvl; 
+}
 document.cookie="level=1";
