@@ -63,20 +63,21 @@
 				
 				var asspan = document.createElement('span');
 				popupcenter.appendChild(asspan);
-				asspan.innerHTML = '2D AS3 array';
-				
+				asspan.innerHTML = '2D AS3 Array';
 				popupcenter.appendChild(asspan);
+				
+				popupcenter.appendChild(document.createElement('br'););
 				
 				var l = document.createElement('input');
 				l.type = 'radio';
 				l.name = 'export';
 				l.id = 'lbl';
+				popupcenter.appendChild(l);
 				
 				var lblspan = document.createElement('span');
-				popupcenter.appendChild(lblspan);
 				lblspan.innerHTML = 'Line by Line Representation';
+				popupcenter.appendChild(lblspan);
 				
-				popupcenter.appendChild(l);
 			}
 			function exportlvl1D(){
 				var data = level.export1D();
