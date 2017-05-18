@@ -112,6 +112,9 @@
 			}
 			function stopPop(){
 				popup.style.display = "none";
+				while(popupcenter.firstChild){
+					popupcenter.removeChild(popupcenter.firstChild);
+				}
 			}
 			function pop(){
 				popup.style.display = "initial";
