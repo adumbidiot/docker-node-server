@@ -58,5 +58,9 @@ app.get('/platformer.jpg', function(req, res){
 	res.sendFile(__dirname + '/public/games/platformer.jpg');
 });
 
+app.get('/customLevel.txt', function(req, res, next){
+	console.log(req.cookies);	
+});
+
 app.use(express.static('./public/games/platformer'));
 module.exports = app;
