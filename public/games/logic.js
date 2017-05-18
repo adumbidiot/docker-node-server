@@ -1,5 +1,3 @@
-var past = 0;
-var sent = false;
 window.onload = updateScores;
 	
 function updateScores(){
@@ -27,6 +25,7 @@ function myFunction(name, time){
 
 function clickCustom(event){
 	var lvl = event.target.id;
-	document.cookie = 'level=' + lvl; 
+	document.cookie = 'level=' + lvl;
+	updateScores(); //Why not?
 }
 document.cookie="level=1";
