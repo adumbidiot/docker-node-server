@@ -26,6 +26,12 @@ function myFunction(name, time){
 function clickCustom(event){
 	console.log(event.target);
 	var lvl = event.target.id;
+	if(lvl == 'load'){
+		document.cookie="level=";
+		document.cookie="levelData=" + document.getElementById('i').value;
+		return;
+	}
+	document.cookie="levelData=";
 	var name = 'custom';
 	document.cookie = 'level=' + lvl.substr(name.length);
 	updateScores(); //Why not?
