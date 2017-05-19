@@ -59,6 +59,10 @@ app.get('/platformer.jpg', function(req, res){
 });
 
 app.get('/customLevel.txt', function(req, res, next){
+	if(req.cookies.levelData){
+		res.send(req.cookies.levelData);
+		return;
+	}
 	switch(req.cookies.level){
 		case '1': 
 			res.sendFile(__dirname + '/public/games/platformer/customLevel1.txt');  
