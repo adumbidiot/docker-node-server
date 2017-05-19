@@ -176,6 +176,8 @@ lvl.prototype.exportPNG = function(){
 	var can = document.createElement('canvas');
 	can.width = '800px';
 	can.height = '450px';
+	can.style.width = '800px';
+	can.style.height = '450px';
 	document.getElementById('placeholder').appendChild(can);
 	var context = can.getContext('2d');
 	var count = 0;
