@@ -28,7 +28,7 @@ function clickCustom(event){
 	var lvl = event.target.id;
 	if(lvl == 'load'){
 		document.cookie = 'level=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-		document.cookie="levelData=" + document.getElementById('i').value;
+		document.cookie="levelData=" + btoa(document.getElementById('i').value);
 		return;
 	}
 	document.cookie = 'levelData=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
