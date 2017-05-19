@@ -202,7 +202,7 @@ lvl.prototype.exportPNG = function(){
 					}
 				}
 			})();
-			drawing.src = './' + this.decode[array[( i + 1) * ( j + 1 )]] + '.png';
+			drawing.src = './' + this.decode[array[( i * 32) + j]] + '.png';
 		}
 	}
 }
