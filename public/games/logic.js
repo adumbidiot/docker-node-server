@@ -27,11 +27,11 @@ function clickCustom(event){
 	console.log(event.target);
 	var lvl = event.target.id;
 	if(lvl == 'load'){
-		document.cookie="level=";
+		document.cookie = 'level=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 		document.cookie="levelData=" + document.getElementById('i').value;
 		return;
 	}
-	document.cookie="levelData=";
+	document.cookie = 'levelData=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 	var name = 'custom';
 	document.cookie = 'level=' + lvl.substr(name.length);
 	updateScores(); //Why not?
