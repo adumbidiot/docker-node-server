@@ -187,7 +187,7 @@ lvl.prototype.exportPNG = function(){
 			var drawing = new Image();
 			console.log(this.decode[array[( i + 1) * ( j + 1 )]]);
 			drawing.onload = function() {
-  	 			context.drawImage(drawing, 25, 25, j, i);
+  	 			context.drawImage(this, 25, 25, j, i);
 				count++;
 				console.log(count);
 				if(count == array.length){
