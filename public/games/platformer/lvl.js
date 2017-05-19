@@ -170,6 +170,30 @@ lvl.prototype.export1D = function(){
 	}
 	return array;
 }
+
+lvl.prototype.exportPNG = function(){
+	var array = this.export1D();
+	var can = document.createElement('canvas');
+	var context = can.getContext('2d');
+	document.getElementById('placeholder').appendChild(can);
+	can.width = '800px';
+	can.height = '450px';
+	var count = 0;
+	for(var i = 0; i != 18; i++){
+		for(var j = 0; j != 32; j++){
+			var drawing = new Image();
+			drawing.src = './' + array[( i + 1 )] + '.png';
+			drawing.onload = function() {
+  	 			context.drawImage(drawing, i * 32, j * 18);
+				count++
+				if(count == array.length){
+					console.log('done');	
+				}
+			};
+		}
+	}
+}
+
 //TODO: Simplify
 lvl.prototype.export = function(){
 	var array = this.export1D();
