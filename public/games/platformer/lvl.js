@@ -180,7 +180,7 @@ lvl.prototype.exportPNG = function(){
 	var context = can.getContext('2d');
 	var a = new Image();
 	a.src = './block.png';
-	context.drawImage(a,0,0);
+	context.drawImage(a,0,0, 50, 50);
 	var count = 0;
 	console.log(array);
 	for(var i = 0; i != 18; i++){
