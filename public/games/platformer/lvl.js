@@ -180,7 +180,9 @@ lvl.prototype.exportPNG = function(){
 	can.height = '450';
 	document.getElementById('placeholder').appendChild(can);
 	var context = can.getContext('2d');
-	
+	var back = new Image();
+	back.src='./background.png';
+	context.drawImage(back, 0, 0, 800, 450);
 	var count = 0;
 	console.log(array);
 	for(var i = 0; i != 18; i++){
