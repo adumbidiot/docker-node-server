@@ -60,7 +60,7 @@ app.get('/platformer.jpg', function(req, res){
 
 app.get('/customLevel.txt', function(req, res, next){
 	if(req.cookies.levelData){
-		res.send(req.cookies.levelData);
+		res.send(Buffer.from(req.cookies.levelData, 'base64'));
 		return;
 	}
 	switch(req.cookies.level){
