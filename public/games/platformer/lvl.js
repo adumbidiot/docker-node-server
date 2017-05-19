@@ -180,12 +180,13 @@ lvl.prototype.exportPNG = function(){
 	can.height = '450';
 	document.getElementById('placeholder').appendChild(can);
 	var context = can.getContext('2d');
+	
 	var count = 0;
 	console.log(array);
 	for(var i = 0; i != 18; i++){
 		for(var j = 0; j != 32; j++){
 			var drawing = new Image();
-			if(this.decode[array[( i * 32) + j]]){
+			if(this.decode[array[( i * 32) + j]] != 'null'){
 				count++;
 			}
 			drawing.onload = (function() {
