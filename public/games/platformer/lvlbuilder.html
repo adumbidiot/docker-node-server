@@ -46,8 +46,10 @@
 				eb.onclick = function(){
 					if(document.getElementById('AS3').checked){
 						document.getElementById('interface').value = level.export();
-					}else{
+					}else if(document.getElementById('lbl').checked){
 						exportlvl1D();
+					}else{
+						exportlvlPNG();
 					}
 					
 					stopPop();
@@ -79,6 +81,16 @@
 				lblspan.innerHTML = 'Line by Line Representation';
 				popupcenter.appendChild(lblspan);
 				
+				var p = document.createElement('input');
+				l.type = 'radio';
+				l.name = 'export';
+				l.id = 'png';
+				popupcenter.appendChild(p);
+				
+				var pspan = document.createElement('span');
+				pspan.innerHTML = 'PNG Rendering of Level';
+				popupcenter.appendChild(pspan);
+				
 			}
 			function exportlvl1D(){
 				var data = level.export1D();
@@ -91,6 +103,11 @@
 			function exportlvlPNG(){
 				var data = level.exportPNG(function(out){
 					document.getElementById('interface').value = out;
+					var hiddenElement = document.createElement('a');
+					hiddenElement.href = out;
+					hiddenElement.target = '_blank';
+					hiddenElement.download = 'mylvl.png';
+					hiddenElement.click();
 				});
 			}
 			function downloadlvl(){
