@@ -174,12 +174,13 @@ lvl.prototype.export1D = function(){
 lvl.prototype.exportPNG = function(){
 	var array = this.export1D();
 	var can = document.createElement('canvas');
-	can.width = '800px';
-	can.height = '450px';
 	can.style.width = '800px';
 	can.style.height = '450px';
 	document.getElementById('placeholder').appendChild(can);
 	var context = can.getContext('2d');
+	var a = new Image();
+	a.src = './block.png';
+	context.drawImage(a,0,0);
 	var count = 0;
 	for(var i = 0; i != 18; i++){
 		for(var j = 0; j != 32; j++){
