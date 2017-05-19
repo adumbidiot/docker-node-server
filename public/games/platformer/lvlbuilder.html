@@ -88,6 +88,11 @@
 				}
 				document.getElementById('interface').value = out;
 			}
+			function exportlvlPNG(){
+				var data = level.exportPNG(function(out){
+					document.getElementById('interface').value = out;
+				});
+			}
 			function downloadlvl(){
 				var textToSave = (level.export());
 				var hiddenElement = document.createElement('a');
