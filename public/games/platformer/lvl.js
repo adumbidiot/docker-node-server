@@ -180,16 +180,13 @@ lvl.prototype.exportPNG = function(){
 	can.height = '450';
 	document.getElementById('placeholder').appendChild(can);
 	var context = can.getContext('2d');
-	var a = new Image();
-	a.src = './block.png';
-	//context.drawImage(a,0,0, 25, 25);
 	var count = 0;
 	console.log(array);
 	for(var i = 0; i != 18; i++){
 		for(var j = 0; j != 32; j++){
 			var drawing = new Image();
-			console.log(this.decode[array[( i + j )]]);
-			drawing.src = './' + this.decode[array[( i + j )]] + '.png';
+			console.log(this.decode[array[( i + 1) * ( j + 1 )]]);
+			drawing.src = './' + this.decode[array[( i + 1) * ( j + 1 )]] + '.png';
 			drawing.onload = function() {
   	 			context.drawImage(drawing, 25, 25, 25, 25);
 				count++;
@@ -224,7 +221,6 @@ lvl.prototype.import1D = function(data){
 	var array = data.slice(',');
 	this.importArray1D(array);
 }
-
 
 lvl.prototype.importArray1D = function(array){
 	this.clearAllTiles();
