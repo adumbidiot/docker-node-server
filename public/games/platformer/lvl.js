@@ -186,16 +186,16 @@ lvl.prototype.exportPNG = function(){
 		for(var j = 0; j != 32; j++){
 			var drawing = new Image();
 			console.log(this.decode[array[( i + 1) * ( j + 1 )]]);
-			drawing.onload = function() {
+			drawing.onload = (function() {
 				return function(){
-  	 			context.drawImage(drawing, 25, 25, j, i);
-				count++;
-				console.log(count);
-				if(count == array.length){
-					console.log('done');	
+  	 				context.drawImage(drawing, 25, 25, j, i);
+					count++;
+					console.log(count);
+					if(count == array.length){
+						console.log('done');	
+					}
 				}
-				}
-			};
+			})();
 			drawing.src = './' + this.decode[array[( i + 1) * ( j + 1 )]] + '.png';
 		}
 	}
