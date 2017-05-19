@@ -171,18 +171,21 @@ lvl.prototype.export1D = function(){
 	return array;
 }
 
-lvl.prototype.exportPNG = function(){
+lvl.prototype.exportPNG = function(cb){
 	var array = this.export1D();
 	var can = document.createElement('canvas');
 	can.style.width = '800px';
 	can.style.height = '450px';
 	can.width = '800';
 	can.height = '450';
-	document.getElementById('placeholder').appendChild(can);
+	
+	//document.getElementById('placeholder').appendChild(can);
 	var context = can.getContext('2d');
+	
 	var back = new Image();
 	back.src='./background.png';
 	context.drawImage(back, 0, 0, 800, 450);
+	
 	var count = 0;
 	for(var i = 0; i != 18; i++){
 		for(var j = 0; j != 32; j++){
@@ -194,14 +197,11 @@ lvl.prototype.exportPNG = function(){
 					var x = j;
 					var y = i;
 					return function(){
-						console.log(a);
-						console.log(x);
-						console.log(y);
   	 					context.drawImage(a, x * 25, y * 25, 25, 25);
 						count--;
-						console.log(count);
 						if(count == 0){
 							console.log(can.toDataURL('image/png'));
+							cb(can.toDataURL('image/png'));
 						}
 					}
 				})();
