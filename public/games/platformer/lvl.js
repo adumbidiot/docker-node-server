@@ -174,10 +174,10 @@ lvl.prototype.export1D = function(){
 lvl.prototype.exportPNG = function(){
 	var array = this.export1D();
 	var can = document.createElement('canvas');
-	var context = can.getContext('2d');
-	document.getElementById('placeholder').appendChild(can);
 	can.width = '800px';
 	can.height = '450px';
+	document.getElementById('placeholder').appendChild(can);
+	var context = can.getContext('2d');
 	var count = 0;
 	for(var i = 0; i != 18; i++){
 		for(var j = 0; j != 32; j++){
