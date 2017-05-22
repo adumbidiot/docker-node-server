@@ -40,7 +40,13 @@
 				level.active = id;
 			}
 			function exportlvl(){
+				var c = document.createElement('button');
+				c.style.position = 'absolute';
+				c.style.bottom = '2px';
+				c.style.right = '2px';
 				mngr.openPopup();
+				c.onclick = mngr.closePopup(true);
+				c.innerHTML = 'cancel';
 				var eb = document.createElement('button');
 				eb.style.position = 'absolute';
 				eb.style.left = '40%';
@@ -137,19 +143,6 @@
 			}
 			level.ondarkchange = function(value){
 				darkbox.checked = value;
-			}
-			function stopPop(){
-				mngr.closePopup(true);
-				console.log('DEPRECEATED');
-			}
-			function pop(){
-				var c = document.createElement('button');
-				c.style.position = 'absolute';
-				c.style.bottom = '2px';
-				c.style.right = '2px';
-				mngr.openPopup(c);
-				c.onclick = mngr.closePopup(true);
-				c.innerHTML = 'cancel';
 			}
 		</script>
 		<style>
