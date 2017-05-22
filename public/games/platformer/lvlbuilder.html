@@ -40,21 +40,18 @@
 				level.active = id;
 			}
 			function exportlvl(){
-				var c = document.createElement('button');
-				c.style.position = 'absolute';
-				c.style.bottom = '2px';
-				c.style.right = '2px';
-				mngr.openPopup(c);
-				console.log('ex');
-				//c.onclick = mngr.closePopup(true);
-				c.innerHTML = 'cancel';
-				var eb = document.createElement('button');
-				eb.style.position = 'absolute';
-				eb.style.left = '40%';
-				eb.style.width = '20%';
-				eb.style.top = '80%';
-				eb.innerHTML = 'EXPORT';
-				eb.onclick = function(){
+				var cancel = document.createElement('button');
+				cancel.style.cssText = 'position: absolute; bottom: 2px; right:2px;';
+				cancel.innerHTML = 'cancel';
+				mngr.openPopup(cancel);
+				cancel.onclick = function(){
+					mngr.closePopup(true);
+				}
+				
+				var exportButton = document.createElement('button');
+				exportButton.innerHTML = 'EXPORT';
+				exportButton.style.cssText = 'position: absolute; left: 40%; width: 20%; top: 80%;';
+				exportButton.onclick = function(){
 					if(document.getElementById('AS3').checked){
 						document.getElementById('interface').value = level.export();
 					}else if(document.getElementById('lbl').checked){
@@ -63,9 +60,9 @@
 						exportlvlPNG();
 					}
 					
-					//mngr.closePopup(true);
+					mngr.closePopup(true);
 				}
-				popupcenter.appendChild(eb);
+				mngr.appendContent(exportButton);
 				
 				var as = document.createElement('input');
 				as.type = 'radio';
