@@ -11,11 +11,12 @@
 			var mngr;
 			window.onload = function(){
 				mngr = new popupManager();
+				popup = mngr.base;
+				popupcenter = mngr.contentHolder;
+				
 				document.getElementById('placeholder').appendChild(level.generateBoard());
 				darkbox = document.getElementById('dark');
 				gridbox = document.getElementById('gridbox');
-				popup = mngr.base;
-				popupcenter = mngr.contentHolder;
 				darkbox.onchange = function(){
 					level.setDark(!level.setDarkdark);
 				}
@@ -138,18 +139,14 @@
 				darkbox.checked = value;
 			}
 			function stopPop(){
-				popup.style.display = "none";
-				while(popupcenter.firstChild){
-					popupcenter.removeChild(popupcenter.firstChild);
-				}
+				mngr.closePopup(true);
 			}
 			function pop(){
-				popup.style.display = "initial";
 				var c = document.createElement('button');
 				c.style.position = 'absolute';
 				c.style.bottom = '2px';
 				c.style.right = '2px';
-				popupcenter.appendChild(c);
+				mngr.openPopup(c);
 				c.onclick = stopPop;
 				c.innerHTML = 'cancel';
 			}
