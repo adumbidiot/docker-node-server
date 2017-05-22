@@ -160,7 +160,7 @@ lvl.prototype.export1D = function(){
 	return array;
 }
 
-lvl.prototype.exportlvlLBL = function(){
+lvl.prototype.exportLBL = function(){
 	var data = this.export1D();
 	var out = '';
 	for(var i = 0; i != data.length; i++){
