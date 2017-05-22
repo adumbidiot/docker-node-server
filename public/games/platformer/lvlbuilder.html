@@ -56,7 +56,7 @@
 						exportlvlPNG();
 					}
 					
-					stopPop();
+					mngr.closePopup(true);
 				}
 				popupcenter.appendChild(eb);
 				
@@ -140,6 +140,7 @@
 			}
 			function stopPop(){
 				mngr.closePopup(true);
+				console.log('DEPRECEATED');
 			}
 			function pop(){
 				var c = document.createElement('button');
@@ -147,7 +148,7 @@
 				c.style.bottom = '2px';
 				c.style.right = '2px';
 				mngr.openPopup(c);
-				c.onclick = stopPop;
+				c.onclick = mngr.closePopup(true);
 				c.innerHTML = 'cancel';
 			}
 		</script>
@@ -198,10 +199,10 @@
 			<ul>
 				<li>W.I.P. THIS IS A PROTOTYPE!</li>
 				<li>Dark is read only. Cannot set level to dark. Doing so may break part of the builder's UI though it will still function and export fine</li>
-				<li>Export data is big. It is typically over 2000 chars long and does not vary much in size, even with an empty level</li>
 				<li>Export data compression and decompression utilities are not supported</li>
 				<li>Line-by-line encoding can only be imported into the game itself. It CANNOT be reimported and modified.</li>
 				<li>Import options are not supported. It only accepts as3 array encoding. It CANNOT import line-by-line data.</li>
+				<li>I will murder the first person who asks how to import PNGs of levels.</li>
 				<li>Red Wire is not supported</li>
 				<li>Secret Exits are not supported</li>
 			</ul>
