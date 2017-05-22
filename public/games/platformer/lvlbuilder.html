@@ -33,6 +33,44 @@
 					mngr.closePopup(true);
 				}
 				exportView.appendChild(exportButton);
+				
+				var as32DArrayCheckbox = document.createElement('input');
+				as32DArrayCheckbox.type = 'radio';
+				as32DArrayCheckbox.name = 'export';
+				as32DArrayCheckbox.id = 'AS3';
+				as32DArrayCheckbox.checked = true;
+				exportView.appendContent(as32DArrayCheckbox);
+				
+				var as32DArrayLabel = document.createElement('span');
+				as32DArrayLabel.innerHTML = '2D AS3 Array';
+				exportView.appendChild(as32DArrayLabel);
+				
+				exportView.appendChild(document.createElement('br'));
+				
+				var lbl = document.createElement('input');
+				lbl.type = 'radio';
+				lbl.name = 'export';
+				lbl.id = 'lbl';
+				exportView.appendChild(lbl);
+				
+				var lblLabel = document.createElement('span');
+				lblLabel.innerHTML = 'Line by Line Representation';
+				exportView.appendchild(lblLabel);
+				
+				exportView.appendChild(document.createElement('br'));
+				
+				var png = document.createElement('input');
+				png.type = 'radio';
+				png.name = 'export';
+				png.id = 'png';
+				exportView.appendChild(png);
+				
+				var pngLabel = document.createElement('span');
+				pngLabel.innerHTML = 'PNG Rendering of Level';
+				exportView.appendChild(pngLabel);
+				
+				exportView.appendChild(document.createElement('br'));
+				
 				return exportView;
 			}
 			
@@ -64,46 +102,8 @@
 				}
 				level.active = id;
 			}
-			function exportlvl(){
+			function openExportPopup(){
 				mngr.openPopup(generateExportView());
-				
-				var as = document.createElement('input');
-				as.type = 'radio';
-				as.name = 'export';
-				as.id = 'AS3';
-				as.checked = true;
-				
-				mngr.appendContent(as);
-				
-				var asspan = document.createElement('span');
-				mngr.appendContent(asspan);
-				asspan.innerHTML = '2D AS3 Array';
-				mngr.appendContent(asspan);
-				
-				mngr.appendContent(document.createElement('br'));
-				
-				var l = document.createElement('input');
-				l.type = 'radio';
-				l.name = 'export';
-				l.id = 'lbl';
-				mngr.appendContent(l);
-				
-				var lblspan = document.createElement('span');
-				lblspan.innerHTML = 'Line by Line Representation';
-				mngr.appendContent(lblspan);
-				
-				mngr.appendContent(document.createElement('br'));
-				
-				var p = document.createElement('input');
-				p.type = 'radio';
-				p.name = 'export';
-				p.id = 'png';
-				mngr.appendContent(p);
-				
-				var pspan = document.createElement('span');
-				pspan.innerHTML = 'PNG Rendering of Level';
-				mngr.appendContent(pspan);
-				
 			}
 			function exportlvl1D(){
 				var data = level.export1D();
@@ -180,7 +180,7 @@
 			</div>
 			<div id="placeholder"></div>
 			<div style="bottom:10px;outline:2px solid black;position:absolute;width:800px;">
-				<button onclick="exportlvl()">Export</button>
+				<button onclick="openExportPopup()">Export</button>
 				<button onclick="importlvl()" oncontextmenu="javascript:importlvl1D();return false;">Import</button>
 				<button onclick="downloadlvl()">Download</button>
 				<textarea id="interface" style="width:400px"></textarea>
