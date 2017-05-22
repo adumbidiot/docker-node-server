@@ -7,10 +7,24 @@
 			var darkbox;
 			var gridbox;
 			var mngr;
+			
+			const exportView = document.createDocumentFragment();
+			
 			window.onload = function(){
 				mngr = new popupManager();
-				
 				document.getElementById('placeholder').appendChild(level.generateBoard());
+				
+				var cancel = document.createElement('button');
+				cancel.style.cssText = 'position: absolute; bottom: 2px; right:2px;';
+				cancel.innerHTML = 'cancel';
+				cancel.onclick = function(){
+					mngr.closePopup(true);
+				}
+				exportView.appendChild(cancel);
+				
+				
+				
+				
 				darkbox = document.getElementById('dark');
 				gridbox = document.getElementById('gridbox');
 				darkbox.onchange = function(){
@@ -36,13 +50,7 @@
 				level.active = id;
 			}
 			function exportlvl(){
-				var cancel = document.createElement('button');
-				cancel.style.cssText = 'position: absolute; bottom: 2px; right:2px;';
-				cancel.innerHTML = 'cancel';
-				mngr.openPopup(cancel);
-				cancel.onclick = function(){
-					mngr.closePopup(true);
-				}
+				mngr.openPopup(exportView);
 				
 				var exportButton = document.createElement('button');
 				exportButton.innerHTML = 'EXPORT';
