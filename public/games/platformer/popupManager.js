@@ -8,18 +8,25 @@ window.popupManager = function(){
   this.base.appendChild(this.contentHolder);
 }
 
+//Opens popup, append specified content
 window.popupManager.prototype.openPopup = function(content){
   this.base.style.display = 'initial';
   if(content){
-    this.contentHolder.append(content);
+    this.appendContent(content);
   }
 }
 
+//Closes popup, clears content if specified
 window.popupManager.prototype.closePopup = function(clear){
-  this.base.style.display = 'none';
-  if(clear){
-    while(this.contentHolder.firstChild){
-      this.contentHolder.removeChild(this.contentHolder.firstChild);
-		}
-  }
+	this.base.style.display = 'none';
+	if(clear){
+	  while(this.contentHolder.firstChild){
+		  this.contentHolder.removeChild(this.contentHolder.firstChild);
+	  }
+	}
+}
+
+//Appends content that is specified
+window.popupManager.prototype.appendContent = function(content){
+	this.contentHolder.append(content);
 }
