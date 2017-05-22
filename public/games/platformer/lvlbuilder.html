@@ -55,7 +55,7 @@
 				
 				var lblLabel = document.createElement('span');
 				lblLabel.innerHTML = 'Line by Line Representation';
-				exportView.appendchild(lblLabel);
+				exportView.appendChild(lblLabel);
 				
 				exportView.appendChild(document.createElement('br'));
 				
@@ -104,6 +104,9 @@
 			}
 			function openExportPopup(){
 				mngr.openPopup(generateExportView());
+			}
+			function openImportPopup(){
+				
 			}
 			function exportlvl1D(){
 				var data = level.export1D();
