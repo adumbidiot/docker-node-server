@@ -177,7 +177,6 @@ lvl.prototype.exportPNG = function(cb){
 	can.width = '800';
 	can.height = '450';
 	
-	//document.getElementById('placeholder').appendChild(can);
 	var context = can.getContext('2d');
 	
 	var back = new Image();
@@ -217,7 +216,7 @@ lvl.prototype.exportPNG = function(cb){
 	}
 }
 
-//TODO: Simplify
+//TODO: Simplify/Rename/Remove
 lvl.prototype.export = function(){
 	var array = this.export1D();
 	var array2D = [];
@@ -248,7 +247,7 @@ lvl.prototype.importArray1D = function(array){
 		}
 	}
 }
-
+//TODO: Rename/Remove
 lvl.prototype.import = function(raw){
 	var call = 'var x = 0; var lvlArray = []; lvlArray[x] = []; for(var i = 0; i != 999; i++){lvlArray.push([]);} with(' + JSON.stringify(this.decode) + '){' + raw + '} return lvlArray;';
 	var interpret = new Function(call);
