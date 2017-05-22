@@ -44,9 +44,9 @@
 				c.style.position = 'absolute';
 				c.style.bottom = '2px';
 				c.style.right = '2px';
-				mngr.openPopup();
+				mngr.openPopup(c);
 				console.log('ex');
-				c.onclick = mngr.closePopup(true);
+				//c.onclick = mngr.closePopup(true);
 				c.innerHTML = 'cancel';
 				var eb = document.createElement('button');
 				eb.style.position = 'absolute';
@@ -63,7 +63,7 @@
 						exportlvlPNG();
 					}
 					
-					mngr.closePopup(true);
+					//mngr.closePopup(true);
 				}
 				popupcenter.appendChild(eb);
 				
