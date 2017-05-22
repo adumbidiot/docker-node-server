@@ -6,26 +6,16 @@ window.lvl = function(name){
 	var self = this;
 	
 	this.gridTemplate = document.createElement('div');
-	this.gridTemplate.style.width = '25px';
-	this.gridTemplate.style.height = '25px';
-	this.gridTemplate.style.outline = '1px solid black';
-	this.gridTemplate.style.float = 'left';
+	this.gridTemplate.style.cssText = 'width: 25px; height: 25px; outline: 1px solid black; float: left;';
 	this.gridTemplate.type = 'holder';
 	
 	this.board = document.createElement('div');
 	this.board.id = this.name;
-	this.board.style.width = '800px';
-	this.board.style.height = '450px';
-	this.board.style.position = 'relative';
+	this.board.style.cssText = 'width: 800px; height: 450px; position: relative';
 	
 	this.background = document.createElement('img');
 	this.background.src = './background.png';
-	this.background.style.width = '800px';
-	this.background.style.height = '450px';
-	this.background.style.zIndex = '-1';
-	this.background.style.position = 'absolute';
-	this.background.style.top = '0px';
-	this.background.style.left = '0px';
+	this.background.style.cssText = 'width: 800px; height: 450px; z-index: -1; position: absolute; top: 0px; left: 0px;';
 	
 	this.encode = {
 		main: 'X0',
@@ -110,8 +100,7 @@ lvl.prototype.render = function(index, blockType){
 	if(blockType == 'delete') return;
 	
 	var block = document.createElement('img');
-	block.style.width = '25px';
-	block.style.height = '25px';
+	block.style.cssText = 'width: 25px; height: 25px;';
 	block.src = './' + blockType + '.png';
 	block.type = 'block';
 	target.appendChild(block);
@@ -187,11 +176,13 @@ lvl.prototype.exportPNG = function(cb){
 	context.drawImage(back, 0, 0, 800, 450);
 	
 	var count = 0;
+	var total = 0;
 	for(var i = 0; i != 18; i++){
 		for(var j = 0; j != 32; j++){
 			var drawing = new Image();
 			if(this.decode[array[( i * 32) + j]] != 'null'){
 				count++;
+				total++;
 				drawing.onload = (function() {
 					var a = drawing;
 					var x = j;
@@ -200,14 +191,20 @@ lvl.prototype.exportPNG = function(cb){
   	 					context.drawImage(a, x * 25, y * 25, 25, 25);
 						count--;
 						if(count == 0){
-							console.log(can.toDataURL('image/png'));
-							cb(can.toDataURL('image/png'));
+							var output = can.toDataURL('image/png');
+							console.log(output);
+							cb(output);
 						}
 					}
 				})();
 				drawing.src = './' + this.decode[array[( i * 32) + j]] + '.png';
 			}
 		}
+	}
+	if(total == 0){
+		var output = can.toDataURL('image/png');
+		console.log(output);
+		cb(output);
 	}
 }
 
