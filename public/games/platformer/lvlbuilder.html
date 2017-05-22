@@ -6,13 +6,9 @@
 			const level = new lvl('build');
 			var darkbox;
 			var gridbox;
-			var popup;
-			var popupcenter;
 			var mngr;
 			window.onload = function(){
 				mngr = new popupManager();
-				popup = mngr.base;
-				popupcenter = mngr.contentHolder;
 				
 				document.getElementById('placeholder').appendChild(level.generateBoard());
 				darkbox = document.getElementById('dark');
@@ -70,36 +66,36 @@
 				as.id = 'AS3';
 				as.checked = true;
 				
-				popupcenter.appendChild(as);
+				mngr.appendContent(as);
 				
 				var asspan = document.createElement('span');
-				popupcenter.appendChild(asspan);
+				mngr.appendContent(asspan);
 				asspan.innerHTML = '2D AS3 Array';
-				popupcenter.appendChild(asspan);
+				mngr.appendContent(asspan);
 				
-				popupcenter.appendChild(document.createElement('br'));
+				mngr.appendContent(document.createElement('br'));
 				
 				var l = document.createElement('input');
 				l.type = 'radio';
 				l.name = 'export';
 				l.id = 'lbl';
-				popupcenter.appendChild(l);
+				mngr.appendContent(l);
 				
 				var lblspan = document.createElement('span');
 				lblspan.innerHTML = 'Line by Line Representation';
-				popupcenter.appendChild(lblspan);
+				mngr.appendContent(lblspan);
 				
-				popupcenter.appendChild(document.createElement('br'));
+				mngr.appendContent(document.createElement('br'));
 				
 				var p = document.createElement('input');
 				p.type = 'radio';
 				p.name = 'export';
 				p.id = 'png';
-				popupcenter.appendChild(p);
+				mngr.appendContent(p);
 				
 				var pspan = document.createElement('span');
 				pspan.innerHTML = 'PNG Rendering of Level';
-				popupcenter.appendChild(pspan);
+				mngr.appendContent(pspan);
 				
 			}
 			function exportlvl1D(){
