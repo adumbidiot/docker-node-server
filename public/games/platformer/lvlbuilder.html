@@ -25,7 +25,7 @@
 					if(document.getElementById('AS3').checked){
 						document.getElementById('interface').value = level.export();
 					}else if(document.getElementById('lbl').checked){
-						exportlvl1D();
+						exportlvlLBL();
 					}else{
 						exportlvlPNG();
 					}
@@ -74,6 +74,72 @@
 				return exportView;
 			}
 			
+			function generateImportView(){
+				const importView = document.createDocumentFragment();
+				var cancel = document.createElement('button');
+				cancel.style.cssText = 'position: absolute; bottom: 2px; right:2px;';
+				cancel.innerHTML = 'cancel';
+				cancel.onclick = function(){
+					mngr.closePopup(true);
+				}
+				importView.appendChild(cancel);
+				
+				var importButton = document.createElement('button');
+				importButton.innerHTML = 'IMPORT';
+				importButton.style.cssText = 'position: absolute; left: 40%; width: 20%; top: 80%;';
+				importButton.onclick = function(){
+					if(document.getElementById('AS3').checked){
+						document.getElementById('interface').value = level.export();
+					}else if(document.getElementById('lbl').checked){
+						exportlvlLBL();
+					}else{
+						exportlvlPNG();
+					}
+					
+					mngr.closePopup(true);
+				}
+				importView.appendChild(importButton);
+				
+				var as32DArrayCheckbox = document.createElement('input');
+				as32DArrayCheckbox.type = 'radio';
+				as32DArrayCheckbox.name = 'export';
+				as32DArrayCheckbox.id = 'AS3';
+				as32DArrayCheckbox.checked = true;
+				importView.appendChild(as32DArrayCheckbox);
+				
+				var as32DArrayLabel = document.createElement('span');
+				as32DArrayLabel.innerHTML = '2D AS3 Array';
+				importView.appendChild(as32DArrayLabel);
+				
+				importView.appendChild(document.createElement('br'));
+				
+				var lbl = document.createElement('input');
+				lbl.type = 'radio';
+				lbl.name = 'export';
+				lbl.id = 'lbl';
+				importView.appendChild(lbl);
+				
+				var lblLabel = document.createElement('span');
+				lblLabel.innerHTML = 'Line by Line Representation';
+				importView.appendChild(lblLabel);
+				
+				importView.appendChild(document.createElement('br'));
+				
+				var png = document.createElement('input');
+				png.type = 'radio';
+				png.name = 'export';
+				png.id = 'png';
+				importView.appendChild(png);
+				
+				var pngLabel = document.createElement('span');
+				pngLabel.innerHTML = 'PNG Rendering of Level';
+				importView.appendChild(pngLabel);
+				
+				importView.appendChild(document.createElement('br'));
+				
+				return importView;
+			}
+			
 			window.onload = function(){
 				mngr = new popupManager();
 				document.getElementById('placeholder').appendChild(level.generateBoard());
@@ -105,19 +171,15 @@
 			function openExportPopup(){
 				mngr.openPopup(generateExportView());
 			}
+			//TODO: Make import popup
 			function openImportPopup(){
-				
+				mngr.openPopup(generateImportView());
 			}
-			function exportlvl1D(){
-				var data = level.export1D();
-				var out = '';
-				for(var i = 0; i != data.length; i++){
-					out += data[i] + '\n';
-				}
-				document.getElementById('interface').value = out;
+			function exportlvlLBL(){
+				document.getElementById('interface').value = level.exportLBL();
 			}
 			function exportlvlPNG(){
-				var data = level.exportPNG(function(out){
+				level.exportPNG(function(out){
 					document.getElementById('interface').value = out;
 					var hiddenElement = document.createElement('a');
 					hiddenElement.href = out;
@@ -126,6 +188,7 @@
 					hiddenElement.click();
 				});
 			}
+			//TODO: Remove function and add download option
 			function downloadlvl(){
 				var textToSave = (level.export());
 				var hiddenElement = document.createElement('a');
@@ -196,10 +259,10 @@
 			<ul>
 				<li>W.I.P. THIS IS A PROTOTYPE!</li>
 				<li>Dark is read only. Cannot set level to dark. Doing so may break part of the builder's UI though it will still function and export fine</li>
-				<li>Export data compression and decompression utilities are not supported</li>
+				<li>Export data compression and decompression utilities are not supported. Use a text file or something.</li>
 				<li>Line-by-line encoding can only be imported into the game itself. It CANNOT be reimported and modified.</li>
 				<li>Import options are not supported. It only accepts as3 array encoding. It CANNOT import line-by-line data.</li>
-				<li>PNG exports are broken for some reason</li>
+				<li>Image formats other than PNG are not supported</li>
 				<li>I will murder the first person who asks how to import PNGs of levels.</li>
 				<li>Red Wire is not supported</li>
 				<li>Secret Exits are not supported</li>
