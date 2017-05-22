@@ -1,7 +1,8 @@
+//Constructor
 window.popupManager = function(){
 	this.base = document.createElement('div');
-	this.base.style.display = 'none';
 	this.base.style.cssText = 'background-color: rgba(0, 0, 0, 0.5);position:fixed;top:0px;height:100%;width:100%;left:0px;z-index:999';
+	this.base.style.display = 'none';
 	document.getElementsByTagName('body')[0].appendChild(this.base);
   
 	this.contentHolder = document.createElement('div');
