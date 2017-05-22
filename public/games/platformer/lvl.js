@@ -160,6 +160,15 @@ lvl.prototype.export1D = function(){
 	return array;
 }
 
+lvl.prototype.exportlvlLBL = function(){
+	var data = this.export1D();
+	var out = '';
+	for(var i = 0; i != data.length; i++){
+		out += data[i] + '\n';
+	}
+	return out;			
+}
+
 lvl.prototype.exportPNG = function(cb){
 	var array = this.export1D();
 	var can = document.createElement('canvas');
