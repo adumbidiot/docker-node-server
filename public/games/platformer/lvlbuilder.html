@@ -22,8 +22,21 @@
 				}
 				exportView.appendChild(cancel);
 				
-				
-				
+				var exportButton = document.createElement('button');
+				exportButton.innerHTML = 'EXPORT';
+				exportButton.style.cssText = 'position: absolute; left: 40%; width: 20%; top: 80%;';
+				exportButton.onclick = function(){
+					if(document.getElementById('AS3').checked){
+						document.getElementById('interface').value = level.export();
+					}else if(document.getElementById('lbl').checked){
+						exportlvl1D();
+					}else{
+						exportlvlPNG();
+					}
+					
+					mngr.closePopup(true);
+				}
+				exportView.appendChild(exportButton);
 				
 				darkbox = document.getElementById('dark');
 				gridbox = document.getElementById('gridbox');
@@ -50,23 +63,7 @@
 				level.active = id;
 			}
 			function exportlvl(){
-				mngr.openPopup(exportView);
-				
-				var exportButton = document.createElement('button');
-				exportButton.innerHTML = 'EXPORT';
-				exportButton.style.cssText = 'position: absolute; left: 40%; width: 20%; top: 80%;';
-				exportButton.onclick = function(){
-					if(document.getElementById('AS3').checked){
-						document.getElementById('interface').value = level.export();
-					}else if(document.getElementById('lbl').checked){
-						exportlvl1D();
-					}else{
-						exportlvlPNG();
-					}
-					
-					mngr.closePopup(true);
-				}
-				mngr.appendContent(exportButton);
+				mngr.openPopup(exportView.cloneNode());
 				
 				var as = document.createElement('input');
 				as.type = 'radio';
