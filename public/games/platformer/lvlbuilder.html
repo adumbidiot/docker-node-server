@@ -8,12 +8,8 @@
 			var gridbox;
 			var mngr;
 			
-			const exportView = document.createDocumentFragment();
-			
-			window.onload = function(){
-				mngr = new popupManager();
-				document.getElementById('placeholder').appendChild(level.generateBoard());
-				
+			function generateExportView(){
+				const exportView = document.createDocumentFragment();
 				var cancel = document.createElement('button');
 				cancel.style.cssText = 'position: absolute; bottom: 2px; right:2px;';
 				cancel.innerHTML = 'cancel';
@@ -37,6 +33,12 @@
 					mngr.closePopup(true);
 				}
 				exportView.appendChild(exportButton);
+				return exportView;
+			}
+			
+			window.onload = function(){
+				mngr = new popupManager();
+				document.getElementById('placeholder').appendChild(level.generateBoard());
 				
 				darkbox = document.getElementById('dark');
 				gridbox = document.getElementById('gridbox');
@@ -63,7 +65,7 @@
 				level.active = id;
 			}
 			function exportlvl(){
-				mngr.openPopup(exportView.cloneNode());
+				mngr.openPopup(generateExportView());
 				
 				var as = document.createElement('input');
 				as.type = 'radio';
