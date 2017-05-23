@@ -72,8 +72,8 @@ window.lvl = function(name){
 		
 	}
 }
-
-lvl.prototype.generateBoard = function(){
+//Generates a board
+window.lvl.prototype.generateBoard = function(){
 	for(var i = 0; i != (18 * 32); i++){
 		var grid = this.gridTemplate.cloneNode();
 		grid.id = this.name + (i + 1);
@@ -86,8 +86,8 @@ lvl.prototype.generateBoard = function(){
 	this.board.appendChild(this.background);
 	return this.board;
 }
-
-lvl.prototype.render = function(index, blockType){
+//Renders a specified block at specified index
+window.lvl.prototype.render = function(index, blockType){
 	var target = document.getElementById(this.name + (index + 1));
 	if(target.block == blockType || !blockType) return;
 	if(blockType == 'mask_circle'){
@@ -106,41 +106,41 @@ lvl.prototype.render = function(index, blockType){
 	target.appendChild(block);
 	target.block = blockType;
 }
-
-lvl.prototype.setDark = function(value){
+//TODO: Fix
+window.lvl.prototype.setDark = function(value){
 	this.dark = value;
 	this.ondarkchange(value); 
 }
-
-lvl.prototype.disableGrid = function(){
+//Disables grid on board
+window.lvl.prototype.disableGrid = function(){
 	this.grid = false;
 	for(var i = 0; i != (32 * 18); i++){
 		document.getElementById(this.name + (i+1)).style.outline = '0px';
 	}
 }
-
-lvl.prototype.enableGrid = function(){
+//Enables grid
+window.lvl.prototype.enableGrid = function(){
 	this.grid = true;
 	for(var i = 0; i != (32 * 18); i++){
 		document.getElementById(this.name + (i+1)).style.outline = '1px solid black';
 	}
 }
-
-lvl.prototype.clearTile = function(index){
+//Clears a tile at specified index
+window.lvl.prototype.clearTile = function(index){
 	var target = document.getElementById(this.name + (index + 1));
 	while(target.firstChild){
 		target.removeChild(target.firstChild);
 	}
 	target.block = null;
 }
-
-lvl.prototype.clearAllTiles = function(){
+//Clears all tiles on board
+window.lvl.prototype.clearAllTiles = function(){
 	for(var i = 0; i != (18 * 32); i++){
 		this.clearTile(i);
 	}
 }
-
-lvl.prototype.renderEvent = function(event){
+//Handler for a render event
+window.lvl.prototype.renderEvent = function(event){
 	var target = event.target;
 	if(target.type == 'block'){
 		target = target.parentNode;
@@ -242,7 +242,7 @@ lvl.prototype.import1D = function(data){
 lvl.prototype.importArray1D = function(array){
 	this.clearAllTiles();
 	for(var i = 0; i!= (32 * 18); i++){
-		if(array[i] != 0 || 'null'){
+		if(array[i] != 0 || array[i] != 'null'){
 			this.render(i, array[i]);
 		}
 	}
