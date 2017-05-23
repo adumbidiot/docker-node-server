@@ -251,7 +251,7 @@ lvl.prototype.importArray1D = function(array){
 lvl.prototype.importLBL = function(data){
 	var array = data.slice('\n');
 	for(var i = 0; i != array.length; i++){
-		array[i] = this.decode(array[i]);	
+		array[i] = this.decode[array[i]];	
 	}
 	this.importArray1D(array);
 }
