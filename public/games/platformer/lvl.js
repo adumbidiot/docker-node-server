@@ -233,12 +233,12 @@ lvl.prototype.export = function(){
 	}
 	return output;	
 }
-
+//TODO: FIX
 lvl.prototype.import1D = function(data){
 	var array = data.slice(',');
 	this.importArray1D(array);
 }
-
+//Imports a 1D Array
 lvl.prototype.importArray1D = function(array){
 	this.clearAllTiles();
 	for(var i = 0; i!= (32 * 18); i++){
@@ -247,7 +247,7 @@ lvl.prototype.importArray1D = function(array){
 		}
 	}
 }
-
+//Imports Line-by-Line representations of levels
 lvl.prototype.importLBL = function(data){
 	var array = data.split('\n');
 	for(var i = 0; i != array.length; i++){
