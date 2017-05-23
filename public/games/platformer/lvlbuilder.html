@@ -89,7 +89,7 @@
 				importButton.style.cssText = 'position: absolute; left: 40%; width: 20%; top: 80%;';
 				importButton.onclick = function(){
 					if(document.getElementById('AS3').checked){
-						document.getElementById('interface').value = level.import(document.getElementById('interface').value);
+						level.import(document.getElementById('interface').value);
 					}else if(document.getElementById('lbl').checked){
 						level.importLBL(document.getElementById('interface').value);
 					}else{
