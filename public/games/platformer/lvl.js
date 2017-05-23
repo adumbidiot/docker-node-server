@@ -249,7 +249,7 @@ lvl.prototype.importArray1D = function(array){
 }
 
 lvl.prototype.importLBL = function(data){
-	var array = data.slice('\n');
+	var array = data.split('\n');
 	for(var i = 0; i != array.length; i++){
 		array[i] = this.decode[array[i]];	
 	}
