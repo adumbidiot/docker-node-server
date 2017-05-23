@@ -200,7 +200,6 @@ lvl.prototype.exportPNG = function(cb){
 						count--;
 						if(count == 0){
 							var output = can.toDataURL('image/png');
-							console.log(output);
 							cb(output);
 						}
 					}
@@ -211,7 +210,6 @@ lvl.prototype.exportPNG = function(cb){
 	}
 	if(total == 0){
 		var output = can.toDataURL('image/png');
-		console.log(output);
 		cb(output);
 	}
 }
@@ -238,7 +236,7 @@ lvl.prototype.import1D = function(data){
 	var array = data.slice(',');
 	this.importArray1D(array);
 }
-//Imports a 1D Array
+//Imports a 1D Array that has already been decoded
 lvl.prototype.importArray1D = function(array){
 	this.clearAllTiles();
 	for(var i = 0; i!= (32 * 18); i++){
