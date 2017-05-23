@@ -247,6 +247,12 @@ lvl.prototype.importArray1D = function(array){
 		}
 	}
 }
+
+lvl.prototype.importLBL = function(data){
+	var array = data.slice('\n');
+	this.importArray1D(array);
+}
+
 //TODO: Rename/Remove
 lvl.prototype.import = function(raw){
 	var call = 'var x = 0; var lvlArray = []; lvlArray[x] = []; for(var i = 0; i != 999; i++){lvlArray.push([]);} with(' + JSON.stringify(this.decode) + '){' + raw + '} return lvlArray;';
