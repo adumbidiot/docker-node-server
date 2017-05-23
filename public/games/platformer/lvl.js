@@ -242,7 +242,7 @@ lvl.prototype.import1D = function(data){
 lvl.prototype.importArray1D = function(array){
 	this.clearAllTiles();
 	for(var i = 0; i!= (32 * 18); i++){
-		if(array[i] != 0){
+		if(array[i] != 0 || 'null'){
 			this.render(i, array[i]);
 		}
 	}
