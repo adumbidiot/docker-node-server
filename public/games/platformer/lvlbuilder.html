@@ -89,11 +89,11 @@
 				importButton.style.cssText = 'position: absolute; left: 40%; width: 20%; top: 80%;';
 				importButton.onclick = function(){
 					if(document.getElementById('AS3').checked){
-						document.getElementById('interface').value = level.export();
+						document.getElementById('interface').value = level.import(document.getElementById('interface').value);
 					}else if(document.getElementById('lbl').checked){
-						exportlvlLBL();
+						level.importLBL(document.getElementById('interface').value);
 					}else{
-						exportlvlPNG();
+						//exportlvlPNG(document.getElementById('interface').value);
 					}
 					
 					mngr.closePopup(true);
@@ -125,7 +125,7 @@
 				
 				importView.appendChild(document.createElement('br'));
 				
-				var png = document.createElement('input');
+				/*var png = document.createElement('input');
 				png.type = 'radio';
 				png.name = 'export';
 				png.id = 'png';
@@ -135,7 +135,7 @@
 				pngLabel.innerHTML = 'PNG Rendering of Level';
 				importView.appendChild(pngLabel);
 				
-				importView.appendChild(document.createElement('br'));
+				importView.appendChild(document.createElement('br'));*/
 				
 				return importView;
 			}
