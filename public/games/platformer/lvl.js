@@ -246,6 +246,7 @@ lvl.prototype.importArray1D = function(array){
 			this.render(i, array[i]);
 		}
 	}
+	console.log(array);
 }
 //Imports Line-by-Line representations of levels
 lvl.prototype.importLBL = function(data){
