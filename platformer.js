@@ -43,6 +43,7 @@ app.post('/score', function(req, res){
 });
 
 app.get('/score', function(req, res){
+	res.set('Access-Control-Allow-Origin', '*');
 	res.json(scores);
 });
 
