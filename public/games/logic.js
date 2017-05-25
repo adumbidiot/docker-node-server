@@ -1,7 +1,7 @@
 window.onload = updateScores;
 	
 function updateScores(){
-	$.get("platformer/score", function(data, status){
+	$.get("https://nanopi.ml/games/platformer/score", function(data, status){
 		var a = '';
 		for(var i = 0; i != data.length; i++){
 			a += '<p><b>' + (i + 1) + '</b> ' + data[i].name + ': ' + data[i].score + '</p>\n';
@@ -13,7 +13,7 @@ function updateScores(){
 function myFunction(name, time){
 	console.log('NAME: ' + name);
 	console.log('TIME: ' + time);
-	$.post("platformer/score", {
+	$.post("https://nanopi.ml/games/platformer/score", {
 			time: time,
 			name: name
     	},
