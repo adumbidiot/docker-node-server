@@ -55,8 +55,8 @@ app.get('/logic.js', function(req, res){
 	res.sendFile(__dirname + '/public/games/logic.js'); //Fix file name plz 
 });
 
-app.get('/platformer.jpg', function(req, res){
-	res.sendFile(__dirname + '/public/games/platformer.jpg');
+app.get('/platformer.png', function(req, res){
+	res.sendFile(__dirname + '/public/games/platformer.png');
 });
 
 app.get('/customLevel.txt', function(req, res, next){
