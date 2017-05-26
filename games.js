@@ -3,6 +3,7 @@ const app = express(); //Replace with own hashtable-enabled router?
 const http = require('http'); //Maybe move to api.js 
 const handlebars = require('./handlebars');
 const platformer = require('./platformer');
+const jsnes = require('./jsnes');
 const through2 = require('through2');
 
 app.get('/', function(req, res){
@@ -10,6 +11,7 @@ app.get('/', function(req, res){
 });
 
 app.use('/platformer', platformer);
+app.use('/jsnes', jsnes);
 
 app.get('/moomoo.io', function(req, res){
 	http.get('http://moomoo.io', function(response){
@@ -86,13 +88,6 @@ app.get('/moomoo.io/css/main.css', function(req, res){
 	}).on('error', console.error);	
 });
 
-app.get('/jsnes', function(req, res){
-	res.render('jsnes');	
-});
-
-app.use('/jsnes', express.static('/public/games/jsnes'));
 app.use('/rom', express.static('/public/games/rom'));
-	
-//app
 
 module.exports = app;
