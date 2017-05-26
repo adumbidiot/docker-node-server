@@ -90,9 +90,7 @@ app.get('/jsnes', function(req, res){
 	res.render('jsnes');	
 });
 
-app.get('/jsnes/nes.js', function(req, res){
-	res.send(__dirname + '/public/games/jsnes/nes.js');
-});
+app.use('/jsnes', express.static('/public/games/jsnes'));
 	
 //app
 
