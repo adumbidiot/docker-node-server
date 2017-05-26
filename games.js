@@ -88,6 +88,11 @@ app.get('/moomoo.io/css/main.css', function(req, res){
 	}).on('error', console.error);	
 });
 
+app.get('webnes', function(req, res){
+	res.render('webnes');	
+});
+
+app.use('/webnes', express.static('/public/games/webnes'));
 app.use('/rom', express.static('/public/games/rom'));
 
 module.exports = app;
