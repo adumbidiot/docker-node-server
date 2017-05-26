@@ -87,7 +87,7 @@ app.get('/moomoo.io/css/main.css', function(req, res){
 });
 
 app.get('/jsnes', function(req, res){
-	res.send('WIP');	
+	res.render('jsnes');	
 });
 
 app.get('/jsnes/nes.js', function(req, res){
