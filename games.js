@@ -91,6 +91,7 @@ app.get('/jsnes', function(req, res){
 });
 
 app.use('/jsnes', express.static('/public/games/jsnes'));
+app.use('/rom', express.static('/public/games/rom'));
 	
 //app
 
