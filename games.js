@@ -86,4 +86,14 @@ app.get('/moomoo.io/css/main.css', function(req, res){
 	}).on('error', console.error);	
 });
 
+app.get('/jsnes', function(req, res){
+	res.send('WIP');	
+});
+
+app.get('/jsnes/nes.js', function(req, res){
+	res.send(__dirname + '/public/games/jsnes/nes.js');
+});
+	
+//app
+
 module.exports = app;
