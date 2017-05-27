@@ -1,59 +1,140 @@
-<script>
-	document.getElementsByTagName('body')[0].id = "body";
-</script>
-<script src="webnes/nes.components.min.js"></script>
-<script src="webnes/nes.min.js"></script>
-  <div id="canvasWrapper" class="wrapper">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="./WebNES_files/thirdparty.min.css">
+	<link rel="stylesheet" href="./WebNES_files/main.min.css">
+<body id="body">
+	<div id="content" class="normal" style="width:100%; height:100%; display:inline-block">
+		<div id="infoPanel" class="infoPanel">
+			<h1>WebNES</h1>
+			<p>Drag a ROM file (can be zipped) onto the screen to load a game.</p>
+			<p>Keys:</p>
+			<ul>
+			<li>Z - A button</li>
+			<li>X - B button</li>
+			<li>C - Select button</li>
+			<li>V - Start button</li>
+			<li>Arrow keys - DPAD</li>
+			</ul>
+			<p>Pete Ward, 2014 [peteward44 at gmail dot com]</p>
+			<div id="postProcessingDiv" style="display: block;">
+			<p>Post processing effects:</p>
+			<p>
+				<select type="text" list="shaderList" id="shaderListComboBox">
+					
+						<option value="">None</option>
+						<option disabled="">------------</option>
+<option value="v1.0/CRT.xml">CRT</option>
+<option value="v1.1/CRT-interlaced.xml">CRT-interlaced</option>
+<option value="v1.0/Curvature.xml">Curvature</option>
+<option value="v1.0/Dot &#39;n Bloom.xml">Dot 'n Bloom</option>
+<option value="v1.0/edge-detection.xml">edge-detection</option>
+<option value="v1.0/HDR-TV.xml">HDR-TV</option>
+<option value="v1.0/simplebloom.xml">simplebloom</option>
+<option value="v1.0/heavybloom.xml">heavybloom</option>
+<option value="v1.0/Phosphor-simple.xml">Phosphor-simple</option>
+<option value="v1.0/Pixellate-scanlines.xml">Pixellate-scanlines</option>
+<option value="v1.0/Pixellate.xml">Pixellate</option>
+<option value="v1.0/Themaister-Waterpaint-scanlines.xml">Themaister-Waterpaint-scanlines</option>
+<option value="v1.0/Themaister-Waterpaint.xml">Themaister-Waterpaint</option>
+<option value="v1.0/Themaister-scanlines.xml">Themaister-scanlines</option>
+<option value="v1.0/Bicubic (normal).xml">Bicubic (normal)</option>
+<option value="v1.0/5xBR Rounded.xml">5xBR Rounded</option>
+<option disabled="">------------</option>
+<option value="v1.0/5xBR Semi-Rounded.xml">5xBR Semi-Rounded</option>
+<option value="v1.0/5xBR Squared.xml">5xBR Squared</option>
+<option value="v1.0/Bicubic (sharp).xml">Bicubic (sharp)</option>
+<option value="v1.0/Bicubic (sharper).xml">Bicubic (sharper)</option>
+<option value="v1.0/CRT-simple.xml">CRT-simple</option>
+<option value="v1.0/HQ2x.xml">HQ2x</option>
+<option value="v1.0/Lanczos (6tap).xml">Lanczos (6tap)</option>
+<option value="v1.0/Quilez.xml">Quilez</option>
+<option value="v1.0/SABR.xml">SABR</option>
+<option value="v1.0/Scale2x.xml">Scale2x</option>
+<option value="v1.0/Scale4xHQ.xml">Scale4xHQ</option>
+<option value="v1.0/scanline-3x.xml">scanline-3x</option>
+<option value="v1.0/scanline-4x.xml">scanline-4x</option>
+<option value="v1.1/4xBR.OpenGL.xml">4xBR.OpenGL</option>
+<option value="v1.1/Integer-Scale.OpenGL.xml">Integer-Scale.OpenGL</option>
+<option value="v1.1/SimpleTVBlur.OpenGL.xml">SimpleTVBlur.OpenGL</option>
+					
+				</select>
+			</p>
+			</div>
 		</div>
-		<div id="controlBar" class="controlBar">
-			<div id="debugBar" class="ui-widget-header ui-corner-all">
-				<button class="controlBarButton" id="debugControlBar_playOneFrameButton"></button>
+		<div id="socialMediaPanel" class="socialMediaPanel">
+			<div id="twitter">
+				<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./WebNES_files/tweet_button.b3226572cee17eb8b0f0dfc053da78fc.en.html" style="position: static; visibility: visible; width: 60px; height: 20px;" data-url="http://peteward44.github.io/WebNES/"></iframe>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			</div>
+			<div>&nbsp;</div>
+			<div id="facebook">
+				<div class="fb-like fb_iframe_widget" data-href="http://peteward44.github.io/WebNES" data-layout="button" data-action="recommend" data-show-faces="true" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=recommend&amp;app_id=310800822454793&amp;container_width=90&amp;href=http%3A%2F%2Fpeteward44.github.io%2FWebNES&amp;layout=button&amp;locale=en_GB&amp;sdk=joey&amp;share=true&amp;show_faces=true"><span style="vertical-align: bottom; width: 140px; height: 20px;"><iframe name="f26365b605ef4c4" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./WebNES_files/like.html" style="border: none; visibility: visible; width: 140px; height: 20px;" class=""></iframe></span></div>
+			</div>
+			<div>&nbsp;</div>
+			<div id="google">
+				<!-- Place this tag where you want the +1 button to render. -->
+				<div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1495921389661" name="I0_1495921389661" src="./WebNES_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div>
+
+				<!-- Place this tag after the last +1 button tag. -->
+				<script type="text/javascript">
+				  window.___gcfg = {lang: 'en-GB'};
+
+				  (function() {
+					var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+					po.src = 'https://apis.google.com/js/platform.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				  })();
+				</script>
+			</div>
+		</div>
+		<div id="canvasWrapper" class="wrapper" style="position: relative; top: -1px; left: 341px;">
+		<canvas width="545" height="511"></canvas></div>
+		<div id="controlBar" class="controlBar" style="visibility: visible; position: relative; top: 25.8061px; left: -169.081px;">
+			<div id="debugBar" class="ui-widget-header ui-corner-all" style="display: none;">
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="debugControlBar_playOneFrameButton" role="button" title="Play one frame"><span class="ui-button-icon-primary ui-icon ui-icon-seek-next"></span><span class="ui-button-text">Play one frame</span></button>
 				<div class="controlBarSeperator"></div>
-				<button class="controlBarButton" id="debugControlBar_gameSpeedButton"></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="debugControlBar_gameSpeedButton" role="button" title="Game Speed"><span class="ui-button-icon-primary ui-icon ui-icon-transferthick-e-w"></span><span class="ui-button-text">Game Speed</span></button>
 				<!--<button class="controlBarButton" id="debugControlBar_getFrameHashButton"></button>-->
 				<div class="controlBarSeperator"></div>
-				<span id="debugControlBar_encoding">
-					<input type="radio" id="debugControlBar_encodingNTSC" name="debugControlBar_encoding" value="NTSC"><label for="debugControlBar_encodingNTSC">NTSC</label>
-					<input type="radio" id="debugControlBar_encodingPAL" name="debugControlBar_encoding" value="PAL"><label for="debugControlBar_encodingPAL">PAL</label>
+				<span id="debugControlBar_encoding" class="ui-buttonset">
+					<input type="radio" id="debugControlBar_encodingNTSC" name="debugControlBar_encoding" value="NTSC" class="ui-helper-hidden-accessible"><label for="debugControlBar_encodingNTSC" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left ui-state-active" role="button" aria-pressed="true"><span class="ui-button-text">NTSC</span></label>
+					<input type="radio" id="debugControlBar_encodingPAL" name="debugControlBar_encoding" value="PAL" class="ui-helper-hidden-accessible"><label for="debugControlBar_encodingPAL" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-pressed="false"><span class="ui-button-text">PAL</span></label>
 				</span>
 				<div class="controlBarSeperator"></div>
-				<button class="controlBarButton" id="debugControlBar_selectTraceButton"></button>
-				<ul id="debugControlBar_traceMenu">
-					<li class="controlBarMenuButton" id="controlBar_cpuTraceParent"><input type="checkbox" id="controlBar_cpuTraceButton"><label for="controlBar_cpuTraceButton">CPU</label></li>
-					<li class="controlBarMenuButton" id="controlBar_cpuInstructionsTraceParent"><input type="checkbox" id="controlBar_cpuInstructionsTraceButton"><label for="controlBar_cpuInstructionsTraceButton">CPU Instructions</label></li>
-					<li class="controlBarMenuButton" id="controlBar_ppuTraceParent"><input type="checkbox" id="controlBar_ppuTraceButton"><label for="controlBar_ppuTraceButton">PPU</label></li>
-					<li class="controlBarMenuButton" id="controlBar_mapperTraceParent"><input type="checkbox" id="controlBar_mapperTraceButton"><label for="controlBar_mapperTraceButton">Mapper</label></li>
-					<li class="controlBarMenuButton" id="controlBar_allTraceParent"><input type="checkbox" id="controlBar_allTraceButton"><label for="controlBar_allTraceButton">All</label></li>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="debugControlBar_selectTraceButton" role="button" title="Trace Options.."><span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-text">Trace Options..</span></button>
+				<ul id="debugControlBar_traceMenu" class="ui-menu ui-widget ui-widget-content" role="menu" tabindex="0" style="display: none;">
+					<li class="controlBarMenuButton ui-menu-item" id="controlBar_cpuTraceParent" tabindex="-1" role="menuitem"><input type="checkbox" id="controlBar_cpuTraceButton"><label for="controlBar_cpuTraceButton">CPU</label></li>
+					<li class="controlBarMenuButton ui-menu-item" id="controlBar_cpuInstructionsTraceParent" tabindex="-1" role="menuitem"><input type="checkbox" id="controlBar_cpuInstructionsTraceButton"><label for="controlBar_cpuInstructionsTraceButton">CPU Instructions</label></li>
+					<li class="controlBarMenuButton ui-menu-item" id="controlBar_ppuTraceParent" tabindex="-1" role="menuitem"><input type="checkbox" id="controlBar_ppuTraceButton"><label for="controlBar_ppuTraceButton">PPU</label></li>
+					<li class="controlBarMenuButton ui-menu-item" id="controlBar_mapperTraceParent" tabindex="-1" role="menuitem"><input type="checkbox" id="controlBar_mapperTraceButton"><label for="controlBar_mapperTraceButton">Mapper</label></li>
+					<li class="controlBarMenuButton ui-menu-item" id="controlBar_allTraceParent" tabindex="-1" role="menuitem"><input type="checkbox" id="controlBar_allTraceButton"><label for="controlBar_allTraceButton">All</label></li>
 				</ul>
-				<button class="controlBarButton" id="debugControlBar_traceButton"></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="debugControlBar_traceButton" role="button" title="Start Trace"><span class="ui-button-icon-primary ui-icon ui-icon-arrowthickstop-1-s"></span><span class="ui-button-text">Start Trace</span></button>
 			</div>
 			<div id="normalBar" class="ui-widget-header ui-corner-all">
-				<button class="controlBarButton" id="controlBar_loadRomButton"></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="controlBar_loadRomButton" role="button" title="Open ROM"><span class="ui-button-icon-primary ui-icon ui-icon-folder-open"></span><span class="ui-button-text">Open ROM</span></button>
 				<div class="controlBarSeperator"></div>
-				<button class="controlBarButton" id="controlBar_resetButton"></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="controlBar_resetButton" role="button" title="Reset"><span class="ui-button-icon-primary ui-icon ui-icon-refresh"></span><span class="ui-button-text">Reset</span></button>
 				<div class="controlBarSeperator"></div>
-				<button class="controlBarButton" id="controlBar_playButton"></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="controlBar_playButton" role="button" title="Pause"><span class="ui-button-icon-primary ui-icon ui-icon-pause"></span><span class="ui-button-text">Pause</span></button>
 				<div class="controlBarSeperator"></div>
-				<button class="controlBarButton" id="controlBar_soundButton"></button>
-				<button class="controlBarButton" id="controlBar_screenshotButton"></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="controlBar_soundButton" role="button" title="Volume"><span class="ui-button-icon-primary ui-icon ui-icon-volume-on"></span><span class="ui-button-text">Volume</span></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="controlBar_screenshotButton" role="button" title="Screenshot"><span class="ui-button-icon-primary ui-icon ui-icon-image"></span><span class="ui-button-text">Screenshot</span></button>
 				<div class="controlBarSeperator"></div>
-				<button class="controlBarButton" id="controlBar_quickSaveButton"></button>
-				<button class="controlBarButton" id="controlBar_quickLoadButton"></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="controlBar_quickSaveButton" role="button" title="Quick save"><span class="ui-button-icon-primary ui-icon ui-icon-disk"></span><span class="ui-button-text">Quick save</span></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="controlBar_quickLoadButton" role="button" title="Quick load"><span class="ui-button-icon-primary ui-icon ui-icon-folder-collapsed"></span><span class="ui-button-text">Quick load</span></button>
 				<div class="controlBarSeperator"></div>
-				<input class="controlBarButton" type="checkbox" id="controlBar_debugButton"><label for="controlBar_debugButton"></label>
+				<input class="controlBarButton ui-helper-hidden-accessible" type="checkbox" id="controlBar_debugButton"><label for="controlBar_debugButton" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" role="button" title="Debug panel"><span class="ui-button-icon-primary ui-icon ui-icon-wrench"></span><span class="ui-button-text">Debug panel</span></label>
 				<div class="controlBarSeperator"></div>
-				<button class="controlBarButton" id="controlBar_keyboardRemap"></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="controlBar_keyboardRemap" role="button" title="Remap controls"><span class="ui-button-icon-primary ui-icon ui-icon-calculator"></span><span class="ui-button-text">Remap controls</span></button>
 				<div class="controlBarSeperator"></div>
-				<button class="controlBarButton" id="controlBar_gameGenieButton"></button>
-				<button class="controlBarButton" id="controlBar_errorDisplay"></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="controlBar_gameGenieButton" role="button" title="Game Genie"><span class="ui-button-icon-primary ui-icon ui-icon-star"></span><span class="ui-button-text">Game Genie</span></button>
+				<button class="controlBarButton ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" id="controlBar_errorDisplay" role="button" title="Alerts"><span class="ui-button-icon-primary ui-icon ui-icon-alert"></span><span class="ui-button-text">Alerts</span></button>
 			</div>
 		</div>
-		<div id="controlBar_volumeSlider"></div>
-		<div id="controlBar_alertMessage"></div>
-		<div id="debugControlBar_gameSpeedSlider"></div>
-		<div id="loadStateDialog">
-			<div id="loadStateDialog_contents"></div>
-		</div>
+		
+		
+		
+		
 		<div id="debugWindow" class="debugWindow">
 <!-- 			<div class="cpuInstructions">
 			</div>
@@ -64,46 +145,54 @@
 			<div class="spriteDisplay">
 			</div> -->
 		</div>
-		<div id="gameGenieDialog" class="gameGenieDialog">
+		
+		
+	</div>
+
+	<script src="./WebNES_files/nes.components.min.js.download"></script>
+		
+	<script src="./WebNES_files/nes.min.js.download"></script>
+
+
+<iframe name="oauth2relay662051791" id="oauth2relay662051791" src="./WebNES_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><div style="padding: 5px; min-width: 95px; height: 30px; line-height: 30px; text-align: right; text-shadow: rgb(34, 34, 34) 1px 1px 0px; background: rgb(34, 34, 34); color: rgb(255, 255, 255); border: 1px solid rgb(26, 26, 26); position: absolute; z-index: 10; left: 80%; top: 10%; right: auto; bottom: auto; margin: 0px; cursor: pointer; display: none;"><div style="position: absolute; top: 0px; right: 0px; padding: 5px 10px; height: 30px; font-size: 24px; font-family: Consolas, &quot;Andale Mono&quot;, monospace; z-index: 2;">0.0</div><div style="position: absolute; top: 0px; left: 0px; padding: 5px 10px; height: 30px; font-size: 12px; line-height: 32px; font-family: sans-serif; text-align: left; z-index: 2;">FPS</div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="gameGenieDialog" aria-labelledby="ui-id-1" style="display: none; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">Game Genie Codes</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="gameGenieDialog" class="gameGenieDialog ui-dialog-content ui-widget-content" style="display: block;">
 			<div id="gameGenieDialog_contents"></div>
-		</div>
-		<div id="keyboardRemapperDialog" class="gameGenieDialog">
+		</div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">Close</span></button></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front no-close controlBarSlider" tabindex="-1" role="dialog" aria-describedby="controlBar_volumeSlider" aria-labelledby="ui-id-2" style="display: none;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-2" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="controlBar_volumeSlider" class="ui-dialog-content ui-widget-content"><div class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all controlBarSliderContents"><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" data-hasqtip="0" style="bottom: 100%;"></span></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front no-close controlBarSlider" tabindex="-1" role="dialog" aria-describedby="controlBar_alertMessage" aria-labelledby="ui-id-3" style="top: 535px; left: 691px; display: none; height: auto; width: auto;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-3" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="controlBar_alertMessage" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 32px; max-height: none; height: auto;"><div><p>Invalid NES header for file!</p></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front no-close controlBarSlider" tabindex="-1" role="dialog" aria-describedby="debugControlBar_gameSpeedSlider" aria-labelledby="ui-id-4" style="display: none;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-4" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="debugControlBar_gameSpeedSlider" class="ui-dialog-content ui-widget-content"><div class="ui-slider ui-slider-vertical ui-widget ui-widget-content ui-corner-all controlBarSliderContents"><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" data-hasqtip="1" style="bottom: 37.5%;"></span></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="keyboardRemapperDialog" aria-labelledby="ui-id-5" style="display: none; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle"><span id="ui-id-5" class="ui-dialog-title">Control mapping</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="keyboardRemapperDialog" class="gameGenieDialog ui-dialog-content ui-widget-content" style="display: block;">
 			<div id="keyboardRemapperDialog_contents">
 				<map name="controllermap1">
-					<area shape="rect" coords="50, 40, 74, 60" alt="UP" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, 'UP' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="50, 77, 74, 97" alt="DOWN" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, 'DOWN' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="34, 56, 54, 80" alt="LEFT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, 'LEFT' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="72, 56, 91, 80" alt="RIGHT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, 'RIGHT' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="110, 72, 137, 89" alt="SELECT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, 'SELECT' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="137, 72, 165, 89" alt="START" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, 'START' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="182, 66, 210, 94" alt="B" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, 'B' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="219, 66, 248, 94" alt="A" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, 'A' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
+					<area shape="rect" coords="50, 40, 74, 60" alt="UP" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, &#39;UP&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="50, 77, 74, 97" alt="DOWN" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, &#39;DOWN&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="34, 56, 54, 80" alt="LEFT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, &#39;LEFT&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="72, 56, 91, 80" alt="RIGHT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, &#39;RIGHT&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="110, 72, 137, 89" alt="SELECT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, &#39;SELECT&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="137, 72, 165, 89" alt="START" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, &#39;START&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="182, 66, 210, 94" alt="B" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, &#39;B&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="219, 66, 248, 94" alt="A" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 0, &#39;A&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
 				</map>
 				<map name="controllermap2">
-					<area shape="rect" coords="50, 40, 74, 60" alt="UP" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, 'UP' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="50, 77, 74, 97" alt="DOWN" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, 'DOWN' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="34, 56, 54, 80" alt="LEFT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, 'LEFT' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="72, 56, 91, 80" alt="RIGHT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, 'RIGHT' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="110, 72, 137, 89" alt="SELECT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, 'SELECT' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="137, 72, 165, 89" alt="START" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, 'START' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="182, 66, 210, 94" alt="B" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, 'B' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
-					<area shape="rect" coords="219, 66, 248, 94" alt="A" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, 'A' );" data-maphilight='{"strokeColor":"ff2a00","strokeWidth":1,"fillColor":"ff0000","fillOpacity":0.4}'/>
+					<area shape="rect" coords="50, 40, 74, 60" alt="UP" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, &#39;UP&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="50, 77, 74, 97" alt="DOWN" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, &#39;DOWN&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="34, 56, 54, 80" alt="LEFT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, &#39;LEFT&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="72, 56, 91, 80" alt="RIGHT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, &#39;RIGHT&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="110, 72, 137, 89" alt="SELECT" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, &#39;SELECT&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="137, 72, 165, 89" alt="START" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, &#39;START&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="182, 66, 210, 94" alt="B" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, &#39;B&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
+					<area shape="rect" coords="219, 66, 248, 94" alt="A" onclick="Gui.keyboardRemapperDialog_onsetkeyclick( 1, &#39;A&#39; );" data-maphilight="{&quot;strokeColor&quot;:&quot;ff2a00&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;ff0000&quot;,&quot;fillOpacity&quot;:0.4}">
 				</map>
 				<div>
-					<h1>Player 1</h2>
-					<img class="keyboardMap" src="images/nescontroller.jpg" alt="" usemap="#controllermap1"/>
+					<h1>Player 1</h1>
+					<img class="keyboardMap" src="./WebNES_files/nescontroller.jpg" alt="" usemap="#controllermap1">
 				</div>
 				<div>
-					<h1>Player 2</h2>
-					<img class="keyboardMap" src="images/nescontroller.jpg" alt="" usemap="#controllermap2"/>
+					<h1>Player 2</h1>
+					<img class="keyboardMap" src="./WebNES_files/nescontroller.jpg" alt="" usemap="#controllermap2">
 				</div>
 			</div>
-			<div id="keyboardRemapperSetKeyDialog">
+			
+		</div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">Close</span></button></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front no-close ui-dialog-buttons" tabindex="-1" role="dialog" aria-describedby="keyboardRemapperSetKeyDialog" aria-labelledby="ui-id-6" style="display: none;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-6" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="keyboardRemapperSetKeyDialog" class="ui-dialog-content ui-widget-content">
 				<div id="keyboardRemapperSetKeyDialog_existingKeysContents">
 				</div>
 				<div id="keyboardRemapperSetKeyDialog_contents">
 				</div>
-			</div>
-		</div>
-	</div>
-</div>
+			</div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">OK</span></button><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">Close</span></button></div></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="loadStateDialog" aria-labelledby="ui-id-7" style="position: absolute; height: auto; width: 900px; top: 108px; left: 187px; display: none; z-index: 101;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle"><span id="ui-id-7" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="loadStateDialog" class="ui-dialog-content ui-widget-content" style="display: block; width: auto; min-height: 0px; max-height: none; height: 304px;">
+			<div id="loadStateDialog_contents"><div class="loadSaveDiv"><button type="button" onclick="Gui.loadSaveDialog_onclick( &quot;quicksave&quot; );"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAADwCAYAAADvl7rLAAAQxElEQVR4Xu2dO5ZkRxGGu41ug3NwwEUGko8zi8CVM4tgCyyALbAIHFwWIQcfOcIVDudglIzh3OrOnrxZ+YjIyPvIG984M+qKfMQXkX9G3KpqPb+8vHx54g8EIOCSwDMC4DLuOA2BOwEEgESAgGMCCIDj4OM6BBAAcgACjgkgAI6Dj+sQQADIAQg4JoAAOA4+rkMAASAHIOCYAALgOPi4DgEEgByAgGMCCIDj4OM6BBAAcgACjgkgAI6Dj+sQQADIAQg4JoAAOA4+rkMAASAHIOCYAALgOPi4DgEEgByAgGMCCIDj4OM6BBAAcgACjgkgAI6Dj+sQQADIAQg4JoAAOA4+rkMAASAHIOCYAAJgDP6v/nm7z/C/P7x+zBT/LPw7t8wyxjq+tX3r+sv86Ryxr7nXYx4t/8L+c3bpa+G/0/VbDHi9TAABMGZHfDjiA10ShZpYxIcpJHntYGi2nu6zdvByAlbaT+uA59Yt+bT8vCQuo3lo2F3ZFgEwRrd1w+ZusVa1UHrdstWSAATRSdeUHjiNAATxK43J3eyjBNDC7spjEQBjdEcJQKm8Lc2vLYNbAtA6nCmmmkBoWiAJ/hwDrf+SdTzaIADGqKfJ3urra61BTgRG3YA1AYhbj3R/OTy1FiFtY2pi0HuIRzExhv4SwxEAYxhbJXBPCxAfwlHJ3isALf+0r7f2kYajNb8xfO6HIwDGFGglaKtFSMenB6Q1Xrr91sGTtAjxWrnnFLnXW3wk+6cFkFDqs0EA+rgxCgKXIIAAXCKMOAGBPgIIQB83RkHgEgQQgEuEEScg0EcAAejjxigIXIIAAnCJMOIEBPoIIAB93BgFgUsQQAAuEUacgEAfgefff/7ypW8ooyAAgdkJ3AXg339/+y77776/PfFvOJADfnIAAUD8EH7HOUALMHsNx/4hYCBABeBY/Sn1/ZT6pVgjAAgALYDjHKAFMJRPDIXA7ASoAByrPy0ALQACgADQAjjOAVqA2Ws49g8BAwEqAMfqTwtAC4AAIAC0AI5zgBbAUD4xFAKzE6ACcKz+tAC0AAgAAkAL4DgHaAFmr+HYPwQMBKgAHKs/LQAtAAKAANACOM4BWgBD+cRQCMxOgArAsfrTAtACIAAIAC2A4xygBZi9hmP/EDAQoAJwrP60ALQACAACQAvgOAdoAQzlE0MhsBeBH//429VS3/7j5yFL714BpI5YvVhAUMqes5TVxJo4lv/fHLe//vrp9U//XR2V8DPr/8tjegFYqAQ4VhgIyTghWRJU+4c4PvJfRHThEvMMnJafWYVz9xZAcytoEmhUSaRZE9s8AUuMieOaaSwA8cEPomDldYkKICCzqiEVgL0CsBx+4nhQBbBn4o9IkNrNSxlpP8S9+dBT9pdiSRzf4phWAIFxXAH0xmuZ/zItQJxI1rKI0l5PYAthJ45vcQgiEEcl9P/6SK1HXKoFSEXAooyMlVcSWxx+2oE1/7S6GlUhIQCOPwQySuQQALlYjmI+ap7dW4D4lm4lTq0EtIy1lk2Mf3xSXWNCHM+bMbtXALFySQ5xSeksY0epJ/N8fVDVEgBvcczlZ/oulcRm6xxDAGgBzN8FsIixZezWh8Myv+RwS2wse5CMpQU4b3U2zc4kh7jkjGXsmQGVDnerBd77nQ8qACoAKoANckByu0tsJLe4xQYB2CD4loDMOFZyi/MM4Onhc/unEYCjSilJ4vSUjnuXUUfxO8u6W8Vx8W/WWNICCG7WVuL0JPioD0jMeBMftedWHGvf0bCMPcpfybqS211iI1nLYnPqFkArAHwZqPyd8oXlVl+Xthxiy1hL4m89VnK4JTZb7/PU7wJoBGDWUlHj41ltJYe4p5WjBdg+4peoAOKyX6uqEnuJTesDTpYyWPodh633ucWDPIl4jGYbx2LUNxh7PuSjjdcW1cD0AtADXptQpSQtPW/QBLYnAUesG75qmt4xPW2U9hC3+NcET8NW4mMP/9y93JOHWl82E4DtC438CpLE0e5N8vRV+2GM2j5zrYd0D6md5jPzlnWD/9J9tmJgiaN2rHbPWnttbmhamzRmlr21YiJ9/dQVwKjbSFt+S9Tcektp1V9iL7Fp3b6jmFvaFivbUT5qeWrXtcw/qhpAAJJftxwePLWCmSqs9jmENvgSe4lNyy8E4Os7KVqeWraW+YcKgLRcGG334w/PT09//s3T01/+k/2758n+HWoyX7O0bti39hnWC+vk7L/99GWFT7tPCXvJuqsSN8M/3WfXumHQO1ct/zh+Vm4WzlqeD+1DR1718JfEqGRzfAVQOPxLEiwwtEpXClrxCXbhEDyoeWWfsYgtyV5KutWcgnXVvmfErySuNdHtusk649gS14d2TMlNmw+tuEsrJMm6kjzR5oDW/lgBEFQAWoe0UCX2rSSVHLJUzCTrqn1v8Oza5zJn8ufBF0MccxzSCsByKC2cJYe4+tZopgLY+hLQ5syxHwTKJNfqAVBSNktKnXvQMglbfForsM/NKdlLzRftPiXraefU2msYSuPYYvvQAgji9dDmKPJh1FhJvM5gs3sF0Ap4CYq0HSgldbUFkNxwxmhlb83Gulo138J3yR56YypBauWmZfJwQw+OkYTnnjYIgLTEzSSCJvGtiSxJCm2ya+01Iio53BIbKzeLj5axknidwWb3FkBzaKRlpKVsk5TBNRupP9ZSVnJYJL5YWNX2IOUg8SPY5J6I7+mjdi2Nb2expQIwVABBwW/f/NKM5x43mfbG0tq3biwJhyaod4PXn17u/0q/wajds9Z+VAsgWVdi02Ju/YYnAjBAAO6fORc80LQklyRZJDaWPUiSscVBIgC15z17+qhdS8vWMr8kFhKby7UAS4KlYGsfrpDYSkvBWvJLytm99hkOodQvyaFttRbSOSQfhJHErOSjZP4RfCRsJTZSbr12l6sANGV5Cm1E2Vkqg0u3Wk/ZPGKfpapF+m5L63YZ6Vdura3nt/KR3O4SmxZnWoDvb8VPC2rK0SPLzln2qUnGRVw1h7RHeEZx07y7Id2n5HBLbDTMe8Rg9xagt1RhHAQgMJ7A7i3A1orG/Nv97j/YXo8tAiD47cUk/vUSn5i+xZQWYHxVxYwQmIYAFQAVwGa/Lpxb9vyVEwKAACAAjnOAFmCaYo2NQmA8ASoAx+pPiX7+En3rGCEACAAtgOMcoAUYX1UxIwSmIUAF4Fj9ty4vmf/8LQYCgADQAjjOAVqAaYo1NgqB8QSoAByrPyX6+Uv0rWOEACAAtACOc4AWYHxVxYwQmIYAFYBj9d+6vGT+87cYCAACQAvgOAdoAaYp1tgoBMYToAJwrP6U6Ocv0beOEQKAANACOM4BWoDxVRUzQmAaAlQAjtV/6/KS+c/fYiAACAAtgOMcoAWYplhjoxAYT4AKwLH6U6Kfv0TfOkYIAAJAC+A4B2gBxldVzAiBaQg8v7y8fJlmt2wUAhAYSgABGIqTySAwFwEEYK54sVsIDCWAAAzFyWQQmIsAAjBXvNgtBIYSQACG4mQyCMxFAAGYK17sFgJDCSAAQ3EyGQTmIoAAzBUvdguBoQQQgKE4mQwCcxFAAOaKF7uFwFACCMBQnEwGgbkIIACd8bp988tq5OtPL50zMayHAPx7qD2OQQCUHD8S71/Jd6i+e77PhBAogSrN4a8E1jBHABQ8V8m3HPhFBMLfYZ7vnhEBBVON6Z1/LLxpDBBhDc67LQIgRJaWnA/DYjFABIRU5WYfhz8+9JXhVGIytghAwunhlllef79ZWkiXpAtCQQK2aOlej7k2xThMnWnTiMuaOwIQ8cgd/tfX149DnUvZcOjjwx/s9ki22w9/e3v28Onzx/bin4V/Z/f+6fNTa7zumG5jnXvgt/wsxzzewf312229KaqzFQ8EwCIA72V/OOhHPJmOD3gQgZwAxAIRZ8CsArD4sGoLMtqDALQFGQFIBCC9tavl5skEIFQCvQKwjFuEIicK7VTazqIkrC0BuPNI3p4NlcN2u51rZgQgrQA08Qs9ZlRWxqXpni1Aq8RPX0+rhdJ4DY6tbHNMV+2a8BnNnq3ZVixGz4sACASg1ud/vC2ViEDu9hkdvHsZHD0DSPt9yW3eekawxZ61c6YPVmuHvxqr94X3EGatj0fZIwCNFuCj13wvJ2stQZp8eyRaWq6nzwQk5bymZTgiUdMKQBKDkgDTAqwjiAAkGZ1LtvTtPUkC7nH40woguKJ5FyDMkb6LUHpoeIQABBEWPfV//4h2Tow5/I/RQwA6M7okAnHidU7NsAyB1tt+ewnu1YKDAHREtJSMHP4OmIohcFfAEpoiAEJQqVmunKTE7ISpGAZ3BSyBKQIggFQyOeKDP4btXmYo3MeFEgEYx5KZIDAdAQRgupCxYQiMI4AAjGPJTBCYjgACMF3I2DAExhFAAMaxZCYITEcAAThJyHKf4w9by31eP/fV39Q+/i5Azk3N663fN9B6vbT+SfC73QYCcILQlz7PX/oyT+mjvhJRWNzNfcw393sFFtue3zdw9u8WnCDkp9kCAnBwKFpf1mn9wg7pNwBLBzxXZeRu82CXipJ0f2f7bsHBYT/N8gjAwaEYLQCxO6WD3FsBpKi0FUppbweHwPXyCMDB4R8lALl+fqQAlOanAjg4gYzLIwBGgCOGj3gGkPsNP6MFIPdMAAEYkQHHzYEAHMd+tfJW7wJoe/y0TG8d8FQU4mcFpddSm5OEwOU2EACXYcdpCLwRQADIBAg4JoAAOA4+rkMAASAHIOCYAALgOPi4DgEEgByAgGMCCIDj4OM6BBAAcgACjgkgAI6Dj+sQQADIAQg4JoAAOA4+rkMAASAHIOCYAALgOPi4DgEEgByAgGMCCIDj4OM6BBAAcgACjgkgAI6Dj+sQQADIAQg4JoAAOA4+rkMAASAHIOCYAALgOPi4DgEEgByAgGMCCIDj4OM6BBAAcgACjgkgAI6Dj+sQQADIAQg4JoAAOA4+rkMAASAHIOCYAALgOPi4DgEEgByAgGMCCIDj4OM6BBAAcgACjgkgAIOCf7vdVjO9vr4+zBxswmu1MaXX0p+HRXLr5VxL9xBs4p+XbAahEk1zhj2INjq5EQIwIIBLsqYHMP1ZfHAX25IYWF6TuJLuAwGQULuuDQJgjG180HOHOnfbWw55TTgkrrQqC2klkRMOyfpSGyoAKSmbHQJg43e/ycOBllYBLQFYttTTUkhcybUQ6X5y7UA8d2yfrpl7rdTyLGNjZqW9SXlI/MdmTQABMGZErwDkkjocCGmf33NLag53SRjig9uqSErPFka1RMbwuR+OABhTQNoCxAe+9YCwdahac9VckjyIrD0QbO2tJl5HPfcwhvjSwxGAAeGVPASsHVrpocqVyyN69tptrN1brSpBAAYk2+ApEIBBQHt79tKBac3XU/5LRchSAUham/SZgOQZQYvHoDC6mwYBcBdyHIbAVwIIANkAAccEEADHwcd1CCAA5AAEHBNAABwHH9chgACQAxBwTAABcBx8XIcAAkAOQMAxAQTAcfBxHQIIADkAAccEEADHwcd1CCAA5AAEHBNAABwHH9chgACQAxBwTAABcBx8XIcAAkAOQMAxAQTAcfBxHQIIADkAAccEEADHwcd1CCAA5AAEHBNAABwHH9chgACQAxBwTAABcBx8XIcAAkAOQMAxAQTAcfBxHQIIADkAAccEEADHwcd1CCAA5AAEHBNAABwHH9chgACQAxBwTAABcBx8XIcAAkAOQMAxgf8DGe6VtA5QfFcAAAAASUVORK5CYII=" width="256" height="240"><br><span>quicksave</span><br><span>5/27/2017, 2:43:52 PM</span></button></div></div>
+		</div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">Close</span></button></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./WebNES_files/saved_resource.html"></iframe></body>
