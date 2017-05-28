@@ -92,6 +92,11 @@ app.get('/webnes', function(req, res){
 	res.render('webnes');	
 });
 
+
+app.get('/rom', function(req, res){
+	res.render('rom');	
+});
+
 app.get('/jsnes/jsnes.png', function(req, res){
 	res.sendFile(__dirname + '/public/games/jsnes.png');	
 });
