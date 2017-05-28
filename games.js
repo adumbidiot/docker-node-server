@@ -7,7 +7,7 @@ const jsnes = require('./jsnes');
 const through2 = require('through2');
 
 app.get('/', function(req, res){
-	res.render('games');	
+	res.render('games', {games: true, auth: req.auth});	
 });
 
 app.use('/platformer', platformer);
@@ -94,7 +94,7 @@ app.get('/webnes', function(req, res){
 
 
 app.get('/rom', function(req, res){
-	res.render('rom');	
+	res.render('rom', {games: true, auth: req.auth});	
 });
 
 app.get('/jsnes/jsnes.png', function(req, res){
