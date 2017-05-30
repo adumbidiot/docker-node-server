@@ -102,6 +102,7 @@ app.get('/jsnes/jsnes.png', function(req, res){
 });
 
 app.use('/webnes', express.static('/public/games/webnes'));
+app.use('/webn.es', express.static('/public/games/webn.es'));
 app.use('/rom', express.static('/public/games/rom'));
 
 module.exports = app;
