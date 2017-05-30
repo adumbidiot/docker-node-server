@@ -165,8 +165,8 @@ $(function() {
         addRom('Duck Hunt', '../rom/Duck Hunt (World).nes');
       }
     });
-  });  ames/rom/Duck Hunt (World).nes');
-      }
+  });  
+      
 
   $('#addROM').click(function() {
     Dropbox.choose({
