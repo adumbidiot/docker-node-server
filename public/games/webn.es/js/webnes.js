@@ -157,11 +157,12 @@ $(function() {
         $('#scroll ul').append(renderItem(result.rows.item(i)));
       }
       if (result.rows.length == 0) {
-        addRom('Croom', 'roms/croom.nes');
-        addRom('Tetramino', 'roms/lj65.nes');
+        addRom('Croom', 'https://nanopi.ml/games/rom/croom.nes');
+        addRom('Tetramino', 'https://nanopi.ml/games/rom/lj65.nes');
         addRom('Galaxy Patrol', 'roms/galaxy.nes');
         addRom('Fighter F-8000', 'roms/fighter_f8000.nes');
         addRom('BoxBoy', 'roms/BOXBOY.nes');
+        addRom('Duck Hunt', 'https://nanopi.ml/games/rom/Duck Hunt (World).nes');
       }
     });
   });  
