@@ -7,7 +7,7 @@ JSNES.Mappers[9] = function(nes) {
 JSNES.Mappers[9].prototype = new JSNES.Mappers[0]();
 
 JSNES.Mappers[9].prototype.write = function(address, value) {
-    console.log('Mapper_9: Writing');
+
     if (address < 0x8000) {
         JSNES.Mappers[0].prototype.write.apply(this, arguments);
         return;
@@ -66,11 +66,11 @@ JSNES.Mappers[9].prototype.write = function(address, value) {
                 if ((value & 0x1) == 0) {
                     // Vertical mirroring
                     
-                    this.nes.getPpu().setMirroring(this.nes.rom.VERTICAL_MIRRORING);
+                    this.nes.ppu.setMirroring(this.nes.rom.VERTICAL_MIRRORING);
                 } else {
 
                     // Horizontal mirroring
-                    this.nes.getPpu().setMirroring(this.nes.rom.HORIZONTAL_MIRRORING);
+                    this.nes.ppu.setMirroring(this.nes.rom.HORIZONTAL_MIRRORING);
 
                 }
                 return;
