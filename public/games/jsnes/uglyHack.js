@@ -86,7 +86,7 @@ JSNES.Mappers[9].prototype.loadROM = function(rom) {
     }
     
     // Get number of 8K banks:
-    var num_8k_banks = this.nes.rom.getRomBankCount() * 2;
+    var num_8k_banks = this.nes.rom.romCount * 2;
     // Load PRG-ROM:
     this.load8kRomBank(0, 0x8000);
     this.load8kRomBank(num_8k_banks - 3, 0xA000);
