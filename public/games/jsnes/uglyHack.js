@@ -32,3 +32,19 @@ JSNES.Mappers[9].prototype.write = function(address, value) {
         }
     }
  */
+JSNES.Mappers[9].prototype.loadROM = function(rom) {
+    if (!this.nes.rom.valid) {
+        alert("AOROM: Invalid ROM! Unable to load.");
+        return;
+    }
+
+    // Load PRG-ROM:
+    this.loadPRGROM();
+
+    // Load CHR-ROM:
+    this.loadCHRROM();
+
+    // Do Reset-Interrupt:
+    this.nes.cpu.requestIrq(this.nes.cpu.IRQ_RESET);
+};
+
