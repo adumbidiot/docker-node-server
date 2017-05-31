@@ -1,10 +1,4 @@
-/**
- * Mapper 011 (Color Dreams)
- *
- * @description http://wiki.nesdev.com/w/index.php/Color_Dreams
- * @example Crystal Mines, Metal Fighter
- * @constructor
- */
+//My attempt for a patch for mapper 9.
 JSNES.Mappers[9] = function(nes) {
     this.nes = nes;
 };
