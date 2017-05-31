@@ -80,7 +80,7 @@ JSNES.Mappers[9].prototype.write = function(address, value) {
 };
 
 JSNES.Mappers[9].prototype.loadROM = function(rom) {
-    if (!this.nes.rom.isValid()) {
+    if (!this.nes.rom.valid) {
         console.log("MMC2: Invalid ROM! Unable to load.");
         return;
     }
