@@ -7,6 +7,10 @@ JSNES.Mappers[9] = function(nes) {
 JSNES.Mappers[9].prototype = new JSNES.Mappers[0]();
 
 JSNES.Mappers[9].prototype.write = function(address, value) {
+    this.loadRomBank(value, 0x8000);
+};
+
+/*
     if (address < 0x8000) {
         JSNES.Mappers[0].prototype.write.apply(this, arguments);
         return;
@@ -26,4 +30,4 @@ JSNES.Mappers[9].prototype.write = function(address, value) {
             this.loadVromBank(bank + 1, 0x1000);
         }
     }
-};
+ */
