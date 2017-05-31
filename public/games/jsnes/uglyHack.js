@@ -1,12 +1,13 @@
 //My attempt for a patch for mapper 9.
 JSNES.Mappers[9] = function(nes) {
     this.nes = nes;
-    console.log('MAPPERS 9 ugly hack is being used!');
+    console.log('MAPPER 9 ugly hack is being used!');
 };
 
 JSNES.Mappers[9].prototype = new JSNES.Mappers[0]();
 
 JSNES.Mappers[9].prototype.write = function(address, value) {
+    console.log('Mapper_9: Writing');
     this.loadRomBank(value, 0x8000);
 };
 
