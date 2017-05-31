@@ -1,6 +1,13 @@
 //My attempt for a patch for mapper 9.
 JSNES.Mappers[9] = function(nes) {
     this.nes = nes;
+    this.latchLo = null;
+    this.latchHi = null;
+    this.latchLoVal1 = null;
+    this.latchLoVal2 = null;
+    this.latchHiVal1 = null;
+    this.latchHiVal2 = null;
+    
     console.log('MAPPER 9 ugly hack is being used!');
 };
 
@@ -25,8 +32,8 @@ JSNES.Mappers[9].prototype.write = function(address, value) {
             case 0xB: {
 
                 // Select 4k VROM bank at 0x0000, $FD mode
-                latchLoVal1 = value;
-                if (latchLo == 0xFD) {
+                this.latchLoVal1 = value;
+                if (this.latchLo == 0xFD) {
                     this.loadVromBank(value, 0x0000);
                 }
                 
@@ -35,8 +42,8 @@ JSNES.Mappers[9].prototype.write = function(address, value) {
             case 0xC: {
 
                 // Select 4k VROM bank at 0x0000, $FE mode
-                latchLoVal2 = value;
-                if (latchLo == 0xFE) {
+                this.latchLoVal2 = value;
+                if (this.latchLo == 0xFE) {
                     this.loadVromBank(value, 0x0000);
                 }
                 return;
@@ -45,16 +52,16 @@ JSNES.Mappers[9].prototype.write = function(address, value) {
             case 0xD: {
 
                 // Select 4k VROM bank at 0x1000, $FD mode
-                latchHiVal1 = value;
-                if (latchHi == 0xFD) {
+                this.latchHiVal1 = value;
+                if (this.latchHi == 0xFD) {
                     this.loadVromBank(value, 0x1000);
                 }
                 return;
             }
             case 0xE: {
                 // Select 4k VROM bank at 0x1000, $FE mode
-                latchHiVal2 = value;
-                if (latchHi == 0xFE) {
+                this.latchHiVal2 = value;
+                if (this.latchHi == 0xFE) {
                     this.loadVromBank(value, 0x1000);
                 }
                 return;
