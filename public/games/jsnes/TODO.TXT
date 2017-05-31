@@ -1,0 +1,7 @@
+TODO:
+Add mapper 9 and 10 support (Punchout, Fire Emblem)
+
+LINKS:
+https://github.com/libretro/mame2016-libretro/blob/master/src/devices/bus/nes/mmc2.cpp
+http://wiki.nesdev.com/w/index.php/MMC2
+http://tuxnes.sourceforge.net/nesmapper.txt
