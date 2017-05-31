@@ -1,6 +1,7 @@
 //My attempt for a patch for mapper 9.
 JSNES.Mappers[9] = function(nes) {
     this.nes = nes;
+    console.log('MAPPERS 9 ugly hack is being used!');
 };
 
 JSNES.Mappers[9].prototype = new JSNES.Mappers[0]();
