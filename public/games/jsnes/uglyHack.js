@@ -110,7 +110,7 @@ JSNES.Mappers[9].prototype.loadROM = function(rom) {
     this.nes.cpu.requestIrq(this.nes.cpu.IRQ_RESET);
 };
 
-JSNES.mapper[9].prototype.latchAccess = function(address) {
+JSNES.mappers[9].prototype.latchAccess = function(address) {
         if ((address & 0x1FF0) == 0x0FD0 && this.latchLo != 0xFD) {
             // Set $FD mode
             this.loadVromBank(this.latchLoVal1, 0x0000);
