@@ -110,3 +110,51 @@ JSNES.Mappers[9].prototype.loadROM = function(rom) {
     this.nes.cpu.requestIrq(this.nes.cpu.IRQ_RESET);
 };
 
+public void latchAccess(int address) {
+        if ((address & 0x1FF0) == 0x0FD0 && latchLo != 0xFD) {
+            // Set $FD mode
+            loadVromBank(latchLoVal1, 0x0000);
+            latchLo = 0xFD;
+        //System.out.println("LO FD");
+        } else if ((address & 0x1FF0) == 0x0FE0 && latchLo != 0xFE) {
+            // Set $FE mode
+            loadVromBank(latchLoVal2, 0x0000);
+            latchLo = 0xFE;
+        //System.out.println("LO FE");
+        } else if ((address & 0x1FF0) == 0x1FD0 && latchHi != 0xFD) {
+            // Set $FD mode
+            loadVromBank(latchHiVal1, 0x1000);
+            latchHi = 0xFD;
+        //System.out.println("HI FD");
+        } else if ((address & 0x1FF0) == 0x1FE0 && latchHi != 0xFE) {
+            // Set $FE mode
+            loadVromBank(latchHiVal2, 0x1000);
+            latchHi = 0xFE;
+        //System.out.println("HI FE");
+        }
+    }
+
+JSNES.mapper[9].prototype.latchAccess = function(address) {
+        if ((address & 0x1FF0) == 0x0FD0 && this.latchLo != 0xFD) {
+            // Set $FD mode
+            this.loadVromBank(this.latchLoVal1, 0x0000);
+            this.latchLo = 0xFD;
+        //System.out.println("LO FD");
+        } else if ((address & 0x1FF0) == 0x0FE0 && this.latchLo != 0xFE) {
+            // Set $FE mode
+            this.loadVromBank(this.latchLoVal2, 0x0000);
+            this.latchLo = 0xFE;
+        //System.out.println("LO FE");
+        } else if ((address & 0x1FF0) == 0x1FD0 && this.latchHi != 0xFD) {
+            // Set $FD mode
+            this.loadVromBank(this.latchHiVal1, 0x1000);
+            this.latchHi = 0xFD;
+        //System.out.println("HI FD");
+        } else if ((address & 0x1FF0) == 0x1FE0 && this.latchHi != 0xFE) {
+            // Set $FE mode
+            this.loadVromBank(this.latchHiVal2, 0x1000);
+            this.latchHi = 0xFE;
+        //System.out.println("HI FE");
+        }
+    }
+
