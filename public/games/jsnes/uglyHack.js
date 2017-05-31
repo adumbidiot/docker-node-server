@@ -100,6 +100,6 @@ JSNES.Mappers[9].prototype.loadROM = function(rom) {
     this.loadBatteryRam();
 
     // Do Reset-Interrupt:
-    this.nes.getCpu().requestIrq(this.nes.cpu.IRQ_RESET);
+    this.nes.cpu.requestIrq(this.nes.cpu.IRQ_RESET);
 };
 
