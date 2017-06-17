@@ -45,6 +45,7 @@ app.use(function(req, res, next){
   });
 });
 
+app.use('/scripts', express.static('public/scripts'));
 app.use('/games', games);
 app.use('/api', api);
 app.use('/login', login);

@@ -1,7 +1,8 @@
 <html>
 	<head>
-		<script src="https://nanopi.ml/games/platformer/lvl.js"></script>
-		<script src="https://nanopi.ml/games/platformer/popupManager.js"></script>
+		<script src="/games/platformer/lvl.js"></script>
+		<script src="/games/platformer/popupManager.js"></script>
+        <script src="/scripts/download.min.js"></script>
 		<script>
 			const level = new lvl('build');
 			var darkbox;
@@ -163,15 +164,17 @@
 					id = null;
 				}
 				event.target.style.outline = "5px dotted powderblue";
+                event.target.style.zIndex = "1";
 				if(level.active){
-					document.getElementById(level.active).style.outline = '0px';
+                    var currentActiveBlock = document.getElementById(level.active);
+                    currentActiveBlock.style.outline = '0px';
+                    currentActiveBlock.style.zIndex = '0';
 				}
 				level.active = id;
 			}
 			function openExportPopup(){
 				mngr.openPopup(generateExportView());
 			}
-			//TODO: Make import popup
 			function openImportPopup(){
 				mngr.openPopup(generateImportView());
 			}
@@ -190,13 +193,14 @@
 			}
 			//TODO: Remove function and add download option
 			function downloadlvl(){
-				var textToSave = (level.export());
+				/*var textToSave = (level.export());
 				var hiddenElement = document.createElement('a');
 				hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
 				hiddenElement.target = '_blank';
 				hiddenElement.download = 'mylvl.txt';
-				hiddenElement.click();
-			}
+				hiddenElement.click();*/
+                download((level.export()), 'mylvl.txt', 'attachment/text');
+			} 
 			function importlvl1D(){
 				var data = document.getElementById('interface').value;
 				level.import1D(data);
@@ -224,21 +228,21 @@
 	</head>
 	<body>
 		<div style="position:relative;height:100%;width:100%;">
-			<div style="position:absolute;right:10px;top:10px;height:450px;width:104px;outline: 1px solid black; background-image: url('./background.png');">
-				<img src="./block.png" onclick="clickblock(event)" id = "block" alt = "block"/>
-				<img src="./block_key.png" onclick="clickblock(event)" id = "block_key" alt = "block_key"/>
-				<img src="./item_key.png" onclick="clickblock(event)" id = "item_key" alt = "item_key"/>
-				<img src="./decoration_scaffold.png" onclick="clickblock(event)" id = "decoration_scaffold" alt = "decoration_scaffold"/>
-				<img src="./decoration_sconce.png" onclick="clickblock(event)" id = "decoration_sconce" alt = "decoration_sconce"/>
-				<img src="./toggleblocksolid.png" onclick="clickblock(event)" id = "toggleblocksolid" alt = "toggleblocksolid"/>
-				<img src="./toggleblockphase.png" onclick="clickblock(event)" id = "toggleblockphase" alt = "toggleblockphase"/>
-				<img src="./switch.png" onclick="clickblock(event)" id = "switch" alt = "switch"/>
-				<img src="./exit.png" onclick="clickblock(event)" id = "exit" alt = "exit"/>
+			<div style="position:absolute;right:10px;top:10px;height:450px;width:100px;outline: 1px solid black; background-image: url('./background.png');">
+				<img src="./block.png" onclick="clickblock(event)" id = "block" alt = "block" style="top:0px;left:0px;position:absolute;"/>
+				<img src="./block_key.png" onclick="clickblock(event)" id = "block_key" alt = "block_key" style="top:50px;left:0px;position:absolute;"/>
+				<img src="./item_key.png" onclick="clickblock(event)" id = "item_key" alt = "item_key" style="top:100px;left:0px;position:absolute;"/>
+				<img src="./decoration_scaffold.png" onclick="clickblock(event)" id = "decoration_scaffold" alt = "decoration_scaffold" style = "top:150px;left:0px;position:absolute;"/>
+				<img src="./decoration_sconce.png" onclick="clickblock(event)" id = "decoration_sconce" alt = "decoration_sconce" style="top:200px;left:0px;position:absolute;"/>
+				<img src="./toggleblocksolid.png" onclick="clickblock(event)" id = "toggleblocksolid" alt = "toggleblocksolid" style="top:250px;left:0px; position:absolute;"/>
+				<img src="./toggleblockphase.png" onclick="clickblock(event)" id = "toggleblockphase" alt = "toggleblockphase" style="top:300px;left:0px;position:absolute;"/>
+				<img src="./switch.png" onclick="clickblock(event)" id = "switch" alt = "switch" style="top:350px;left:0px;position:absolute;"/>
+				<img src="./exit.png" onclick="clickblock(event)" id = "exit" alt = "exit" style="top:400px;left:0px;position:absolute;"/>
 				<!--<img  onclick="clickblock(event)" id = "secretexit" alt = "secretexit"/>
 				<img  onclick="clickblock(event)" id = "wirered" alt = "wirered"/>-->
-				<img src="./powerupburrow.png" onclick="clickblock(event)" id = "powerupburrow" alt = "powerupburrow"/>
-				<img src="./main.png" onclick="clickblock(event)" id = "main" alt = "main"/>
-				<img src="./delete.png" onclick="clickblock(event)" id = "delete" alt = "delete"/>
+				<img src="./powerupburrow.png" onclick="clickblock(event)" id = "powerupburrow" alt = "powerupburrow" style="top:0px;right:0px;position:absolute;"/>
+				<img src="./main.png" onclick="clickblock(event)" id = "main" alt = "main" style="top:50px;right:0px;position:absolute;"/>
+				<img src="./delete.png" onclick="clickblock(event)" id = "delete" alt = "delete" style="top:100px;right:0px;position:absolute;"/>
 			</div>
 			<div id="placeholder"></div>
 			<div style="bottom:10px;outline:2px solid black;position:absolute;width:800px;">
