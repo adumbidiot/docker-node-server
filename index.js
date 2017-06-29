@@ -68,7 +68,7 @@ app.get('/chat', function(req, res){
 });
 
 app.use(function(req, res){
-	res.sendFile(__dirname + '/public/err.html');
+	res.status('404').render('404', {auth: req.auth});
 });
 
 server.listen(config.PORT, function(){
