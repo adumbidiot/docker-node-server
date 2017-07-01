@@ -7,6 +7,7 @@ JSNES.Mappers[9] = function(nes) {
     this.latchLoVal2 = null;
     this.latchHiVal1 = null;
     this.latchHiVal2 = null;
+    this.reset();
     
     console.log('MAPPER 9 ugly hack is being used!');
 };
@@ -132,5 +133,14 @@ JSNES.Mappers[9].prototype.latchAccess = function(address) {
             this.latchHi = 0xFE;
         //System.out.println("HI FE");
         }
-    }
+}
+
+JSNES.Mappers[9].prototype.reset = function(){
+    this.latchLo = 0xFE;
+    this.latchHi = 0xFE;
+    this.latchLoVal1 = 0;
+    this.latchLoVal2 = 4;
+    this.latchHiVal1 = 0;
+    this.latchHiVal2 = 0;
+}
 
