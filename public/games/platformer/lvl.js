@@ -56,7 +56,7 @@ window.lvl = function(name){
 		'A0': 'mask_circle',
 		'00': 'null'
 	}
-	
+	//Stupid js "this" crap
 	this.down = function(event){
 		self.renderEvent(event);
 		event.preventDefault();
@@ -68,9 +68,13 @@ window.lvl = function(name){
 	this.click = function(event){
 		self.renderEvent(event);
 	}
+    //Placeholders
 	this.ondarkchange = function(){
 		
 	}
+    this.setdarkfail = function(){
+    
+    }
 }
 //Generates a board
 window.lvl.prototype.generateBoard = function(){
@@ -90,7 +94,7 @@ window.lvl.prototype.generateBoard = function(){
 window.lvl.prototype.render = function(index, blockType){
 	var target = document.getElementById(this.name + (index + 1));
 	if(target.block == blockType || !blockType) return;
-	if(blockType == 'mask_circle'){
+	if(target.block == 'mask_circle'){
 		this.setDark(true);
 		return;
 	}
@@ -98,18 +102,28 @@ window.lvl.prototype.render = function(index, blockType){
 		this.clearTile(index);
 	}
 	if(blockType == 'delete') return;
-	
+
+	target.block = blockType;
+
+    if(blockType == 'mask_circle') return;
+
 	var block = document.createElement('img');
 	block.style.cssText = 'width: 25px; height: 25px;';
 	block.src = './' + blockType + '.png';
 	block.type = 'block';
 	target.appendChild(block);
-	target.block = blockType;
 }
 //TODO: Fix
 window.lvl.prototype.setDark = function(value){
 	this.dark = value;
-	this.ondarkchange(value); 
+	this.ondarkchange(value);
+       
+    var index = this.getEmptyTile();
+    if(index != -1){
+        this.render(index, 'mask_circle');
+        return;
+    }
+    this.setdarkfail();
 }
 //Disables grid on board
 window.lvl.prototype.disableGrid = function(){
@@ -138,6 +152,16 @@ window.lvl.prototype.clearAllTiles = function(){
 	for(var i = 0; i != (18 * 32); i++){
 		this.clearTile(i);
 	}
+}
+//Returns index of tile with no data or -1 if all tiles are filled
+window.lvl.prototype.getEmptyTile = function(){
+    for(var i = 0; i != (18 * 32); i ++){
+        var tile = document.getElementById(this.name + (i + 1));
+        if(!tile.block){
+            return i;
+        }
+    }
+    return -1;
 }
 //Handler for a render event
 window.lvl.prototype.renderEvent = function(event){
@@ -172,8 +196,6 @@ lvl.prototype.exportLBL = function(){
 lvl.prototype.exportPNG = function(cb){
 	var array = this.export1D();
 	var can = document.createElement('canvas');
-	can.style.width = '800px';
-	can.style.height = '450px';
 	can.width = '800';
 	can.height = '450';
 	
@@ -231,7 +253,7 @@ lvl.prototype.export = function(){
 	}
 	return output;	
 }
-//TODO: FIX
+//TODO: FIX/remove
 lvl.prototype.import1D = function(data){
 	var array = data.slice(',');
 	this.importArray1D(array);

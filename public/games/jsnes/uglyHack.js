@@ -135,6 +135,42 @@ JSNES.Mappers[9].prototype.latchAccess = function(address) {
         }
 }
 
+JSNES.Mappers[9].prototype.mapperInternalStateLoad = function() {
+
+        //super.mapperInternalStateLoad(buf);
+
+        // Check version:
+       // if (buf.readByte() == 1) {
+
+            ////latchLo = buf.readByte();
+           // latchHi = buf.readByte();
+            //latchLoVal1 = buf.readByte();
+            //latchLoVal2 = buf.readByte();
+            //latchHiVal1 = buf.readByte();
+            //latchHiVal2 = buf.readByte();
+
+        //}
+        console.log('stateload');
+
+    }
+/*
+    public void mapperInternalStateSave(ByteBuffer buf) {
+
+        super.mapperInternalStateSave(buf);
+
+        // Version:
+        buf.putByte((short) 1);
+
+        // State:
+        buf.putByte((byte) latchLo);
+        buf.putByte((byte) latchHi);
+        buf.putByte((byte) latchLoVal1);
+        buf.putByte((byte) latchLoVal2);
+        buf.putByte((byte) latchHiVal1);
+        buf.putByte((byte) latchHiVal2);
+
+}
+*/
 JSNES.Mappers[9].prototype.reset = function(){
     this.latchLo = 0xFE;
     this.latchHi = 0xFE;

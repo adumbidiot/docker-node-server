@@ -8,6 +8,6 @@ app.get('/', function(req, res){
 	res.render('jsnes');	
 });
 
-app.use(express.static('/public/games/jsnes'));
+app.use(express.static('public/games/jsnes'));
 
 module.exports = app;
