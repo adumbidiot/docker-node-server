@@ -27,7 +27,7 @@
     "request": "^2.81.0",
     "body-parser": "^1.17.1",
     "uws": "^0.14.1",
-    "jsonwebtoken": "^7.4.0",
+    "jsonwebtoken": "^9.0.0",
     "cookie-parser": "^1.4.3",
     "mongodb": "^3.1.13",
     "through2": "^2.0.3"
